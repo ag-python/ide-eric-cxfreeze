@@ -4,3 +4,4 @@ glob:.directory
 glob:**.pyc
 glob:**.orig
 glob:**.bak
+glob:**Ui_*.py

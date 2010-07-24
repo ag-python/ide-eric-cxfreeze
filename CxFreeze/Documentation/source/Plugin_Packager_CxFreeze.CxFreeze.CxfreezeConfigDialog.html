@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC '-//W3C//DTD XHTML 1.0 Strict//EN'
+'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd'>
+<html><head>
+<title>Plugin_Packager_CxFreeze.CxFreeze.CxfreezeConfigDialog</title>
+<style>
+body {
+    background:white;
+    margin: 0em 1em 10em 1em;
+    color: black;
+}
+
+h1 { color: white; background: #4FA4FF; }
+h2 { color: white; background: #4FA4FF; }
+h3 { color: white; background: #00557F; }
+h4 { color: white; background: #00557F; }
+    
+a { color: #AA5500; }
+
+</style>
+</head>
+<body><a NAME="top" ID="top"></a>
+<h1>Plugin_Packager_CxFreeze.CxFreeze.CxfreezeConfigDialog</h1>
+<p>
+Module implementing a dialog to enter the parameters for cxfreeze.
+</p>
+<h3>Global Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Classes</h3>
+<table>
+<tr>
+<td><a href="#CxfreezeConfigDialog">CxfreezeConfigDialog</a></td>
+<td>Class implementing a dialog to enter the parameters for cxfreeze.</td>
+</tr>
+</table>
+<h3>Functions</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<hr /><hr />
+<a NAME="CxfreezeConfigDialog" ID="CxfreezeConfigDialog"></a>
+<h2>CxfreezeConfigDialog</h2>
+<p>
+    Class implementing a dialog to enter the parameters for cxfreeze.
+</p>
+<h3>Derived from</h3>
+QDialog, Ui_CxfreezeConfigDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CxfreezeConfigDialog.__init__">CxfreezeConfigDialog</a></td>
+<td>Constructor</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.__initializeDefaults">__initializeDefaults</a></td>
+<td>Private method to set the default values.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.__splitIt">__splitIt</a></td>
+<td>Private method to split a string observing various conditions.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.accept">accept</a></td>
+<td>Protected slot called by the Ok button.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.generateParameters">generateParameters</a></td>
+<td>Public method that generates the commandline parameters.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_extListFileButton_clicked">on_extListFileButton_clicked</a></td>
+<td>Private slot to select the external list file.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_targetDirButton_clicked">on_targetDirButton_clicked</a></td>
+<td>Private slot to select the target directory.</td>
+</tr>
+</table>
+<a NAME="CxfreezeConfigDialog.__init__" ID="CxfreezeConfigDialog.__init__"></a>
+<h4>CxfreezeConfigDialog (Constructor)</h4>
+<b>CxfreezeConfigDialog</b>(<i>project, exe, parms = None, parent = None</i>)
+<p>
+        Constructor
+</p><dl>
+<dt><i>project</i></dt>
+<dd>
+reference to the project object (Project.Project)
+</dd><dt><i>exe</i></dt>
+<dd>
+name of the cxfreeze executable (string)
+</dd><dt><i>parms</i></dt>
+<dd>
+parameters to set in the dialog
+</dd><dt><i>parent</i></dt>
+<dd>
+parent widget of this dialog (QWidget)
+</dd>
+</dl><a NAME="CxfreezeConfigDialog.__initializeDefaults" ID="CxfreezeConfigDialog.__initializeDefaults"></a>
+<h4>CxfreezeConfigDialog.__initializeDefaults</h4>
+<b>__initializeDefaults</b>(<i></i>)
+<p>
+        Private method to set the default values. 
+</p><p>
+        These are needed later on to generate the commandline parameters.
+</p><a NAME="CxfreezeConfigDialog.__splitIt" ID="CxfreezeConfigDialog.__splitIt"></a>
+<h4>CxfreezeConfigDialog.__splitIt</h4>
+<b>__splitIt</b>(<i>s, sep</i>)
+<p>
+        Private method to split a string observing various conditions.
+</p><dl>
+<dt><i>s</i></dt>
+<dd>
+string to split (string)
+</dd><dt><i>sep</i></dt>
+<dd>
+separator string (string)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+list of split values
+</dd>
+</dl><a NAME="CxfreezeConfigDialog.accept" ID="CxfreezeConfigDialog.accept"></a>
+<h4>CxfreezeConfigDialog.accept</h4>
+<b>accept</b>(<i></i>)
+<p>
+        Protected slot called by the Ok button. 
+</p><p>
+        It saves the values in the parameters dictionary.
+</p><a NAME="CxfreezeConfigDialog.generateParameters" ID="CxfreezeConfigDialog.generateParameters"></a>
+<h4>CxfreezeConfigDialog.generateParameters</h4>
+<b>generateParameters</b>(<i></i>)
+<p>
+        Public method that generates the commandline parameters.
+</p><p>
+        It generates a list of strings to be used to set the QProcess arguments 
+        for the cxfreeze call and a list containing the non default parameters. 
+        The second list can be passed back upon object generation to overwrite
+        the default settings.
+</p><dl>
+<dt>Returns:</dt>
+<dd>
+a tuple of the commandline parameters and non default parameters
+            (list of strings, dictionary)
+</dd>
+</dl><a NAME="CxfreezeConfigDialog.on_extListFileButton_clicked" ID="CxfreezeConfigDialog.on_extListFileButton_clicked"></a>
+<h4>CxfreezeConfigDialog.on_extListFileButton_clicked</h4>
+<b>on_extListFileButton_clicked</b>(<i></i>)
+<p>
+        Private slot to select the external list file.
+</p><p>
+        It displays a file selection dialog to select the external list file,
+        the list of include modules is written to.
+</p><a NAME="CxfreezeConfigDialog.on_targetDirButton_clicked" ID="CxfreezeConfigDialog.on_targetDirButton_clicked"></a>
+<h4>CxfreezeConfigDialog.on_targetDirButton_clicked</h4>
+<b>on_targetDirButton_clicked</b>(<i></i>)
+<p>
+        Private slot to select the target directory.
+</p><p>
+        It displays a directory selection dialog to
+        select the directory the files are written to.
+</p>
+<div align="right"><a href="#top">Up</a></div>
+<hr />
+</body></html>

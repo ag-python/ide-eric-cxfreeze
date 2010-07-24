@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CxfreezeConfigDialog</class>
+ <widget class="QDialog" name="CxfreezeConfigDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>600</width>
+    <height>321</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Cxfreeze Configuration</string>
+  </property>
+  <property name="whatsThis">
+   <string>&lt;b&gt;Cxfreeze Configuration&lt;/b&gt;
+&lt;p&gt;This dialog is used to configure the cxfreeze (FreezePython) process in order to create a distribution package for the project.&lt;/p&gt;
+&lt;p&gt;All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</string>
+  </property>
+  <property name="sizeGripEnabled">
+   <bool>true</bool>
+  </property>
+  <layout class="QVBoxLayout">
+   <property name="spacing">
+    <number>6</number>
+   </property>
+   <property name="margin">
+    <number>5</number>
+   </property>
+   <item>
+    <widget class="QTabWidget" name="tabWidget2">
+     <property name="currentIndex">
+      <number>0</number>
+     </property>
+     <widget class="QWidget" name="generalTab">
+      <attribute name="title">
+       <string>&amp;General</string>
+      </attribute>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="textLabel3">
+         <property name="text">
+          <string>Target directory:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="targetDirEdit">
+         <property name="toolTip">
+          <string>Enter the name of the target directory</string>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;p&gt;Enter the name of the directory in which to place the target file and any dependant files.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="2">
+        <widget class="QPushButton" name="targetDirButton">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="textLabel4">
+         <property name="text">
+          <string>Target name:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLineEdit" name="targetNameEdit">
+         <property name="toolTip">
+          <string>Enter the name of the file to create</string>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;p&gt;Enter the name of the file to create instead of the base name of the script and the extension of the base binary.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="textLabel1">
+         <property name="text">
+          <string>Base name:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QComboBox" name="basenameCombo">
+         <property name="toolTip">
+          <string>Enter the name of a file on which to base the target file</string>
+         </property>
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtTop</enum>
+         </property>
+         <property name="autoCompletion">
+          <bool>true</bool>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="textLabel2">
+         <property name="text">
+          <string>Init script:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QComboBox" name="initscriptCombo">
+         <property name="toolTip">
+          <string>Enter name of script which will be executed upon startup</string>
+         </property>
+         <property name="editable">
+          <bool>true</bool>
+         </property>
+         <property name="insertPolicy">
+          <enum>QComboBox::InsertAtTop</enum>
+         </property>
+         <property name="autoCompletion">
+          <bool>true</bool>
+         </property>
+         <property name="duplicatesEnabled">
+          <bool>false</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="textLabel5_2">
+         <property name="text">
+          <string>Application icon:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="QLineEdit" name="applicationIconEdit">
+         <property name="toolTip">
+          <string>Enter the name of the application icon.</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0" colspan="3">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QCheckBox" name="keeppathCheckBox">
+           <property name="toolTip">
+            <string>Select to disable copying of dependent files to the target directory</string>
+           </property>
+           <property name="text">
+            <string>Do not copy dependant files</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QCheckBox" name="compressCheckBox">
+           <property name="toolTip">
+            <string>Select to compress the byte code in zip files</string>
+           </property>
+           <property name="text">
+            <string>Compress Byte Code</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <spacer name="horizontalSpacer">
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="sizeHint" stdset="0">
+            <size>
+             <width>40</width>
+             <height>20</height>
+            </size>
+           </property>
+          </spacer>
+         </item>
+        </layout>
+       </item>
+       <item row="6" column="0" colspan="3">
+        <widget class="QGroupBox" name="optimizeGroup">
+         <property name="toolTip">
+          <string>Select to optimize generated bytecode</string>
+         </property>
+         <property name="title">
+          <string>Optimize bytecode</string>
+         </property>
+         <layout class="QHBoxLayout">
+          <property name="spacing">
+           <number>6</number>
+          </property>
+          <property name="margin">
+           <number>9</number>
+          </property>
+          <item>
+           <widget class="QRadioButton" name="nooptimizeRadioButton">
+            <property name="text">
+             <string>Don't optimize</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="optimizeRadioButton">
+            <property name="toolTip">
+             <string>Select to optimize the generated bytecode</string>
+            </property>
+            <property name="text">
+             <string>Optimize</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QRadioButton" name="optimizeDocRadioButton">
+            <property name="toolTip">
+             <string>Select to optimize the generated bytecode and remove doc strings</string>
+            </property>
+            <property name="text">
+             <string>Optimize (with docstring removal)</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="advancedTab">
+      <attribute name="title">
+       <string>&amp;Advanced</string>
+      </attribute>
+      <layout class="QGridLayout">
+       <property name="margin">
+        <number>0</number>
+       </property>
+       <property name="spacing">
+        <number>6</number>
+       </property>
+       <item row="0" column="0">
+        <widget class="QLabel" name="textLabel2_2">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string/>
+         </property>
+         <property name="text">
+          <string>Default path</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1" colspan="2">
+        <widget class="QLineEdit" name="defaultPathEdit">
+         <property name="toolTip">
+          <string>Enter directories to initialize sys.path</string>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;p&gt;Enter a list of paths separated by the standard path separator, which will be used to initialize sys.path prior to running the module finder.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QLineEdit" name="includePathEdit">
+         <property name="toolTip">
+          <string>Enter directories to modify sys.path</string>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;p&gt;Enter a list of paths separated by the standard path separator, which will be used to modify sys.path prior to running the module finder.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="textLabel3_2">
+         <property name="text">
+          <string>Include path</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="0">
+        <widget class="QLabel" name="textLabel4_2">
+         <property name="text">
+          <string>Replace paths:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="2" column="1" colspan="2">
+        <widget class="QLineEdit" name="replacePathsEdit">
+         <property name="toolTip">
+          <string>Enter replacement directives</string>
+         </property>
+         <property name="whatsThis">
+          <string>&lt;p&gt;Enter replacement directives used to replace all the paths in modules found. Please see cx_Freeze docu for details.&lt;/p&gt;</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="0">
+        <widget class="QLabel" name="textLabel5">
+         <property name="text">
+          <string>Include modules:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="1" colspan="2">
+        <widget class="QLineEdit" name="includeModulesEdit">
+         <property name="toolTip">
+          <string>Enter a comma separated list of modules to include</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="0">
+        <widget class="QLabel" name="textLabel6">
+         <property name="text">
+          <string>Exclude modules:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="1" colspan="2">
+        <widget class="QLineEdit" name="excludeModulesEdit">
+         <property name="toolTip">
+          <string>Enter a comma separated list of modules to exclude</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="1">
+        <widget class="QLineEdit" name="extListFileEdit">
+         <property name="toolTip">
+          <string>Enter the name of a file in which to place the list of included modules</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="0">
+        <widget class="QLabel" name="textLabel7">
+         <property name="text">
+          <string>External list file:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="5" column="2">
+        <widget class="QPushButton" name="extListFileButton">
+         <property name="toolTip">
+          <string>Press to select the external list file via a file selection dialog</string>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item row="6" column="1">
+        <spacer name="verticalSpacer">
+         <property name="orientation">
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeHint" stdset="0">
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
+       </item>
+      </layout>
+     </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QDialogButtonBox" name="buttonBox">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="standardButtons">
+      <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <layoutdefault spacing="6" margin="6"/>
+ <pixmapfunction>qPixmapFromMimeSource</pixmapfunction>
+ <tabstops>
+  <tabstop>tabWidget2</tabstop>
+  <tabstop>targetDirEdit</tabstop>
+  <tabstop>targetDirButton</tabstop>
+  <tabstop>targetNameEdit</tabstop>
+  <tabstop>basenameCombo</tabstop>
+  <tabstop>initscriptCombo</tabstop>
+  <tabstop>applicationIconEdit</tabstop>
+  <tabstop>keeppathCheckBox</tabstop>
+  <tabstop>compressCheckBox</tabstop>
+  <tabstop>nooptimizeRadioButton</tabstop>
+  <tabstop>optimizeRadioButton</tabstop>
+  <tabstop>optimizeDocRadioButton</tabstop>
+  <tabstop>defaultPathEdit</tabstop>
+  <tabstop>includePathEdit</tabstop>
+  <tabstop>replacePathsEdit</tabstop>
+  <tabstop>includeModulesEdit</tabstop>
+  <tabstop>excludeModulesEdit</tabstop>
+  <tabstop>extListFileEdit</tabstop>
+  <tabstop>extListFileButton</tabstop>
+  <tabstop>buttonBox</tabstop>
+ </tabstops>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>accepted()</signal>
+   <receiver>CxfreezeConfigDialog</receiver>
+   <slot>accept()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>47</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>47</x>
+     <y>276</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>buttonBox</sender>
+   <signal>rejected()</signal>
+   <receiver>CxfreezeConfigDialog</receiver>
+   <slot>reject()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>156</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>156</x>
+     <y>275</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
