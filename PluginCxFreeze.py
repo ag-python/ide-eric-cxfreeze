@@ -175,15 +175,15 @@ class CxFreezePlugin(QObject):
             if loc and loc != "C":
                 locale_dir = \
                     os.path.join(os.path.dirname(__file__), "CxFreeze", "i18n")
-                translation = "cxfreeze_%s" % loc
+                translation = "cxfreeze_{0}".format(loc)
                 translator = QTranslator(None)
                 loaded = translator.load(translation, locale_dir)
                 if loaded:
                     self.__translator = translator
                     e5App().installTranslator(self.__translator)
                 else:
-                    print("Warning: translation file '%s' could not be loaded." % \
-                        translation)
+                    print("Warning: translation file '{0}' could not be loaded."\
+                        .format(translation))
                     print("Using default.")
     
     def __cxfreeze(self):

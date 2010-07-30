@@ -146,19 +146,19 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         # 2.1 general options
         if self.parameters['targetDirectory'] != self.defaults['targetDirectory']:
             parms['targetDirectory'] = self.parameters['targetDirectory']
-            args.append('--target-dir=%s' % self.parameters['targetDirectory'])
+            args.append('--target-dir={0}'.format(self.parameters['targetDirectory']))
         if self.parameters['targetName'] != self.defaults['targetName']:
             parms['targetName'] = self.parameters['targetName'][:]
-            args.append('--target-name=%s' % self.parameters['targetName'])
+            args.append('--target-name={0}'.format(self.parameters['targetName']))
         if self.parameters['baseName'] != self.defaults['baseName']:
             parms['baseName'] = self.parameters['baseName'][:]
-            args.append('--base-name=%s' % self.parameters['baseName'])
+            args.append('--base-name={0}'.format(self.parameters['baseName']))
         if self.parameters['initScript'] != self.defaults['initScript']:
             parms['initScript'] = self.parameters['initScript'][:]
-            args.append('--init-script=%s' % self.parameters['initScript'])
+            args.append('--init-script={0}'.format(self.parameters['initScript']))
         if self.parameters['applicationIcon'] != self.defaults['applicationIcon']:
             parms['applicationIcon'] = self.parameters['applicationIcon'][:]
-            args.append('--icon=%s' % self.parameters['applicationIcon'])
+            args.append('--icon={0}'.format(self.parameters['applicationIcon']))
         if self.parameters['keepPath'] != self.defaults['keepPath']:
             parms['keepPath'] = self.parameters['keepPath']
             args.append('--no-copy-deps')
@@ -175,27 +175,27 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         # 2.2 advanced options
         if self.parameters['defaultPath'] != self.defaults['defaultPath']:
             parms['defaultPath'] = self.parameters['defaultPath'][:]
-            args.append('--default-path=%s' % \
-                        os.pathsep.join(self.parameters['defaultPath']))
+            args.append('--default-path={0}'.format(
+                        os.pathsep.join(self.parameters['defaultPath'])))
         if self.parameters['includePath'] != self.defaults['includePath']:
             parms['includePath'] = self.parameters['includePath'][:]
-            args.append('--include-path=%s' % \
-                        os.pathsep.join(self.parameters['includePath']))
+            args.append('--include-path={0}'.format(
+                        os.pathsep.join(self.parameters['includePath'])))
         if self.parameters['replacePaths'] != self.defaults['replacePaths']:
             parms['replacePaths'] = self.parameters['replacePaths'][:]
-            args.append('--replace-paths=%s' % \
-                        os.pathsep.join(self.parameters['replacePaths']))
+            args.append('--replace-paths={0}'.format(
+                        os.pathsep.join(self.parameters['replacePaths'])))
         if self.parameters['includeModules'] != self.defaults['includeModules']:
             parms['includeModules'] = self.parameters['includeModules'][:]
-            args.append('--include-modules=%s' % \
-                        ','.join(self.parameters['includeModules']))
+            args.append('--include-modules={0}'.format(
+                        ','.join(self.parameters['includeModules'])))
         if self.parameters['excludeModules'] != self.defaults['excludeModules']:
             parms['excludeModules'] = self.parameters['excludeModules'][:]
-            args.append('--exclude-modules=%s' % \
-                        ','.join(self.parameters['excludeModules']))
+            args.append('--exclude-modules={0}'.format(
+                        ','.join(self.parameters['excludeModules'])))
         if self.parameters['extListFile'] != self.defaults['extListFile']:
             parms['extListFile'] = self.parameters['extListFile']
-            args.append('--ext-list-file=%s' % self.parameters['extListFile'])
+            args.append('--ext-list-file={0}'.format(self.parameters['extListFile']))
         
         return (args, parms)
 
