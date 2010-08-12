@@ -9,7 +9,7 @@ Module implementing a dialog to show the output of the packager process.
 
 import os.path
 
-from PyQt4.QtCore import pyqtSlot, QProcess, SIGNAL, SLOT, QTimer
+from PyQt4.QtCore import pyqtSlot, QProcess, QTimer
 from PyQt4.QtGui import QDialog, QDialogButtonBox, QMessageBox, QAbstractButton
 
 from .Ui_CxfreezeExecDialog import Ui_CxfreezeExecDialog
@@ -62,12 +62,9 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process = QProcess()
         self.process.setWorkingDirectory(dname)
         
-        self.connect(self.process, SIGNAL('readyReadStandardOutput()'),
-            self.__readStdout)
-        self.connect(self.process, SIGNAL('readyReadStandardError()'),
-            self.__readStderr)
-        self.connect(self.process, SIGNAL('finished(int, QProcess::ExitStatus)'),
-            self.__finish)
+        self.process.readyReadStandardOutput.connect(self.__readStdout)
+        self.process.readyReadStandardError.connect(self.__readStderr)
+        self.process.finished.connect(self.__finish)
             
         self.setWindowTitle(self.trUtf8('{0} - {1}').format(self.cmdname, script))
         self.contents.insertPlainText(' '.join(args) + '\n')
@@ -106,7 +103,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         if self.process is not None and \
            self.process.state() != QProcess.NotRunning:
             self.process.terminate()
-            QTimer.singleShot(2000, self.process, SLOT('kill()'))
+            QTimer.singleShot(2000, self.process.kill)
             self.process.waitForFinished(3000)
         
         self.buttonBox.button(QDialogButtonBox.Close).setEnabled(True)

@@ -10,7 +10,7 @@ Module implementing the CxFreeze plugin.
 import os
 import sys
 
-from PyQt4.QtCore import QObject, SIGNAL, QTranslator, QCoreApplication
+from PyQt4.QtCore import QObject, QTranslator, QCoreApplication
 from PyQt4.QtGui import QDialog, QMessageBox
 
 from E5Gui.E5Action import E5Action
@@ -148,7 +148,7 @@ class CxFreezePlugin(QObject):
             """ files and directories must be given absolute or"""
             """ relative to the project directory.</p>"""
             ))
-            self.connect(self.__projectAct, SIGNAL('triggered()'), self.__cxfreeze)
+            self.__projectAct.triggered[()].connect(self.__cxfreeze)
             e5App().getObject("Project").addE5Actions([self.__projectAct])
             menu.addAction(self.__projectAct)
         
