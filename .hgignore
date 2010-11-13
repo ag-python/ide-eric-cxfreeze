@@ -1,4 +1,5 @@
 glob:.eric5project
+glob:_eric5project
 glob:.ropeproject
 glob:.directory
 glob:**.pyc
