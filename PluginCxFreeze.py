@@ -221,3 +221,4 @@ class CxFreezePlugin(QObject):
                 os.path.join(project.ppath, project.pdata["MAINSCRIPT"][0]))
             if res:
                 dia.exec_()
+
