@@ -1,5 +1,5 @@
 ChangeLog
 ---------
-Version 5.0-snapshot-2010-mmdd:
-- first snapshot release of the CxFreeze packager plugin for eric5
+Version 5.0.0:
+- first release of the CxFreeze packager plugin for eric5
 - changed signal code to new style API
