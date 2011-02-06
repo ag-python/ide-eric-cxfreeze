@@ -211,7 +211,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             self,
             self.trUtf8("Select external list file"),
             self.extListFileEdit.text(),
-            "")
+            "",
+            QFileDialog.DontUseNativeDialog)
         
         if extList:
             # make it relative, if it is in a subdirectory of the project path 
@@ -231,7 +232,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             self,
             self.trUtf8("Select target directory"),
             self.targetDirEdit.text(),
-            QFileDialog.Options(QFileDialog.ShowDirsOnly))
+            QFileDialog.Options(QFileDialog.ShowDirsOnly |
+                                QFileDialog.DontUseNativeDialog))
         
         if directory:
             # make it relative, if it is a subdirectory of the project path 

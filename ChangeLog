@@ -1,5 +1,8 @@
 ChangeLog
 ---------
+Version 5.0.1:
+- fixed an issue using native file dialogs
+
 Version 5.0.0:
 - first release of the CxFreeze packager plugin for eric5
 - changed signal code to new style API
