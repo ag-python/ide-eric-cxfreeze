@@ -1,5 +1,9 @@
 ChangeLog
 ---------
+Version 5.0.3:
+- fixed an issue finding the executable on Windows systems
+  (thanks to Tomas Sobota for the patch)
+
 Version 5.0.2:
 - updated Russian translations
 - added Italian translations

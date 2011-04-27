@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.0.2"
+version = "5.0.3"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -74,11 +74,47 @@ def _findExecutable():
     @return name of the executable (string)
     """
     # step 1: check for version 4.x
-    exe = 'cxfreeze'
+##    exe = 'cxfreeze'
     if sys.platform == "win32":
-        exe += '.bat'
-    if Utilities.isinpath(exe):
-        return exe
+##        exe += '.bat'
+##    if Utilities.isinpath(exe):
+##        return exe
+        #
+        # Windows
+        #
+        exe = 'cxfreeze.bat'
+        if Utilities.isinpath(exe):
+            return exe
+        try:
+            #only since python 3.2
+            import sysconfig
+            scripts = sysconfig.get_path('scripts','nt')
+            return os.path.join(scripts, exe)
+        except ImportError:
+            try:
+                import winreg
+            except ImportError:
+                # give up ...
+                return None
+
+            version = str(sys.version_info.major) + '.' + \
+                      str(sys.version_info.minor)
+            
+            try:
+                software = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'Software')
+                python = winreg.OpenKey(software, 'Python')
+                pcore = winreg.OpenKey(python, 'PythonCore')
+                version = winreg.OpenKey(pcore, version)
+                installpath = winreg.QueryValue(version, 'InstallPath')
+                return os.path.join(installpath, 'Scripts', exe)
+            except WindowsError:        # __IGNORE_WARNING__
+                return None
+    else:
+        #
+        # Linux, Unix ...
+        exe = 'cxfreeze'
+        if Utilities.isinpath(exe):
+            return exe
     
     return None
 

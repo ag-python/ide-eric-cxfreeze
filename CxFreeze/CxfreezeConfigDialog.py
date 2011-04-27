@@ -52,18 +52,27 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         self.exe = exe
         
         # version specific setup
-        if self.exe.startswith("cxfreeze"):
+        modpath = None
+        if "cxfreeze" in self.exe:
             for sysPath in sys.path:
                 modpath = os.path.join(sysPath, "cx_Freeze")
                 if os.path.exists(modpath):
                     break
-            else:
-                modpath = None
         
         # populate combo boxes
         if modpath:
             d = QDir(os.path.join(modpath, 'bases'))
             basesList = d.entryList(QDir.Filters(QDir.Files))
+            if sys.platform == "win32":
+                # strip the final '.exe' from the bases
+                tmpBasesList = basesList[:]
+                basesList = []
+                for b in tmpBasesList:
+                    base, ext = os.path.splitext(b)
+                    if ext == ".exe":
+                        basesList.append(base)
+                    else:
+                        basesList.append(b)
             basesList.insert(0, '')
             self.basenameCombo.addItems(basesList)
             
