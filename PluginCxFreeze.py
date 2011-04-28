@@ -60,9 +60,9 @@ def exeDisplayData():
     exe = _findExecutable()
     if exe:
         data["exe"] = exe
-        if exe.startswith("FreezePython"):
+        if "FreezePython" in exe:
             data["versionStartsWith"] = "FreezePython"
-        elif exe.startswith("cxfreeze"):
+        elif "cxfreeze" in exe:
             data["versionStartsWith"] = "cxfreeze"
     
     return data
