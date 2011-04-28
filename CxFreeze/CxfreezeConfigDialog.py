@@ -63,7 +63,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         if modpath:
             d = QDir(os.path.join(modpath, 'bases'))
             basesList = d.entryList(QDir.Filters(QDir.Files))
-            if sys.platform == "win32":
+            if Utilities.isWindowsPlatform():
                 # strip the final '.exe' from the bases
                 tmpBasesList = basesList[:]
                 basesList = []

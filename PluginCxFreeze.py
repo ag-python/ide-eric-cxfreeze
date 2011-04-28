@@ -74,11 +74,7 @@ def _findExecutable():
     @return name of the executable (string)
     """
     # step 1: check for version 4.x
-##    exe = 'cxfreeze'
-    if sys.platform == "win32":
-##        exe += '.bat'
-##    if Utilities.isinpath(exe):
-##        return exe
+    if Utilities.isWindowsPlatform():
         #
         # Windows
         #
