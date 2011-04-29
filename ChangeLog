@@ -1,5 +1,8 @@
 ChangeLog
 ---------
+Version 5.0.4:
+- bug fix
+
 Version 5.0.3:
 - fixed an issue finding the executable on Windows systems
   (thanks to Tomas Sobota for the patch)
