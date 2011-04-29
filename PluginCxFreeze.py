@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.0.3"
+version = "5.0.4"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -92,19 +92,24 @@ def _findExecutable():
             except ImportError:
                 # give up ...
                 return None
-
-            version = str(sys.version_info.major) + '.' + \
-                      str(sys.version_info.minor)
             
-            try:
-                software = winreg.OpenKey(winreg.HKEY_LOCAL_MACHINE, 'Software')
-                python = winreg.OpenKey(software, 'Python')
-                pcore = winreg.OpenKey(python, 'PythonCore')
-                version = winreg.OpenKey(pcore, version)
-                installpath = winreg.QueryValue(version, 'InstallPath')
-                return os.path.join(installpath, 'Scripts', exe)
-            except WindowsError:        # __IGNORE_WARNING__
-                return None
+            def getExePath(branch):
+                version = str(sys.version_info.major) + '.' + \
+                          str(sys.version_info.minor)
+                try:
+                    software = winreg.OpenKey(branch, 'Software')
+                    python = winreg.OpenKey(software, 'Python')
+                    pcore = winreg.OpenKey(python, 'PythonCore')
+                    version = winreg.OpenKey(pcore, version)
+                    installpath = winreg.QueryValue(version, 'InstallPath')
+                    return os.path.join(installpath, 'Scripts', exe)
+                except WindowsError:        # __IGNORE_WARNING__
+                    return None
+            
+            exePath = getExePath(winreg.HKEY_CURRENT_USER)
+            if not exePath:
+                exePath = getExePath(winreg.HKEY_LOCAL_MACHINE)
+            return exePath
     else:
         #
         # Linux, Unix ...
