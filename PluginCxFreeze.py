@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.0.4"
+version = "5.0.5"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -113,9 +113,38 @@ def _findExecutable():
     else:
         #
         # Linux, Unix ...
-        exe = 'cxfreeze'
-        if Utilities.isinpath(exe):
-            return exe
+        cxfreezeScript = 'cxfreeze'
+        # There could be multiple pylint executables in the path
+        # e.g. for different python variants
+        path = Utilities.getEnvironmentEntry('PATH')
+        # environment variable not defined
+        if path is None:
+            return None
+        
+        # step 1: determine possible candidates
+        exes = []
+        dirs = path.split(os.pathsep)
+        for dir in dirs:
+            exe = os.path.join(dir, cxfreezeScript)
+            if os.access(exe, os.X_OK):
+                exes.append(exe)
+        
+        # step 2: determine the Python 3 variant
+        found = False
+        if Utilities.isMacPlatform():
+            checkStr = "Python.framework/Versions/3".lower()
+        else:
+            checkStr = "python3"
+        for exe in exes:
+            try:
+                f = open(exe, "r")
+                line0 = f.readline()
+                if checkStr in line0.lower():
+                    found = True
+            finally:
+                f.close()
+            if found:
+                return exe
     
     return None
 
