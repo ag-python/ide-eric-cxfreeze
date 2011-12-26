@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.0.5"
+version = "5.0.6"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -60,10 +60,7 @@ def exeDisplayData():
     exe = _findExecutable()
     if exe:
         data["exe"] = exe
-        if "FreezePython" in exe:
-            data["versionStartsWith"] = "FreezePython"
-        elif "cxfreeze" in exe:
-            data["versionStartsWith"] = "cxfreeze"
+        data["versionStartsWith"] = "cxfreeze"
     
     return data
 
@@ -73,7 +70,6 @@ def _findExecutable():
     
     @return name of the executable (string)
     """
-    # step 1: check for version 4.x
     if Utilities.isWindowsPlatform():
         #
         # Windows
@@ -114,7 +110,7 @@ def _findExecutable():
         #
         # Linux, Unix ...
         cxfreezeScript = 'cxfreeze'
-        # There could be multiple pylint executables in the path
+        # There could be multiple cxfreeze executables in the path
         # e.g. for different python variants
         path = Utilities.getEnvironmentEntry('PATH')
         # environment variable not defined
