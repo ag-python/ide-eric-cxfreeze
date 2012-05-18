@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.0.6"
+version = "5.0.7"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -110,6 +110,9 @@ def _findExecutable():
         #
         # Linux, Unix ...
         cxfreezeScript = 'cxfreeze'
+        scriptSuffixes = ["",
+                          "-python{0}".format(sys.version[:1]),
+                          "-python{0}".format(sys.version[:3])]
         # There could be multiple cxfreeze executables in the path
         # e.g. for different python variants
         path = Utilities.getEnvironmentEntry('PATH')
@@ -121,9 +124,10 @@ def _findExecutable():
         exes = []
         dirs = path.split(os.pathsep)
         for dir in dirs:
-            exe = os.path.join(dir, cxfreezeScript)
-            if os.access(exe, os.X_OK):
-                exes.append(exe)
+            for suffix in scriptSuffixes:
+                exe = os.path.join(dir, cxfreezeScript + suffix)
+                if os.access(exe, os.X_OK):
+                    exes.append(exe)
         
         # step 2: determine the Python 3 variant
         found = False
