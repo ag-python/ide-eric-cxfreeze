@@ -16,9 +16,6 @@ from PyQt4.QtGui import QDialog, QMessageBox
 from E5Gui.E5Action import E5Action
 from E5Gui.E5Application import e5App
 
-from CxFreeze.CxfreezeConfigDialog import CxfreezeConfigDialog
-from CxFreeze.CxfreezeExecDialog import CxfreezeExecDialog
-
 import Utilities
 
 # Start-of-Header
@@ -26,7 +23,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.0.6"
+version = "5.1.0"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -275,12 +272,14 @@ class CxFreezePlugin(QObject):
                 self.trUtf8("""The cxfreeze executable could not be found."""))
             return
 
+        from CxFreeze.CxfreezeConfigDialog import CxfreezeConfigDialog
         dlg = CxfreezeConfigDialog(project, exe, parms)
         if dlg.exec_() == QDialog.Accepted:
             args, parms = dlg.generateParameters()
             project.setData('PACKAGERSPARMS', "CXFREEZE", parms)
             
             # now do the call
+            from CxFreeze.CxfreezeExecDialog import CxfreezeExecDialog
             dia = CxfreezeExecDialog("cxfreeze")
             dia.show()
             res = dia.start(args, 

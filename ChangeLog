@@ -1,5 +1,9 @@
 ChangeLog
 ---------
+Version 5.1.0:
+- bug fix
+- modified code to do lazy import
+
 Version 5.0.6:
 - bug fix
 
