@@ -11,8 +11,9 @@ import os
 import sys
 
 from PyQt4.QtCore import QObject, QTranslator, QCoreApplication
-from PyQt4.QtGui import QDialog, QMessageBox
+from PyQt4.QtGui import QDialog
 
+from E5Gui import E5MessageBox
 from E5Gui.E5Action import E5Action
 from E5Gui.E5Application import e5App
 
@@ -23,7 +24,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.1.0"
+version = "5.1.1"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -256,18 +257,17 @@ class CxFreezePlugin(QObject):
         project = e5App().getObject("Project")
         if len(project.pdata["MAINSCRIPT"]) == 0:
             # no main script defined
-            QMessageBox.critical(None,
+            E5MessageBox.critical(None,
                 self.trUtf8("cxfreeze"),
                 self.trUtf8(
                     """There is no main script defined for the current project."""),
-                QMessageBox.StandardButtons(
-                    QMessageBox.Abort))
+                E5MessageBox.StandardButtons(E5MessageBox.Abort))
             return
         
         parms = project.getData('PACKAGERSPARMS', "CXFREEZE")
         exe = _findExecutable()
         if exe is None:
-            QMessageBox.critical(None,
+            E5MessageBox.critical(None,
                 self.trUtf8("cxfreeze"),
                 self.trUtf8("""The cxfreeze executable could not be found."""))
             return

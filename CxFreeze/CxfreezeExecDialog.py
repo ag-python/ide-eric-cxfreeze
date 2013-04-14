@@ -10,7 +10,9 @@ Module implementing a dialog to show the output of the packager process.
 import os.path
 
 from PyQt4.QtCore import pyqtSlot, QProcess, QTimer
-from PyQt4.QtGui import QDialog, QDialogButtonBox, QMessageBox, QAbstractButton
+from PyQt4.QtGui import QDialog, QDialogButtonBox, QAbstractButton
+
+from E5Gui import E5MessageBox
 
 from .Ui_CxfreezeExecDialog import Ui_CxfreezeExecDialog
 
@@ -73,7 +75,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process.start(program, args)
         procStarted = self.process.waitForStarted()
         if not procStarted:
-            QMessageBox.critical(None,
+            E5MessageBox.critical(None,
                 self.trUtf8('Process Generation Error'),
                 self.trUtf8(
                     'The process {0} could not be started. '
