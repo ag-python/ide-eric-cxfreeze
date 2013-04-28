@@ -23,7 +23,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.1.0"
+version = "5.1.1"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -129,15 +129,18 @@ def _findExecutable():
         # step 2: determine the Python 3 variant
         found = False
         if Utilities.isMacPlatform():
-            checkStr = "Python.framework/Versions/3".lower()
+            checkStrings = ["Python.framework/Versions/3".lower(),
+                            "python3"]
         else:
-            checkStr = "python3"
+            checkStrings = ["python3"]
         for exe in exes:
             try:
                 f = open(exe, "r")
                 line0 = f.readline()
-                if checkStr in line0.lower():
-                    found = True
+                for checkStr in checkStrings:
+                    if checkStr in line0.lower():
+                        found = True
+                        break
             finally:
                 f.close()
             if found:

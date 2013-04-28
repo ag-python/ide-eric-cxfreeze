@@ -79,7 +79,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             d = QDir(os.path.join(modpath, 'initscripts'))
             initList = d.entryList(['*.py'])
             initList.insert(0, '')
-            self.initscriptCombo.addItems(initList)
+            self.initscriptCombo.addItems([os.path.splitext(i)[0] for i in initList])
         
         self.targetDirCompleter = E5DirCompleter(self.targetDirEdit)
         self.extListFileCompleter = E5FileCompleter(self.extListFileEdit)
