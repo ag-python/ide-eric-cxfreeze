@@ -12,8 +12,9 @@ import os
 import copy
 
 from PyQt4.QtCore import pyqtSlot, QDir
-from PyQt4.QtGui import QDialog, QFileDialog
+from PyQt4.QtGui import QDialog
 
+from E5Gui import E5FileDialog
 from E5Gui.E5Completers import E5FileCompleter, E5DirCompleter
 
 from .Ui_CxfreezeConfigDialog import Ui_CxfreezeConfigDialog
@@ -216,12 +217,11 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         It displays a file selection dialog to select the external list file,
         the list of include modules is written to.
         """
-        extList = QFileDialog.getOpenFileName(
+        extList = E5FileDialog.getOpenFileName(
             self,
             self.trUtf8("Select external list file"),
             self.extListFileEdit.text(),
-            "",
-            QFileDialog.DontUseNativeDialog)
+            "")
         
         if extList:
             # make it relative, if it is in a subdirectory of the project path 
@@ -237,12 +237,11 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         It displays a directory selection dialog to
         select the directory the files are written to.
         """
-        directory = QFileDialog.getExistingDirectory(
+        directory = E5FileDialog.getExistingDirectory(
             self,
             self.trUtf8("Select target directory"),
             self.targetDirEdit.text(),
-            QFileDialog.Options(QFileDialog.ShowDirsOnly |
-                                QFileDialog.DontUseNativeDialog))
+            E5FileDialog.Options(E5FileDialog.ShowDirsOnly))
         
         if directory:
             # make it relative, if it is a subdirectory of the project path 
