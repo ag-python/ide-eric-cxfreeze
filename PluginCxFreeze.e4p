@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project PluginCxFreeze -->
+<!-- Saved: 2013-07-07, 20:15:59 -->
+<!-- Copyright (C) 2013 Detlev Offenbach, detlev@die-offenbachs.de -->
 <Project version="5.1">
   <Language>en</Language>
   <Hash>e6cc5d1be724a6f9b38cea1b3785946161f4baeb</Hash>
-  <ProgLanguage mixed="0">Python3</ProgLanguage>
+  <ProgLanguage mixed="0">Python2</ProgLanguage>
   <ProjectType>E4Plugin</ProjectType>
   <Description>This plugin implements an eric5 interface to the cxfreeze packager.</Description>
-  <Version>5.0</Version>
+  <Version>5.2.0</Version>
   <Author>Detlev Offenbach</Author>
   <Email>detlev@die-offenbachs.de</Email>
   <TranslationPattern>CxFreeze/i18n/cxfreeze_%language%.ts</TranslationPattern>
@@ -18,6 +20,7 @@
     <Source>CxFreeze/__init__.py</Source>
     <Source>CxFreeze/CxfreezeConfigDialog.py</Source>
     <Source>CxFreeze/CxfreezeExecDialog.py</Source>
+    <Source>CxFreeze/CxfreezeFindPath.py</Source>
   </Sources>
   <Forms>
     <Form>CxFreeze/CxfreezeConfigDialog.ui</Form>

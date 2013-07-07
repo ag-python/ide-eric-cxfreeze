@@ -7,11 +7,17 @@
 Module implementing a dialog to enter the parameters for cxfreeze.
 """
 
+from __future__ import unicode_literals    # __IGNORE_WARNING__
+try:
+    str = unicode   # __IGNORE_WARNING__
+except (NameError):
+    pass
+
 import sys
 import os
 import copy
 
-from PyQt4.QtCore import pyqtSlot, QDir
+from PyQt4.QtCore import pyqtSlot, QDir, QProcess
 from PyQt4.QtGui import QDialog
 
 from E5Gui import E5FileDialog
@@ -25,7 +31,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
     """
     Class implementing a dialog to enter the parameters for cxfreeze.
     """
-    def __init__(self, project, exe, parms = None, parent = None):
+    def __init__(self, project, exe, parms=None, parent=None):
         """
         Constructor
         
@@ -37,6 +43,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         QDialog.__init__(self, parent)
         self.setupUi(self)
         
+        self.project = project
         self.__initializeDefaults()
         
         # get a copy of the defaults to store the user settings
@@ -48,39 +55,14 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
                 if key in self.parameters:
                     self.parameters[key] = parms[key]
         
-        self.project = project
-        
         self.exe = exe
-        
-        # version specific setup
-        modpath = None
-        if "cxfreeze" in self.exe:
-            for sysPath in sys.path:
-                modpath = os.path.join(sysPath, "cx_Freeze")
-                if os.path.exists(modpath):
-                    break
-        
-        # populate combo boxes
-        if modpath:
-            d = QDir(os.path.join(modpath, 'bases'))
-            basesList = d.entryList(QDir.Filters(QDir.Files))
-            if Utilities.isWindowsPlatform():
-                # strip the final '.exe' from the bases
-                tmpBasesList = basesList[:]
-                basesList = []
-                for b in tmpBasesList:
-                    base, ext = os.path.splitext(b)
-                    if ext == ".exe":
-                        basesList.append(base)
-                    else:
-                        basesList.append(b)
-            basesList.insert(0, '')
-            self.basenameCombo.addItems(basesList)
-            
-            d = QDir(os.path.join(modpath, 'initscripts'))
-            initList = d.entryList(['*.py'])
-            initList.insert(0, '')
-            self.initscriptCombo.addItems([os.path.splitext(i)[0] for i in initList])
+        self.cxfreezeExecCombo.addItems(exe)
+        # try to set the saved script path
+        try:
+            idx = exe.index(self.parameters['script'])
+            self.cxfreezeExecCombo.setCurrentIndex(idx)
+        except ValueError:
+            pass
         
         self.targetDirCompleter = E5DirCompleter(self.targetDirEdit)
         self.extListFileCompleter = E5FileCompleter(self.extListFileEdit)
@@ -110,36 +92,43 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
     
     def __initializeDefaults(self):
         """
-        Private method to set the default values. 
+        Private method to set the default values.
         
         These are needed later on to generate the commandline parameters.
         """
         self.defaults = {
             # general options
-            'targetDirectory' : '',
-            'targetName' : '',
-            'baseName' : '',
-            'initScript' : '',
-            'applicationIcon' : '',
-            'keepPath' : False,
-            'compress' : False, 
-            'optimize' : 0,     # 0, 1 or 2
+            'targetDirectory': '',
+            'targetName': '',
+            'baseName': 'Console',
+            'initScript': 'Console',
+            'applicationIcon': '',
+            'script': '',
+            'keepPath': False,
+            'compress': False,
+            'optimize': 0,     # 0, 1 or 2
             
             # advanced options
-            'defaultPath' : [],
-            'includePath' : [],
-            'replacePaths' : [],
-            'includeModules' : [],
-            'excludeModules' : [],
-            'extListFile' : '',
+            'defaultPath': [],
+            'includePath': [],
+            'replacePaths': [],
+            'includeModules': [],
+            'excludeModules': [],
+            'extListFile': '',
         }
+        # overwrite 'baseName' if OS is Windows
+        if sys.platform == 'win32':
+            self.defaults['baseName'] = 'Win32GUI'
+        # overwrite 'initScript' if version 3 interpreter
+        if self.project.getProjectLanguage() == 'Python3':
+            self.defaults['initScript'] = 'Console3'
     
     def generateParameters(self):
         """
         Public method that generates the commandline parameters.
         
-        It generates a list of strings to be used to set the QProcess arguments 
-        for the cxfreeze call and a list containing the non default parameters. 
+        It generates a list of strings to be used to set the QProcess arguments
+        for the cxfreeze call and a list containing the non default parameters.
         The second list can be passed back upon object generation to overwrite
         the default settings.
         
@@ -150,7 +139,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         args = []
         
         # 1. the program name
-        args.append(self.exe)
+        args.append(self.cxfreezeExecCombo.currentText())
         
         # 2. the commandline options
         # 2.1 general options
@@ -160,15 +149,16 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         if self.parameters['targetName'] != self.defaults['targetName']:
             parms['targetName'] = self.parameters['targetName'][:]
             args.append('--target-name={0}'.format(self.parameters['targetName']))
-        if self.parameters['baseName'] != self.defaults['baseName']:
-            parms['baseName'] = self.parameters['baseName'][:]
+        parms['baseName'] = self.parameters['baseName'][:]
+        if self.parameters['baseName'] != '':
             args.append('--base-name={0}'.format(self.parameters['baseName']))
-        if self.parameters['initScript'] != self.defaults['initScript']:
-            parms['initScript'] = self.parameters['initScript'][:]
+        parms['initScript'] = self.parameters['initScript'][:]
+        if self.parameters['initScript'] != '':
             args.append('--init-script={0}'.format(self.parameters['initScript']))
+        parms['applicationIcon'] = self.parameters['applicationIcon'][:]
         if self.parameters['applicationIcon'] != self.defaults['applicationIcon']:
-            parms['applicationIcon'] = self.parameters['applicationIcon'][:]
             args.append('--icon={0}'.format(self.parameters['applicationIcon']))
+        parms['script'] = self.parameters['script'][:]
         if self.parameters['keepPath'] != self.defaults['keepPath']:
             parms['keepPath'] = self.parameters['keepPath']
             args.append('--no-copy-deps')
@@ -224,11 +214,40 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             "")
         
         if extList:
-            # make it relative, if it is in a subdirectory of the project path 
+            # make it relative, if it is in a subdirectory of the project path
             lf = Utilities.toNativeSeparators(extList)
             lf = self.project.getRelativePath(lf)
             self.extListFileEdit.setText(lf)
-    
+
+    @pyqtSlot()
+    def on_iconFileButton_clicked(self):
+        """
+        Private slot to select an icon.
+        
+        It displays a file selection dialog to select an icon to
+        include into the executable.
+        """
+        iconsI18N = self.trUtf8("Icons")
+        allFilesI18N = self.trUtf8("All files")
+        if Utilities.isWindowsPlatform():
+            iconFilter = "{0} (*.ico);;{1} (*.*)".format(iconsI18N, allFilesI18N)
+        elif Utilities.isMacPlatform():
+            iconFilter = "{0} (*.icns *.png);;{1} (*.*)".format(iconsI18N, allFilesI18N)
+        else:
+            iconFilter = "{0} (*.png);;{1} (*.*)".format(iconsI18N, allFilesI18N)
+        
+        iconList = E5FileDialog.getOpenFileName(
+            self,
+            self.trUtf8("Select the application icon"),
+            self.applicationIconEdit.text(),
+            iconFilter)
+        
+        if iconList:
+            # make it relative, if it is in a subdirectory of the project path
+            lf = Utilities.toNativeSeparators(iconList)
+            lf = self.project.getRelativePath(lf)
+            self.applicationIconEdit.setText(lf)
+
     @pyqtSlot()
     def on_targetDirButton_clicked(self):
         """
@@ -244,16 +263,93 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             E5FileDialog.Options(E5FileDialog.ShowDirsOnly))
         
         if directory:
-            # make it relative, if it is a subdirectory of the project path 
+            # make it relative, if it is a subdirectory of the project path
             dn = Utilities.toNativeSeparators(directory)
             dn = self.project.getRelativePath(dn)
             while dn.endswith(os.sep):
                 dn = dn[:-1]
             self.targetDirEdit.setText(dn)
     
+    @pyqtSlot(str)
+    def on_cxfreezeExecCombo_currentIndexChanged(self, text):
+        # version specific setup
+        if Utilities.isWindowsPlatform():
+            # remove "\Scripts\cx_Freeze.bat" from path
+            dirname = os.path.dirname(text)
+            dirname = os.path.dirname(dirname)
+            
+            # first try the fast way
+            modpath = os.path.join(dirname, "Lib", "site-packages", "cx_Freeze")
+            if not os.path.exists(modpath):
+                # but if it failed search in the whole directory tree
+                modpath = None
+                for dirpath, dirnames, filenames in os.walk(dirname):
+                    if 'cx_Freeze' in dirnames:
+                        modpath = os.path.join(dirpath, "cx_Freeze")
+                        break
+        else:
+            with open(text, 'r') as f:
+                args = f.readline()
+            if not args:
+                return
+                
+            args = args.strip('!#\n').split(' ')
+            program = args.pop(0)
+
+            # check the plugin path for the script
+            from PluginManager import PluginManager
+            pluginManager = PluginManager.PluginManager(doLoadPlugins=False)
+            for dir in ["user", "global"]:
+                pluginDir = pluginManager.getPluginDir(dir)
+                if pluginDir is not None:
+                    script = os.path.join(pluginDir, 'CxFreeze', 'CxfreezeFindPath.py')
+                    if os.path.exists(script):
+                        break
+            else:
+                return
+            
+            args.append(script)
+            process = QProcess()
+            process.start(program, args)
+            process.waitForFinished(5000)
+            # get a QByteArray of the output
+            cxPath = process.readAllStandardOutput()
+            modpath = str(cxPath, encoding='utf-8').strip('\n\r')
+            if not modpath.endswith('cx_Freeze'):
+                return
+        
+        # populate combo boxes
+        if modpath:
+            d = QDir(os.path.join(modpath, 'bases'))
+            basesList = d.entryList(QDir.Filters(QDir.Files))
+            if Utilities.isWindowsPlatform():
+                # strip the final '.exe' from the bases
+                tmpBasesList = basesList[:]
+                basesList = []
+                for b in tmpBasesList:
+                    base, ext = os.path.splitext(b)
+                    if ext == ".exe":
+                        basesList.append(base)
+                    else:
+                        basesList.append(b)
+            
+            basesList.insert(0, '')
+            currentText = self.basenameCombo.currentText()
+            self.basenameCombo.clear()
+            self.basenameCombo.addItems(basesList)
+            self.basenameCombo.setEditText(currentText)
+            
+            d = QDir(os.path.join(modpath, 'initscripts'))
+            initList = d.entryList(['*.py'])
+            initList.insert(0, '')
+            currentText = self.initscriptCombo.currentText()
+            self.initscriptCombo.clear()
+            self.initscriptCombo.addItems([os.path.splitext(i)[0] for i in initList])
+            self.initscriptCombo.setEditText(currentText)
+    
     def accept(self):
         """
-        Protected slot called by the Ok button. 
+        Protected slot called by the Ok button.
         
         It saves the values in the parameters dictionary.
         """
@@ -263,6 +359,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         self.parameters['baseName'] = self.basenameCombo.currentText()
         self.parameters['initScript'] = self.initscriptCombo.currentText()
         self.parameters['applicationIcon'] = self.applicationIconEdit.text()
+        self.parameters['script'] = self.cxfreezeExecCombo.currentText()
         self.parameters['keepPath'] = self.keeppathCheckBox.isChecked()
         self.parameters['compress'] = self.compressCheckBox.isChecked()
         if self.nooptimizeRadioButton.isChecked():

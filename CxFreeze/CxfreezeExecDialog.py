@@ -7,6 +7,12 @@
 Module implementing a dialog to show the output of the packager process.
 """
 
+from __future__ import unicode_literals    # __IGNORE_WARNING__
+try:
+    str = unicode   # __IGNORE_WARNING__
+except (NameError):
+    pass
+
 import os.path
 
 from PyQt4.QtCore import pyqtSlot, QProcess, QTimer
@@ -25,7 +31,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
     This class starts a QProcess and displays a dialog that
     shows the output of the packager command process.
     """
-    def __init__(self, cmdname, parent = None):
+    def __init__(self, cmdname, parent=None):
         """
         Constructor
         
@@ -57,8 +63,6 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.contents.clear()
         self.errors.clear()
         
-        program = args[0]
-        del args[0]
         args.append(script)
         
         self.process = QProcess()
@@ -69,9 +73,10 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process.finished.connect(self.__finish)
             
         self.setWindowTitle(self.trUtf8('{0} - {1}').format(self.cmdname, script))
-        self.contents.insertPlainText(' '.join(args) + '\n')
+        self.contents.insertPlainText(' '.join(args) + '\n\n')
         self.contents.ensureCursorVisible()
         
+        program = args.pop(0)
         self.process.start(program, args)
         procStarted = self.process.waitForStarted()
         if not procStarted:
@@ -120,7 +125,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
     
     def __readStdout(self):
         """
-        Private slot to handle the readyReadStandardOutput signal. 
+        Private slot to handle the readyReadStandardOutput signal.
         
         It reads the output of the process, formats it and inserts it into
         the contents pane.
@@ -128,15 +133,15 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process.setReadChannel(QProcess.StandardOutput)
         
         while self.process.canReadLine():
-            s = str(self.process.readAllStandardOutput(), 
-                    Preferences.getSystem("IOEncoding"), 
+            s = str(self.process.readAllStandardOutput(),
+                    Preferences.getSystem("IOEncoding"),
                     'replace')
             self.contents.insertPlainText(s)
             self.contents.ensureCursorVisible()
     
     def __readStderr(self):
         """
-        Private slot to handle the readyReadStandardError signal. 
+        Private slot to handle the readyReadStandardError signal.
         
         It reads the error output of the process and inserts it into the
         error pane.
@@ -145,8 +150,8 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         
         while self.process.canReadLine():
             self.errorGroup.show()
-            s = str(self.process.readAllStandardError(), 
-                    Preferences.getSystem("IOEncoding"), 
+            s = str(self.process.readAllStandardError(),
+                    Preferences.getSystem("IOEncoding"),
                     'replace')
             self.errors.insertPlainText(s)
             self.errors.ensureCursorVisible()
