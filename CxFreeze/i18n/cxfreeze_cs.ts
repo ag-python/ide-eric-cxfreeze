@@ -23,44 +23,50 @@
         <translation type="obsolete">&lt;b&gt;Použít cx_Freeze&lt;/b&gt;&lt;p&gt;Generování distribučního balíčku za použití cx_Freeze. Příkaz je vykonán v cestě projektu. Všechny soubory a adresáře musí být zadány absolutně nebo relativně vůči adresáři projektu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="53"/>
+        <location filename="PluginCxFreeze.py" line="57"/>
         <source>Packagers - cx_freeze</source>
         <translation>Balíčkovače - cx_freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="318"/>
+        <location filename="PluginCxFreeze.py" line="327"/>
         <source>There is no main script defined for the current project.</source>
         <translation>V aktuálním projektu není definován hlavní skript.</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="328"/>
+        <location filename="PluginCxFreeze.py" line="337"/>
         <source>The cxfreeze executable could not be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="328"/>
+        <location filename="PluginCxFreeze.py" line="337"/>
         <source>cxfreeze</source>
         <translation>cxfreeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="246"/>
+        <location filename="PluginCxFreeze.py" line="255"/>
         <source>Use cx_freeze</source>
         <translation>Použít cx_freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="246"/>
+        <location filename="PluginCxFreeze.py" line="255"/>
         <source>Use cx_&amp;freeze</source>
         <translation>Použít cx_&amp;freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="249"/>
+        <location filename="PluginCxFreeze.py" line="258"/>
         <source>Generate a distribution package using cx_freeze</source>
         <translation>Generovat distribuční balíček za použití cx_freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="251"/>
+        <location filename="PluginCxFreeze.py" line="260"/>
         <source>&lt;b&gt;Use cx_freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation>&lt;b&gt;Použít cx_freeze&lt;/b&gt;&lt;p&gt;Generování distribučního balíčku za použití cx_freeze. Příkaz je vykonán v cestě projektu. Všechny soubory a adresáře musí být zadány absolutně nebo relativně vůči adresáři projektu.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="PluginCxFreeze.py" line="202"/>
+        <source>Your version of Eric5 is not supported.
+At least version 5.1.0 of Eric5 is needed.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -15,9 +15,13 @@ import platform
 from PyQt4.QtCore import QObject, QTranslator, QCoreApplication
 from PyQt4.QtGui import QDialog
 
-from E5Gui import E5MessageBox
-from E5Gui.E5Action import E5Action
-from E5Gui.E5Application import e5App
+try:
+    from E5Gui import E5MessageBox
+    from E5Gui.E5Action import E5Action
+    from E5Gui.E5Application import e5App
+    suitable = True
+except ImportError:
+    suitable = False
 
 import Utilities
 
@@ -194,6 +198,11 @@ def _checkProgram():
     """
     global error, exePy2, exePy3
     
+    if not suitable:
+        error = QCoreApplication.translate("CxFreezePlugin", """Your version of Eric5 is not supported.
+At least version 5.1.0 of Eric5 is needed.""")
+        return False
+    
     exePy2 = _findExecutable(2)
     exePy3 = _findExecutable(3)
     if (exePy2+exePy3) == []:
@@ -202,7 +211,7 @@ def _checkProgram():
         return False
     else:
         return True
-
+_checkProgram()
 
 class CxFreezePlugin(QObject):
     """
@@ -227,7 +236,7 @@ class CxFreezePlugin(QObject):
         Private slot to (re)initialize the plugin.
         """
         self.__projectAct = None
-        
+       
     def activate(self):
         """
         Public method to activate this plugin.

@@ -23,44 +23,50 @@
         <translation type="obsolete">&lt;b&gt;Utiliser cx_Freeze&lt;/b&gt;&lt;p&gt;Générer un package de distribution en utilisant cx_Freeze. Cette commande est executée depuis le chemin du projet. Tous les fichiers et réperoires doivent être indiqués soit par un chemin absolu, soit par un chemin relatif au répertoire du projet.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="53"/>
+        <location filename="PluginCxFreeze.py" line="57"/>
         <source>Packagers - cx_freeze</source>
         <translation>Packageurs - cx_freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="318"/>
+        <location filename="PluginCxFreeze.py" line="327"/>
         <source>There is no main script defined for the current project.</source>
         <translation>Il n&apos;y a pas de script principal défini dans le projet courant.</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="328"/>
+        <location filename="PluginCxFreeze.py" line="337"/>
         <source>The cxfreeze executable could not be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="328"/>
+        <location filename="PluginCxFreeze.py" line="337"/>
         <source>cxfreeze</source>
         <translation>cxfreeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="246"/>
+        <location filename="PluginCxFreeze.py" line="255"/>
         <source>Use cx_freeze</source>
         <translation>Utiliser cx_freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="246"/>
+        <location filename="PluginCxFreeze.py" line="255"/>
         <source>Use cx_&amp;freeze</source>
         <translation>Utiliser cx_&amp;freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="249"/>
+        <location filename="PluginCxFreeze.py" line="258"/>
         <source>Generate a distribution package using cx_freeze</source>
         <translation>Générer un package de distribution en utilisant cx_freeze</translation>
     </message>
     <message>
-        <location filename="PluginCxFreeze.py" line="251"/>
+        <location filename="PluginCxFreeze.py" line="260"/>
         <source>&lt;b&gt;Use cx_freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation>&lt;b&gt;Utiliser cx_freeze&lt;/b&gt;&lt;p&gt;Générer un package de distribution en utilisant cx_freeze. Cette commande est executée depuis le chemin du projet. Tous les fichiers et réperoires doivent être indiqués soit par un chemin absolu, soit par un chemin relatif au répertoire du projet.&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <location filename="PluginCxFreeze.py" line="202"/>
+        <source>Your version of Eric5 is not supported.
+At least version 5.1.0 of Eric5 is needed.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
