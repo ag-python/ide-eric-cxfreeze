@@ -2,6 +2,7 @@ ChangeLog
 ---------
 Version 5.2.0:
 Compatible with Eric5.1.0 or greater
+- ask to save modified files before freeze
 - use cx_freeze script based on the selected project language
 - disable menu item if not a Python 2 or 3 project
 - filedialog for the application icon

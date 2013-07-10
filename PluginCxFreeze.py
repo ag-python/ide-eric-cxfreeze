@@ -339,6 +339,10 @@ class CxFreezePlugin(QObject):
                 self.trUtf8("""The cxfreeze executable could not be found."""))
             return
 
+        # check if all files saved and errorfree before continue
+        if not project.checkAllScriptsDirty(reportSyntaxErrors=True):
+            return
+
         from CxFreeze.CxfreezeConfigDialog import CxfreezeConfigDialog
         parms = project.getData('PACKAGERSPARMS', "CXFREEZE")
         dlg = CxfreezeConfigDialog(project, exe, parms)
