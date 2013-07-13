@@ -296,16 +296,9 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             args = args.strip('!#\n').split(' ')
             program = args.pop(0)
 
-            # check the plugin path for the script
-            from PluginManager import PluginManager
-            pluginManager = PluginManager.PluginManager(doLoadPlugins=False)
-            for dir in ["user", "global"]:
-                pluginDir = pluginManager.getPluginDir(dir)
-                if pluginDir is not None:
-                    script = os.path.join(pluginDir, 'CxFreeze', 'CxfreezeFindPath.py')
-                    if os.path.exists(script):
-                        break
-            else:
+            script = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                                  'CxfreezeFindPath.py')
+            if not os.path.exists(script):
                 return
             
             args.append(script)

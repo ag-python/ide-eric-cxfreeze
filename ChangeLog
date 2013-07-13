@@ -1,7 +1,8 @@
 ChangeLog
 ---------
 Version 5.2.0:
-Compatible with Eric5.1.0 or greater
+(compatible with Eric5.1.0 or greater)
+- bug fix
 - use cx_freeze script based on the selected project language
 - disable menu item if not a Python 2 or 3 project
 - filedialog for the application icon
@@ -9,7 +10,7 @@ Compatible with Eric5.1.0 or greater
 - cx_freeze script name is shown in execute dialog
 - Python 2 compatibility for Eric 5
 - fixed an issue finding the executable in different registries 
-    on 64-bit Windows systems
+  on 64-bit Windows systems
 - little layout changes
 
 Version 5.1.2:
