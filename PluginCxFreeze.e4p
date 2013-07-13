@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric5 project file for project PluginCxFreeze -->
-<!-- Saved: 2013-07-07, 20:15:59 -->
-<!-- Copyright (C) 2013 Detlev Offenbach, detlev@die-offenbachs.de -->
 <Project version="5.1">
   <Language>en</Language>
   <Hash>e6cc5d1be724a6f9b38cea1b3785946161f4baeb</Hash>
@@ -39,6 +37,8 @@
     <Translation>CxFreeze/i18n/cxfreeze_fr.qm</Translation>
     <Translation>CxFreeze/i18n/cxfreeze_it.ts</Translation>
     <Translation>CxFreeze/i18n/cxfreeze_it.qm</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_en.ts</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_en.qm</Translation>
   </Translations>
   <Resources/>
   <Interfaces/>
@@ -159,16 +159,16 @@
     </VcsOtherData>
   </Vcs>
   <FiletypeAssociations>
-    <FiletypeAssociation pattern="*.pyw3" type="SOURCES"/>
-    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
     <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
-    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
     <FiletypeAssociation pattern="*.py" type="SOURCES"/>
-    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
-    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
-    <FiletypeAssociation pattern="*.ui.h" type="FORMS"/>
-    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
     <FiletypeAssociation pattern="*.py3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.pyw3" type="SOURCES"/>
+    <FiletypeAssociation pattern="*.qm" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.qrc" type="RESOURCES"/>
+    <FiletypeAssociation pattern="*.ts" type="TRANSLATIONS"/>
+    <FiletypeAssociation pattern="*.ui" type="FORMS"/>
+    <FiletypeAssociation pattern="*.ui.h" type="FORMS"/>
     <FiletypeAssociation pattern="Ui_*.py" type="__IGNORE__"/>
   </FiletypeAssociations>
   <Documentation>
