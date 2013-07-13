@@ -19,9 +19,12 @@ try:
     from E5Gui import E5MessageBox
     from E5Gui.E5Action import E5Action
     from E5Gui.E5Application import e5App
-    suitable = True
+    error = ""
 except ImportError:
-    suitable = False
+    error = QCoreApplication.translate("CxFreezePlugin",
+        """Your version of Eric5 is not supported."""
+        """ At least version 5.1.0 of Eric5 is needed.""")
+    
 
 import Utilities
 
@@ -40,7 +43,6 @@ needsRestart = False
 pyqtApi = 2
 # End-of-Header
 
-error = ""
 exePy2 = []
 exePy3 = []
 
@@ -198,11 +200,6 @@ def _checkProgram():
     """
     global error, exePy2, exePy3
     
-    if not suitable:
-        error = QCoreApplication.translate("CxFreezePlugin", """Your version of Eric5 is not supported.
-At least version 5.1.0 of Eric5 is needed.""")
-        return False
-    
     exePy2 = _findExecutable(2)
     exePy3 = _findExecutable(3)
     if (exePy2+exePy3) == []:
@@ -211,7 +208,6 @@ At least version 5.1.0 of Eric5 is needed.""")
         return False
     else:
         return True
-_checkProgram()
 
 class CxFreezePlugin(QObject):
     """
@@ -244,6 +240,10 @@ class CxFreezePlugin(QObject):
         @return tuple of None and activation status (boolean)
         """
         global error
+        
+        # There is already an error, don't activate
+        if error:
+            return None, False
         
         # cxfreeze is only activated if it is available
         if not _checkProgram():
