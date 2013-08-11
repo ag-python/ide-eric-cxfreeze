@@ -9,37 +9,37 @@
         <translation>Paketierer - cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="327"/>
+        <location filename="../../PluginCxFreeze.py" line="328"/>
         <source>There is no main script defined for the current project.</source>
         <translation>Für das Projekt ist kein Hauptskript festgelegt.</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="337"/>
+        <location filename="../../PluginCxFreeze.py" line="338"/>
         <source>The cxfreeze executable could not be found.</source>
         <translation>Das cxfreeze Programm konnte nicht gefunden werden.</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="337"/>
+        <location filename="../../PluginCxFreeze.py" line="338"/>
         <source>cxfreeze</source>
         <translation>cxfreeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="255"/>
+        <location filename="../../PluginCxFreeze.py" line="256"/>
         <source>Use cx_freeze</source>
         <translation>Benutze cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="255"/>
+        <location filename="../../PluginCxFreeze.py" line="256"/>
         <source>Use cx_&amp;freeze</source>
         <translation>Benutze cx_&amp;freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="258"/>
+        <location filename="../../PluginCxFreeze.py" line="259"/>
         <source>Generate a distribution package using cx_freeze</source>
         <translation>Erzeuge ein Distributionspaket mittels cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="260"/>
+        <location filename="../../PluginCxFreeze.py" line="261"/>
         <source>&lt;b&gt;Use cx_freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation>&lt;b&gt;Benutze cx_freeze&lt;/b&gt;&lt;p&gt;Erzeuge ein Distributionspaket mittels cx_freeze. Der Befehl wird im Projektverzeichnis ausgeführt. Alle Datei- und Verzeichnisnamen müssen absolut oder relativ zum Projektverzeichnis angegeben werden.&lt;/p&gt;</translation>
     </message>
@@ -59,12 +59,12 @@ Mindestens Version 5.1.0 von Eric5 wird benötigt.</translation>
 <context>
     <name>CxfreezeConfigDialog</name>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="259"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="368"/>
         <source>Select target directory</source>
         <translation>Wähle das Zielverzeichnis</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="210"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="319"/>
         <source>Select external list file</source>
         <translation>Wähle die externe Listendatei</translation>
     </message>
@@ -163,7 +163,7 @@ Mindestens Version 5.1.0 von Eric5 wird benötigt.</translation>
         <translation>Zielname:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="363"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="450"/>
         <source>...</source>
         <translation>...</translation>
     </message>
@@ -298,17 +298,17 @@ Mindestens Version 5.1.0 von Eric5 wird benötigt.</translation>
         <translation>cx_Freeze Startdatei:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="230"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="339"/>
         <source>Icons</source>
         <translation>Icons</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="231"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="340"/>
         <source>All files</source>
         <translation>Alle Dateien</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="239"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="348"/>
         <source>Select the application icon</source>
         <translation>Wähle das Icon für die Anwendung</translation>
     </message>
@@ -316,6 +316,65 @@ Mindestens Version 5.1.0 von Eric5 wird benötigt.</translation>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="226"/>
         <source>Select the cx_freeze executable</source>
         <translation>Wähle die cx_Freeze Startdatei</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="384"/>
+        <source>Additional &amp;files</source>
+        <translation>Zusätzliche &amp;Dateien</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="390"/>
+        <source>&lt;b&gt;Add depending files or folders to copy into the distribution folder:&lt;/b&gt;</source>
+        <translation>&lt;b&gt;Zusätzliche Dateien oder Ordner hinzufügen, welche in den Distributions-Ordner kopiert werden:&lt;/b&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="397"/>
+        <source>List of files and directories which are copied into the distribution directory
+See &apos;What&apos;s this&apos;</source>
+        <translation>Liste der Dateien und Verzeichnisse, welche in den Distributions-Ordner kopiert werden
+Siehe auch &apos;Hilfe&apos;</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="401"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Additional files list&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here you can add files and folders which will not frozen by cx_Freeze, but maybe relevant to your application. This could be, e.g., some UI files or a dirctory with your translation files.&lt;/p&gt;&lt;p&gt;Easily add them to the list and they get copied after the freeze.&lt;/p&gt;&lt;p&gt;Remarks: &lt;/p&gt;&lt;p&gt;- Every file or folder will be copied relativ to the destination folder even if it&apos;s outside the sourcetree.&lt;/p&gt;&lt;p&gt;- Files and folders don&apos;t have to be added to the Eric project first.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Liste zusätzlicher Dateien&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Dateien, welche für die Applikation relevant sind, aber nicht von cx_Freeze eingebunden werden, können hier hinzugefügt werden. Dies können z.B. Dateien für das UI oder ein Ordner  mit den Übersetzungen sein.&lt;/p&gt;&lt;p&gt;Die hinzugefügten Dateien und Ordner werden nach dem Erstellen der Applikation dazukopiert.&lt;/p&gt;&lt;p&gt;Hinweise: &lt;/p&gt;&lt;p&gt;- Jede Datei bzw. jeder Ordner wird relativ zu dem Zielordner kopiert, auch wenn die Quelle außerhalb des Quellcodeverzeichnisses liegt.&lt;/p&gt;&lt;p&gt;- Dateien bzw. Verzeichnisse brauchen nicht dem Eric Projekt hinzugefügt worden sein.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="416"/>
+        <source>Press to delete the selected entry from the list</source>
+        <translation>Drücken, um den ausgewählten Eintrag aus der Liste zu löschen</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="419"/>
+        <source>Delete</source>
+        <translation>Löschen</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="429"/>
+        <source>Press to add the entered file or directory to the list</source>
+        <translation>Drücken, um die eingegebene(n) Datei(en)/ Ordner der Liste hinzuzufügen</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="432"/>
+        <source>Add</source>
+        <translation>Hinzufügen</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="439"/>
+        <source>Enter a file or directory to be added.
+Wildcards are allowed, e.g. *.ui</source>
+        <translation>Eine Datei oder ein Verzeichnis eingeben, welches hinzugefügt werden soll.
+Platzhalter sind erlaubt, wie z.B. *.ui</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="515"/>
+        <source>Select files and folders</source>
+        <translation>Wähle Dateien und Ordner</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="447"/>
+        <source>Press to select a file or directory via a selection dialog</source>
+        <translation>Drücken, um Dateinen und Ordner über einen Dialog auszuwählen</translation>
     </message>
 </context>
 <context>
@@ -340,22 +399,22 @@ Mindestens Version 5.1.0 von Eric5 wird benötigt.</translation>
 &lt;p&gt;Dies zeigt die Fehler des Paketierer Befehls.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="75"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="85"/>
         <source>{0} - {1}</source>
         <translation>{0} - {1}</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="83"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="93"/>
         <source>Process Generation Error</source>
         <translation>Fehler beim Prozessstart</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="83"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="93"/>
         <source>The process {0} could not be started. Ensure, that it is in the search path.</source>
         <translation>Der Prozess {0} konnte nicht gestartet werden. Stellen Sie sicher, dass er sich im Suchpfad befindet.</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="122"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="146"/>
         <source>
 {0} finished.
 </source>
@@ -372,6 +431,61 @@ Mindestens Version 5.1.0 von Eric5 wird benötigt.</translation>
         <location filename="../../CxFreeze/CxfreezeExecDialog.ui" line="58"/>
         <source>Errors</source>
         <translation>Fehler</translation>
+    </message>
+    <message>
+        <location filename="../CxfreezeExecDialog.py" line="222"/>
+        <source>No such file or directory: &apos;{0}&apos;</source>
+        <translation type="obsolete">Datei oder Verzeichnis nicht gefunden: {0}</translation>
+    </message>
+    <message>
+        <location filename="../CxfreezeExecDialog.py" line="234"/>
+        <source>
+Copying {0}: </source>
+        <translation type="obsolete">
+Kopiere {0}: </translation>
+    </message>
+    <message>
+        <location filename="../CxfreezeExecDialog.py" line="252"/>
+        <source>ok</source>
+        <translation type="obsolete">ok</translation>
+    </message>
+    <message>
+        <location filename="../CxfreezeExecDialog.py" line="254"/>
+        <source>failed: {0}</source>
+        <translation type="obsolete">fehlgeschlagen: {0}</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="132"/>
+        <source>
+{0} aborted.
+</source>
+        <translation>
+{0} abgebrochen.</translation>
+    </message>
+</context>
+<context>
+    <name>copyAdditionalFiles</name>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="273"/>
+        <source>No such file or directory: &apos;{0}&apos;</source>
+        <translation>Datei oder Verzeichnis nicht gefunden: {0}</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="285"/>
+        <source>
+Copying {0}: </source>
+        <translation>
+Kopiere {0}: </translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="303"/>
+        <source>ok</source>
+        <translation>ok</translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="305"/>
+        <source>failed: {0}</source>
+        <translation>fehlgeschlagen: {0}</translation>
     </message>
 </context>
 </TS>

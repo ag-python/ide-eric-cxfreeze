@@ -55,15 +55,15 @@ def exeDisplayDataList():
     """
     dataList = []
     data = {
-        "programEntry"      : True,
-        "header"            : QCoreApplication.translate("CxFreezePlugin",
+        "programEntry": True,
+        "header": QCoreApplication.translate("CxFreezePlugin",
                                 "Packagers - cx_freeze"),
-        "exe"               : 'dummyfreeze',
-        "versionCommand"    : '--version',
-        "versionStartsWith" : 'dummyfreeze',
-        "versionPosition"   : -1,
-        "version"           : "",
-        "versionCleanup"    : None,
+        "exe": 'dummyfreeze',
+        "versionCommand": '--version',
+        "versionStartsWith": 'dummyfreeze',
+        "versionPosition": -1,
+        "version": "",
+        "versionCleanup": None,
     }
     
     if _checkProgram():
@@ -208,6 +208,7 @@ def _checkProgram():
         return False
     else:
         return True
+
 
 class CxFreezePlugin(QObject):
     """
@@ -354,7 +355,7 @@ class CxFreezePlugin(QObject):
             from CxFreeze.CxfreezeExecDialog import CxfreezeExecDialog
             dia = CxfreezeExecDialog("cxfreeze")
             dia.show()
-            res = dia.start(args,
-                os.path.join(project.ppath, project.pdata["MAINSCRIPT"][0]))
+            res = dia.start(args, parms, project.ppath,
+                project.pdata["MAINSCRIPT"][0])
             if res:
                 dia.exec_()

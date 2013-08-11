@@ -13,6 +13,9 @@ Version 5.2.0:
 - fixed an issue finding the executable in different registries 
   on 64-bit Windows systems
 - little layout changes
+- filedialog to add distribution dependent files, e.g. *.ui, readme, which
+  are copied after the freeze process
+
 
 Version 5.1.2:
 - bug fix
