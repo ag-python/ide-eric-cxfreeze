@@ -32,6 +32,9 @@ Module implementing a dialog to show the output of the packager process.
 <tr>
 <td><a href="#CxfreezeExecDialog">CxfreezeExecDialog</a></td>
 <td>Module implementing a dialog to show the output of the cxfreeze process.</td>
+</tr><tr>
+<td><a href="#copyAdditionalFiles">copyAdditionalFiles</a></td>
+<td>Thread to copy the distribution dependend files.</td>
 </tr>
 </table>
 <h3>Functions</h3>
@@ -63,7 +66,13 @@ QDialog, Ui_CxfreezeExecDialog
 <td><a href="#CxfreezeExecDialog.__init__">CxfreezeExecDialog</a></td>
 <td>Constructor</td>
 </tr><tr>
+<td><a href="#CxfreezeExecDialog.__enableButtons">__enableButtons</a></td>
+<td>Private slot called when all processes finished.</td>
+</tr><tr>
 <td><a href="#CxfreezeExecDialog.__finish">__finish</a></td>
+<td>Private slot called when the process finished.</td>
+</tr><tr>
+<td><a href="#CxfreezeExecDialog.__finishedFreeze">__finishedFreeze</a></td>
 <td>Private slot called when the process finished.</td>
 </tr><tr>
 <td><a href="#CxfreezeExecDialog.__readStderr">__readStderr</a></td>
@@ -96,9 +105,25 @@ name of the packager (string)
 <dd>
 parent widget of this dialog (QWidget)
 </dd>
-</dl><a NAME="CxfreezeExecDialog.__finish" ID="CxfreezeExecDialog.__finish"></a>
+</dl><a NAME="CxfreezeExecDialog.__enableButtons" ID="CxfreezeExecDialog.__enableButtons"></a>
+<h4>CxfreezeExecDialog.__enableButtons</h4>
+<b>__enableButtons</b>(<i></i>)
+<p>
+        Private slot called when all processes finished.
+</p><p>
+        It is called when the process finished or
+        the user pressed the cancel button.
+</p><a NAME="CxfreezeExecDialog.__finish" ID="CxfreezeExecDialog.__finish"></a>
 <h4>CxfreezeExecDialog.__finish</h4>
 <b>__finish</b>(<i></i>)
+<p>
+        Private slot called when the process finished.
+</p><p>
+        It is called when the process finished or
+        the user pressed the cancel button.
+</p><a NAME="CxfreezeExecDialog.__finishedFreeze" ID="CxfreezeExecDialog.__finishedFreeze"></a>
+<h4>CxfreezeExecDialog.__finishedFreeze</h4>
+<b>__finishedFreeze</b>(<i></i>)
 <p>
         Private slot called when the process finished.
 </p><p>
@@ -132,13 +157,19 @@ button that was clicked (QAbstractButton)
 </dd>
 </dl><a NAME="CxfreezeExecDialog.start" ID="CxfreezeExecDialog.start"></a>
 <h4>CxfreezeExecDialog.start</h4>
-<b>start</b>(<i>args, script</i>)
+<b>start</b>(<i>args, parms, ppath, mainscript</i>)
 <p>
         Public slot to start the packager command.
 </p><dl>
 <dt><i>args</i></dt>
 <dd>
 commandline arguments for packager program (list of strings)
+</dd><dt><i>parms</i></dt>
+<dd>
+parameters got from the config dialog (dict)
+</dd><dt><i>ppath</i></dt>
+<dd>
+project path (string)
 </dd><dt><i>script</i></dt>
 <dd>
 main script name to be processed by by the packager (string)
@@ -147,6 +178,100 @@ main script name to be processed by by the packager (string)
 <dt>Returns:</dt>
 <dd>
 flag indicating the successful start of the process
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="copyAdditionalFiles" ID="copyAdditionalFiles"></a>
+<h2>copyAdditionalFiles</h2>
+<p>
+    Thread to copy the distribution dependend files.
+</p><h3>Signals</h3>
+<dl>
+<dt>insertPlainText(text)</dt>
+<dd>
+emitted to inform user about the copy progress
+</dd>
+</dl>
+<h3>Derived from</h3>
+QThread
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#copyAdditionalFiles.__init__">copyAdditionalFiles</a></td>
+<td>Constructor, which stores the needed variables.</td>
+</tr><tr>
+<td><a href="#copyAdditionalFiles.__copytree">__copytree</a></td>
+<td>Copies a file or folder.</td>
+</tr><tr>
+<td><a href="#copyAdditionalFiles.run">run</a></td>
+<td>QThread entry point to copy the selected additional files and folders.</td>
+</tr><tr>
+<td><a href="#copyAdditionalFiles.src2dst">src2dst</a></td>
+<td>Combines the relativ path of the source (srcname) with the destination folder.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="copyAdditionalFiles.__init__" ID="copyAdditionalFiles.__init__"></a>
+<h4>copyAdditionalFiles (Constructor)</h4>
+<b>copyAdditionalFiles</b>(<i>main</i>)
+<p>
+        Constructor, which stores the needed variables.
+</p><dl>
+<dt><i>main</i></dt>
+<dd>
+self-object of the caller
+</dd>
+</dl><a NAME="copyAdditionalFiles.__copytree" ID="copyAdditionalFiles.__copytree"></a>
+<h4>copyAdditionalFiles.__copytree</h4>
+<b>__copytree</b>(<i>src, dst</i>)
+<p>
+        Copies a file or folder. Wildcards allowed. Existing files are overwitten.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+source file or folder to copy. Wildcards allowed. (str)
+</dd><dt><i>dst</i></dt>
+<dd>
+destination (str)
+</dd>
+</dl><a NAME="copyAdditionalFiles.run" ID="copyAdditionalFiles.run"></a>
+<h4>copyAdditionalFiles.run</h4>
+<b>run</b>(<i></i>)
+<p>
+        QThread entry point to copy the selected additional files and folders.
+</p><a NAME="copyAdditionalFiles.src2dst" ID="copyAdditionalFiles.src2dst"></a>
+<h4>copyAdditionalFiles.src2dst</h4>
+<b>src2dst</b>(<i>base, dst</i>)
+<p>
+            Combines the relativ path of the source (srcname) with the
+            destination folder.
+</p><dl>
+<dt><i>srcname</i></dt>
+<dd>
+actual file or folder to copy
+</dd><dt><i>base</i></dt>
+<dd>
+basename of the source folder
+</dd><dt><i>dst</i></dt>
+<dd>
+basename of the destination folder
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+destination path
 </dd>
 </dl>
 <div align="right"><a href="#top">Up</a></div>

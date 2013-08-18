@@ -32,6 +32,9 @@ Module implementing a dialog to enter the parameters for cxfreeze.
 <tr>
 <td><a href="#CxfreezeConfigDialog">CxfreezeConfigDialog</a></td>
 <td>Class implementing a dialog to enter the parameters for cxfreeze.</td>
+</tr><tr>
+<td><a href="#DirFileDialog">DirFileDialog</a></td>
+<td>Derived QFileDialog to select files and folders at once.</td>
 </tr>
 </table>
 <h3>Functions</h3>
@@ -72,14 +75,32 @@ QDialog, Ui_CxfreezeConfigDialog
 <td><a href="#CxfreezeConfigDialog.generateParameters">generateParameters</a></td>
 <td>Public method that generates the commandline parameters.</td>
 </tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_addFileOrFolderButton_clicked">on_addFileOrFolderButton_clicked</a></td>
+<td>Private slot to add the entered file or directory to the list view.</td>
+</tr><tr>
 <td><a href="#CxfreezeConfigDialog.on_cxfreezeExecCombo_currentIndexChanged">on_cxfreezeExecCombo_currentIndexChanged</a></td>
-<td></td>
+<td>Private slot to handle the selection of a cxfreeze executable.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_deleteSelectedButton_clicked">on_deleteSelectedButton_clicked</a></td>
+<td>Private slot to delete the selected entry from the list view.</td>
 </tr><tr>
 <td><a href="#CxfreezeConfigDialog.on_extListFileButton_clicked">on_extListFileButton_clicked</a></td>
 <td>Private slot to select the external list file.</td>
 </tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_fileOrFolderEdit_textChanged">on_fileOrFolderEdit_textChanged</a></td>
+<td>Private slot to handle the textChanged signal of the directory edit.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_fileOrFolderList_currentRowChanged">on_fileOrFolderList_currentRowChanged</a></td>
+<td>Private slot to handle the currentRowChanged signal of the fileOrFolderList.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_fileOrFolderList_itemDoubleClicked">on_fileOrFolderList_itemDoubleClicked</a></td>
+<td>Private slot to handle the itemDoubleClicked signal of the fileOrFolderList.</td>
+</tr><tr>
 <td><a href="#CxfreezeConfigDialog.on_iconFileButton_clicked">on_iconFileButton_clicked</a></td>
 <td>Private slot to select an icon.</td>
+</tr><tr>
+<td><a href="#CxfreezeConfigDialog.on_selectFileOrFolderButton_clicked">on_selectFileOrFolderButton_clicked</a></td>
+<td>Private slot to select files or folders.</td>
 </tr><tr>
 <td><a href="#CxfreezeConfigDialog.on_targetDirButton_clicked">on_targetDirButton_clicked</a></td>
 <td>Private slot to select the target directory.</td>
@@ -156,10 +177,27 @@ list of split values
 a tuple of the commandline parameters and non default parameters
             (list of strings, dictionary)
 </dd>
-</dl><a NAME="CxfreezeConfigDialog.on_cxfreezeExecCombo_currentIndexChanged" ID="CxfreezeConfigDialog.on_cxfreezeExecCombo_currentIndexChanged"></a>
+</dl><a NAME="CxfreezeConfigDialog.on_addFileOrFolderButton_clicked" ID="CxfreezeConfigDialog.on_addFileOrFolderButton_clicked"></a>
+<h4>CxfreezeConfigDialog.on_addFileOrFolderButton_clicked</h4>
+<b>on_addFileOrFolderButton_clicked</b>(<i></i>)
+<p>
+        Private slot to add the entered file or directory to the list view.
+</p><a NAME="CxfreezeConfigDialog.on_cxfreezeExecCombo_currentIndexChanged" ID="CxfreezeConfigDialog.on_cxfreezeExecCombo_currentIndexChanged"></a>
 <h4>CxfreezeConfigDialog.on_cxfreezeExecCombo_currentIndexChanged</h4>
 <b>on_cxfreezeExecCombo_currentIndexChanged</b>(<i>text</i>)
-<a NAME="CxfreezeConfigDialog.on_extListFileButton_clicked" ID="CxfreezeConfigDialog.on_extListFileButton_clicked"></a>
+<p>
+        Private slot to handle the selection of a cxfreeze executable.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+selected cxfreeze executable (string)
+</dd>
+</dl><a NAME="CxfreezeConfigDialog.on_deleteSelectedButton_clicked" ID="CxfreezeConfigDialog.on_deleteSelectedButton_clicked"></a>
+<h4>CxfreezeConfigDialog.on_deleteSelectedButton_clicked</h4>
+<b>on_deleteSelectedButton_clicked</b>(<i></i>)
+<p>
+        Private slot to delete the selected entry from the list view.
+</p><a NAME="CxfreezeConfigDialog.on_extListFileButton_clicked" ID="CxfreezeConfigDialog.on_extListFileButton_clicked"></a>
 <h4>CxfreezeConfigDialog.on_extListFileButton_clicked</h4>
 <b>on_extListFileButton_clicked</b>(<i></i>)
 <p>
@@ -167,7 +205,37 @@ a tuple of the commandline parameters and non default parameters
 </p><p>
         It displays a file selection dialog to select the external list file,
         the list of include modules is written to.
-</p><a NAME="CxfreezeConfigDialog.on_iconFileButton_clicked" ID="CxfreezeConfigDialog.on_iconFileButton_clicked"></a>
+</p><a NAME="CxfreezeConfigDialog.on_fileOrFolderEdit_textChanged" ID="CxfreezeConfigDialog.on_fileOrFolderEdit_textChanged"></a>
+<h4>CxfreezeConfigDialog.on_fileOrFolderEdit_textChanged</h4>
+<b>on_fileOrFolderEdit_textChanged</b>(<i>txt</i>)
+<p>
+        Private slot to handle the textChanged signal of the directory edit.
+</p><dl>
+<dt><i>txt</i></dt>
+<dd>
+the text of the directory edit (string)
+</dd>
+</dl><a NAME="CxfreezeConfigDialog.on_fileOrFolderList_currentRowChanged" ID="CxfreezeConfigDialog.on_fileOrFolderList_currentRowChanged"></a>
+<h4>CxfreezeConfigDialog.on_fileOrFolderList_currentRowChanged</h4>
+<b>on_fileOrFolderList_currentRowChanged</b>(<i>row</i>)
+<p>
+        Private slot to handle the currentRowChanged signal of the fileOrFolderList.
+</p><dl>
+<dt><i>row</i></dt>
+<dd>
+the current row (integer)
+</dd>
+</dl><a NAME="CxfreezeConfigDialog.on_fileOrFolderList_itemDoubleClicked" ID="CxfreezeConfigDialog.on_fileOrFolderList_itemDoubleClicked"></a>
+<h4>CxfreezeConfigDialog.on_fileOrFolderList_itemDoubleClicked</h4>
+<b>on_fileOrFolderList_itemDoubleClicked</b>(<i>itm</i>)
+<p>
+        Private slot to handle the itemDoubleClicked signal of the fileOrFolderList.
+</p><dl>
+<dt><i>itm</i></dt>
+<dd>
+the selected row (QListWidgetItem)
+</dd>
+</dl><a NAME="CxfreezeConfigDialog.on_iconFileButton_clicked" ID="CxfreezeConfigDialog.on_iconFileButton_clicked"></a>
 <h4>CxfreezeConfigDialog.on_iconFileButton_clicked</h4>
 <b>on_iconFileButton_clicked</b>(<i></i>)
 <p>
@@ -175,6 +243,15 @@ a tuple of the commandline parameters and non default parameters
 </p><p>
         It displays a file selection dialog to select an icon to
         include into the executable.
+</p><a NAME="CxfreezeConfigDialog.on_selectFileOrFolderButton_clicked" ID="CxfreezeConfigDialog.on_selectFileOrFolderButton_clicked"></a>
+<h4>CxfreezeConfigDialog.on_selectFileOrFolderButton_clicked</h4>
+<b>on_selectFileOrFolderButton_clicked</b>(<i></i>)
+<p>
+        Private slot to select files or folders.
+</p><p>
+        It displays a file and directory selection dialog to
+        select the files and directorys which should copied into
+        the distribution folder..
 </p><a NAME="CxfreezeConfigDialog.on_targetDirButton_clicked" ID="CxfreezeConfigDialog.on_targetDirButton_clicked"></a>
 <h4>CxfreezeConfigDialog.on_targetDirButton_clicked</h4>
 <b>on_targetDirButton_clicked</b>(<i></i>)
@@ -184,6 +261,135 @@ a tuple of the commandline parameters and non default parameters
         It displays a directory selection dialog to
         select the directory the files are written to.
 </p>
+<div align="right"><a href="#top">Up</a></div>
+<hr /><hr />
+<a NAME="DirFileDialog" ID="DirFileDialog"></a>
+<h2>DirFileDialog</h2>
+<p>
+    Derived QFileDialog to select files and folders at once.
+    For this purpose the none native filedialog is used.
+</p>
+<h3>Derived from</h3>
+QFileDialog
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#DirFileDialog.__init__">DirFileDialog</a></td>
+<td>Extend the normal none native file dialog to select files and folders at once.</td>
+</tr><tr>
+<td><a href="#DirFileDialog.on_directoryEntered">on_directoryEntered</a></td>
+<td>Reset selections if another directory was entered.</td>
+</tr><tr>
+<td><a href="#DirFileDialog.on_openClicked">on_openClicked</a></td>
+<td>Update the list with the selected files and folders.</td>
+</tr><tr>
+<td><a href="#DirFileDialog.on_selectionChanged">on_selectionChanged</a></td>
+<td>Determine the selected files and folders and update the lineedit.</td>
+</tr><tr>
+<td><a href="#DirFileDialog.on_textChanged">on_textChanged</a></td>
+<td>Set the state of the open button.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr>
+<td><a href="#DirFileDialog.getOpenFileNames">getOpenFileNames</a></td>
+<td>Static method to get the names of files and folders for opening it.</td>
+</tr>
+</table>
+<a NAME="DirFileDialog.__init__" ID="DirFileDialog.__init__"></a>
+<h4>DirFileDialog (Constructor)</h4>
+<b>DirFileDialog</b>(<i>parent=None, caption="", directory="", filter=""</i>)
+<p>
+        Extend the normal none native file dialog to select files and folders at once.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd>
+</dl><a NAME="DirFileDialog.on_directoryEntered" ID="DirFileDialog.on_directoryEntered"></a>
+<h4>DirFileDialog.on_directoryEntered</h4>
+<b>on_directoryEntered</b>(<i>dir</i>)
+<p>
+        Reset selections if another directory was entered.
+</p><dl>
+<dt><i>dir</i></dt>
+<dd>
+name of the directory entered (string)
+</dd>
+</dl><a NAME="DirFileDialog.on_openClicked" ID="DirFileDialog.on_openClicked"></a>
+<h4>DirFileDialog.on_openClicked</h4>
+<b>on_openClicked</b>(<i></i>)
+<p>
+        Update the list with the selected files and folders.
+</p><a NAME="DirFileDialog.on_selectionChanged" ID="DirFileDialog.on_selectionChanged"></a>
+<h4>DirFileDialog.on_selectionChanged</h4>
+<b>on_selectionChanged</b>(<i>selected, deselected</i>)
+<p>
+        Determine the selected files and folders and update the lineedit.
+</p><dl>
+<dt><i>selected</i></dt>
+<dd>
+newly selected entries (QItemSelection)
+</dd><dt><i>deselected</i></dt>
+<dd>
+deselected entries (QItemSelection)
+</dd>
+</dl><a NAME="DirFileDialog.on_textChanged" ID="DirFileDialog.on_textChanged"></a>
+<h4>DirFileDialog.on_textChanged</h4>
+<b>on_textChanged</b>(<i>text</i>)
+<p>
+        Set the state of the open button.
+</p><dl>
+<dt><i>text</i></dt>
+<dd>
+text written into the line edit (string)
+</dd>
+</dl><a NAME="DirFileDialog.getOpenFileNames" ID="DirFileDialog.getOpenFileNames"></a>
+<h4>DirFileDialog.getOpenFileNames (static)</h4>
+<b>getOpenFileNames</b>(<i>caption="", directory="", filter="", options=QFileDialog.Options()</i>)
+<p>
+        Static method to get the names of files and folders for opening it.
+</p><dl>
+<dt><i>parent</i></dt>
+<dd>
+parent widget of the dialog (QWidget)
+</dd><dt><i>caption</i></dt>
+<dd>
+window title of the dialog (string)
+</dd><dt><i>directory</i></dt>
+<dd>
+working directory of the dialog (string)
+</dd><dt><i>filter</i></dt>
+<dd>
+filter string for the dialog (string)
+</dd><dt><i>options</i></dt>
+<dd>
+various options for the dialog (QFileDialog.Options)
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+names of the selected files and folders (list of strings)
+</dd>
+</dl>
 <div align="right"><a href="#top">Up</a></div>
 <hr />
 </body></html>

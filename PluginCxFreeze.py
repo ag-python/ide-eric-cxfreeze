@@ -56,8 +56,7 @@ def exeDisplayDataList():
     dataList = []
     data = {
         "programEntry": True,
-        "header": QCoreApplication.translate("CxFreezePlugin",
-                                "Packagers - cx_freeze"),
+        "header": QCoreApplication.translate("CxFreezePlugin", "Packagers - cx_freeze"),
         "exe": 'dummyfreeze',
         "versionCommand": '--version',
         "versionStartsWith": 'dummyfreeze',

@@ -34,14 +34,17 @@ class DirFileDialog(QFileDialog):
     Derived QFileDialog to select files and folders at once.
     For this purpose the none native filedialog is used.
     """
-    def __init__(self, parent=None, caption="", directory="",
-                             filter=""):
+    def __init__(self, parent=None, caption="", directory="", filter=""):
         """
-        Extend the normal none native filedialog to select files and folders at once.
+        Extend the normal none native file dialog to select files and folders at once.
         
-        @param args same argument list like QFileDialog
+        @param parent parent widget of the dialog (QWidget)
+        @param caption window title of the dialog (string)
+        @param directory working directory of the dialog (string)
+        @param filter filter string for the dialog (string)
         """
         self.selectedFilesFolders = []
+        
         QFileDialog.__init__(self, parent, caption, directory, filter)
         self.setFileMode(QFileDialog.ExistingFiles)
         btns = self.findChildren(QPushButton)
@@ -76,7 +79,7 @@ class DirFileDialog(QFileDialog):
         """
         Reset selections if another directory was entered.
         
-        @param dir name of the directory entered
+        @param dir name of the directory entered (string)
         """
         self.tree.selectionModel().clear()
         self.fileNameEdit.clear()
@@ -86,8 +89,8 @@ class DirFileDialog(QFileDialog):
         """
         Determine the selected files and folders and update the lineedit.
         
-        @param selected newly selected entries
-        @param deselected deselected entries
+        @param selected newly selected entries (QItemSelection)
+        @param deselected deselected entries (QItemSelection)
         """
         selectedItems = self.tree.selectionModel().selectedIndexes()
         if self.tree.rootIndex() in selectedItems or selectedItems == []:
@@ -102,25 +105,26 @@ class DirFileDialog(QFileDialog):
         """
         Set the state of the open button.
         
-        @param text text written into the lineedit.
+        @param text text written into the line edit (string)
         """
-        self.openBtn.setEnabled(text!='')
+        self.openBtn.setEnabled(text != '')
 
     @staticmethod
     def getOpenFileNames(parent=None, caption="", directory="",
-                             filter="", options=QFileDialog.Options()):
+                         filter="", options=QFileDialog.Options()):
         """
-        Module function to get the names of files and folders for opening it.
+        Static method to get the names of files and folders for opening it.
         
         @param parent parent widget of the dialog (QWidget)
         @param caption window title of the dialog (string)
         @param directory working directory of the dialog (string)
         @param filter filter string for the dialog (string)
         @param options various options for the dialog (QFileDialog.Options)
-        @return names of the selected files and folders (list)
+        @return names of the selected files and folders (list of strings)
         """
         options |= QFileDialog.DontUseNativeDialog
         dlg = DirFileDialog(parent, caption, directory, filter)
+        dlg.setOptions(options)
         dlg.exec_()
         return dlg.selectedFilesFolders
 
@@ -303,7 +307,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         
         # 2.3 additional files tab
         if self.parameters['additionalFiles'] != []:
-            parms['additionalFiles'] = self.parameters['additionalFiles']
+            parms['additionalFiles'] = self.parameters['additionalFiles'][:]
         
         return (args, parms)
 
@@ -380,6 +384,11 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
     
     @pyqtSlot(str)
     def on_cxfreezeExecCombo_currentIndexChanged(self, text):
+        """
+        Private slot to handle the selection of a cxfreeze executable.
+        
+        @param text selected cxfreeze executable (string)
+        """
         # version specific setup
         if Utilities.isWindowsPlatform():
             # remove "\Scripts\cx_Freeze.bat" from path
@@ -461,13 +470,14 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
     @pyqtSlot(QListWidgetItem)
     def on_fileOrFolderList_itemDoubleClicked(self, itm):
         """
-        Private slot to handle the currentRowChanged signal of the fileOrFolderList.
+        Private slot to handle the itemDoubleClicked signal of the fileOrFolderList.
         
-        @param itm the selected row
+        @param itm the selected row (QListWidgetItem)
         """
         self.fileOrFolderEdit.setText(itm.text())
         row = self.fileOrFolderList.currentRow()
-        self.fileOrFolderList.takeItem(row)
+        itm = self.fileOrFolderList.takeItem(row)
+        del itm
     
     @pyqtSlot()
     def on_addFileOrFolderButton_clicked(self):
@@ -496,7 +506,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         Private slot to delete the selected entry from the list view.
         """
         row = self.fileOrFolderList.currentRow()
-        self.fileOrFolderList.takeItem(row)
+        itm = self.fileOrFolderList.takeItem(row)
+        del itm
         row = self.fileOrFolderList.currentRow()
         self.on_fileOrFolderList_currentRowChanged(row)
 
@@ -513,10 +524,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             None,
             self.trUtf8("Select files and folders"))
 
-        ppath = self.project.ppath.replace(os.sep, '/') + '/'
         for itm in items:
-            if itm.startswith(ppath):
-                itm = itm.replace(ppath, '')
+            itm = self.project.getRelativePath(itm)
             self.fileOrFolderList.addItem(Utilities.toNativeSeparators(itm))
         row = self.fileOrFolderList.currentRow()
         self.on_fileOrFolderList_currentRowChanged(row)

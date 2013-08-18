@@ -16,7 +16,6 @@ Version 5.2.0:
 - filedialog to add distribution dependent files, e.g. *.ui, readme, which
   are copied after the freeze process
 
-
 Version 5.1.2:
 - bug fix
 
