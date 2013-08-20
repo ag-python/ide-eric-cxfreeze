@@ -46,6 +46,7 @@ pyqtApi = 2
 exePy2 = []
 exePy3 = []
 
+
 def exeDisplayDataList():
     """
     Public method to support the display of some executable info.
@@ -66,13 +67,14 @@ def exeDisplayDataList():
     }
     
     if _checkProgram():
-        for exePath in (exePy2+exePy3):
+        for exePath in (exePy2 + exePy3):
             data["exe"] = exePath
             data["versionStartsWith"] = "cxfreeze"
             dataList.append(data.copy())
     else:
         dataList.append(data)
     return dataList
+
 
 def _findExecutable(majorVersion):
     """
@@ -191,6 +193,7 @@ def _findExecutable(majorVersion):
     executables.sort(reverse=True)
     return executables
 
+
 def _checkProgram():
     """
     Restricted function to check the availability of cxfreeze.
@@ -201,7 +204,7 @@ def _checkProgram():
     
     exePy2 = _findExecutable(2)
     exePy3 = _findExecutable(3)
-    if (exePy2+exePy3) == []:
+    if (exePy2 + exePy3) == []:
         error = QCoreApplication.translate("CxFreezePlugin",
             "The cxfreeze executable could not be found.")
         return False

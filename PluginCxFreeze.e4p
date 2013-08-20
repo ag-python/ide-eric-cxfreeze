@@ -224,4 +224,53 @@
       </dict>
     </DocumentationParams>
   </Documentation>
+  <Checkers>
+    <CheckersParams>
+      <dict>
+        <key>
+          <string>Pep8Checker</string>
+        </key>
+        <value>
+          <dict>
+            <key>
+              <string>ExcludeFiles</string>
+            </key>
+            <value>
+              <string></string>
+            </value>
+            <key>
+              <string>ExcludeMessages</string>
+            </key>
+            <value>
+              <string>E24, W293, E501</string>
+            </value>
+            <key>
+              <string>FixCodes</string>
+            </key>
+            <value>
+              <string></string>
+            </value>
+            <key>
+              <string>FixIssues</string>
+            </key>
+            <value>
+              <bool>True</bool>
+            </value>
+            <key>
+              <string>IncludeMessages</string>
+            </key>
+            <value>
+              <string></string>
+            </value>
+            <key>
+              <string>RepeatMessages</string>
+            </key>
+            <value>
+              <bool>True</bool>
+            </value>
+          </dict>
+        </value>
+      </dict>
+    </CheckersParams>
+  </Checkers>
 </Project>

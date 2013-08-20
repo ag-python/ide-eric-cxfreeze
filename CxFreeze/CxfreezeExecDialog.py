@@ -27,6 +27,7 @@ from .Ui_CxfreezeExecDialog import Ui_CxfreezeExecDialog
 
 import Preferences
 
+
 class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
     """
     Module implementing a dialog to show the output of the cxfreeze process.
@@ -290,7 +291,7 @@ class copyAdditionalFiles(QThread):
             fn = os.path.abspath(os.path.normpath(fn))
             dst = os.path.join(self.ppath, self.targetDirectory)
             if fn.startswith(os.path.normpath(self.ppath)):
-                dirname = fn.split(self.ppath+os.sep)[1]
+                dirname = fn.split(self.ppath + os.sep)[1]
                 dst = os.path.join(dst, os.path.dirname(dirname))
                 try:
                     os.makedirs(dst)
