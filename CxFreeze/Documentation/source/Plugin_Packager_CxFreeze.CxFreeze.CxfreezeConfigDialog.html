@@ -285,17 +285,14 @@ QFileDialog
 <td><a href="#DirFileDialog.__init__">DirFileDialog</a></td>
 <td>Extend the normal none native file dialog to select files and folders at once.</td>
 </tr><tr>
+<td><a href="#DirFileDialog.accept">accept</a></td>
+<td>Update the list with the selected files and folders.</td>
+</tr><tr>
 <td><a href="#DirFileDialog.on_directoryEntered">on_directoryEntered</a></td>
 <td>Reset selections if another directory was entered.</td>
 </tr><tr>
-<td><a href="#DirFileDialog.on_openClicked">on_openClicked</a></td>
-<td>Update the list with the selected files and folders.</td>
-</tr><tr>
 <td><a href="#DirFileDialog.on_selectionChanged">on_selectionChanged</a></td>
 <td>Determine the selected files and folders and update the lineedit.</td>
-</tr><tr>
-<td><a href="#DirFileDialog.on_textChanged">on_textChanged</a></td>
-<td>Set the state of the open button.</td>
 </tr>
 </table>
 <h3>Static Methods</h3>
@@ -324,7 +321,12 @@ working directory of the dialog (string)
 <dd>
 filter string for the dialog (string)
 </dd>
-</dl><a NAME="DirFileDialog.on_directoryEntered" ID="DirFileDialog.on_directoryEntered"></a>
+</dl><a NAME="DirFileDialog.accept" ID="DirFileDialog.accept"></a>
+<h4>DirFileDialog.accept</h4>
+<b>accept</b>(<i></i>)
+<p>
+        Update the list with the selected files and folders.
+</p><a NAME="DirFileDialog.on_directoryEntered" ID="DirFileDialog.on_directoryEntered"></a>
 <h4>DirFileDialog.on_directoryEntered</h4>
 <b>on_directoryEntered</b>(<i>dir</i>)
 <p>
@@ -334,12 +336,7 @@ filter string for the dialog (string)
 <dd>
 name of the directory entered (string)
 </dd>
-</dl><a NAME="DirFileDialog.on_openClicked" ID="DirFileDialog.on_openClicked"></a>
-<h4>DirFileDialog.on_openClicked</h4>
-<b>on_openClicked</b>(<i></i>)
-<p>
-        Update the list with the selected files and folders.
-</p><a NAME="DirFileDialog.on_selectionChanged" ID="DirFileDialog.on_selectionChanged"></a>
+</dl><a NAME="DirFileDialog.on_selectionChanged" ID="DirFileDialog.on_selectionChanged"></a>
 <h4>DirFileDialog.on_selectionChanged</h4>
 <b>on_selectionChanged</b>(<i>selected, deselected</i>)
 <p>
@@ -351,16 +348,6 @@ newly selected entries (QItemSelection)
 </dd><dt><i>deselected</i></dt>
 <dd>
 deselected entries (QItemSelection)
-</dd>
-</dl><a NAME="DirFileDialog.on_textChanged" ID="DirFileDialog.on_textChanged"></a>
-<h4>DirFileDialog.on_textChanged</h4>
-<b>on_textChanged</b>(<i>text</i>)
-<p>
-        Set the state of the open button.
-</p><dl>
-<dt><i>text</i></dt>
-<dd>
-text written into the line edit (string)
 </dd>
 </dl><a NAME="DirFileDialog.getOpenFileNames" ID="DirFileDialog.getOpenFileNames"></a>
 <h4>DirFileDialog.getOpenFileNames (static)</h4>

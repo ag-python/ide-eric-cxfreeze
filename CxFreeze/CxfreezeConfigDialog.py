@@ -19,7 +19,7 @@ import copy
 
 from PyQt4.QtCore import pyqtSlot, QDir, QProcess
 from PyQt4.QtGui import QDialog, QListWidgetItem, QFileDialog, QPushButton, QTreeView, \
-    QItemSelection, QLineEdit
+    QItemSelection, QLineEdit, QFileSystemModel
 
 from E5Gui import E5FileDialog
 from E5Gui.E5Completers import E5FileCompleter, E5DirCompleter
@@ -47,31 +47,22 @@ class DirFileDialog(QFileDialog):
         
         QFileDialog.__init__(self, parent, caption, directory, filter)
         self.setFileMode(QFileDialog.ExistingFiles)
-        btns = self.findChildren(QPushButton)
-        self.openBtn = [x for x in btns if 'open' in str(x.text()).lower()][0]
-        self.openBtn.clicked.disconnect()
-        self.openBtn.clicked.connect(self.on_openClicked)
-        self.tree = self.findChild(QTreeView)
+        self.openBtn = self.findChildren(QPushButton)[0]
         self.fileNameEdit = self.findChild(QLineEdit)
-        self.fileNameEdit.textChanged.disconnect()
-        self.fileNameEdit.textChanged.connect(self.on_textChanged)
         self.directoryEntered.connect(self.on_directoryEntered)
+        self.tree = self.findChild(QTreeView)
         self.tree.selectionModel().selectionChanged.connect(self.on_selectionChanged)
 
-    @pyqtSlot()
-    def on_openClicked(self):
+    def accept(self):
         """
         Update the list with the selected files and folders.
         """
-        # Special case if a drive selected in Windows
-        if self.directory().dirName() != '.':
-            selectedItems = self.tree.selectionModel().selectedIndexes()
-            path = os.path.normpath(self.directory().absolutePath())
-            self.selectedFilesFolders = [os.path.join(path, itm.data())
-                for itm in selectedItems if itm.column() == 0]
-            # normalize path to slashes
-            self.selectedFilesFolders = [x.replace(os.sep, '/')
-                for x in self.selectedFilesFolders]
+        # Avoid to close the dialog if only return is pressed
+        if self.openBtn.isEnabled() == False:
+            return
+
+        self.selectedFilesFolders = [x.data(QFileSystemModel.FilePathRole)
+            for x in self.tree.selectionModel().selectedIndexes() if x.column() == 0]
         self.hide()
 
     @pyqtSlot(str)
@@ -83,6 +74,7 @@ class DirFileDialog(QFileDialog):
         """
         self.tree.selectionModel().clear()
         self.fileNameEdit.clear()
+        self.openBtn.setEnabled(False)
 
     @pyqtSlot(QItemSelection, QItemSelection)
     def on_selectionChanged(self, selected, deselected):
@@ -94,20 +86,19 @@ class DirFileDialog(QFileDialog):
         """
         selectedItems = self.tree.selectionModel().selectedIndexes()
         if self.tree.rootIndex() in selectedItems or selectedItems == []:
-            self.fileNameEdit.setText('')
-        else:
-            selectedItems = [x.data() for x in selectedItems if x.column() == 0]
-            selectedItems.sort()
-            self.fileNameEdit.setText(';'.join(selectedItems))
-
-    @pyqtSlot(str)
-    def on_textChanged(self, text):
-        """
-        Set the state of the open button.
-        
-        @param text text written into the line edit (string)
-        """
-        self.openBtn.setEnabled(text != '')
+            return
+        selectedFiles = [x.data(QFileSystemModel.FileNameRole)
+            for x in selectedItems if x.column() == 0]
+        enteredFiles = self.fileNameEdit.text().split('"')
+        enteredFiles = [x for x in enteredFiles if x.strip() != '']
+        # Check if there is a directory in the selection. Then update the lineEdit
+        for selectedFile in selectedFiles:
+            if selectedFile not in enteredFiles:
+                txt = '" "'.join(selectedFiles)
+                if len(selectedFiles) > 1:
+                    txt = '"{0}"'.format(txt)
+                self.fileNameEdit.setText(txt)
+                break
 
     @staticmethod
     def getOpenFileNames(parent=None, caption="", directory="",
