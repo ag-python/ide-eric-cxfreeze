@@ -23,42 +23,42 @@
         <translation type="obsolete">&lt;b&gt;Použít cx_Freeze&lt;/b&gt;&lt;p&gt;Generování distribučního balíčku za použití cx_Freeze. Příkaz je vykonán v cestě projektu. Všechny soubory a adresáře musí být zadány absolutně nebo relativně vůči adresáři projektu.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="59"/>
+        <location filename="../../PluginCxFreeze.py" line="60"/>
         <source>Packagers - cx_freeze</source>
         <translation>Balíčkovače - cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="327"/>
+        <location filename="../../PluginCxFreeze.py" line="330"/>
         <source>There is no main script defined for the current project.</source>
         <translation>V aktuálním projektu není definován hlavní skript.</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="337"/>
+        <location filename="../../PluginCxFreeze.py" line="340"/>
         <source>The cxfreeze executable could not be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="337"/>
+        <location filename="../../PluginCxFreeze.py" line="340"/>
         <source>cxfreeze</source>
         <translation>cxfreeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="255"/>
+        <location filename="../../PluginCxFreeze.py" line="258"/>
         <source>Use cx_freeze</source>
         <translation>Použít cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="255"/>
+        <location filename="../../PluginCxFreeze.py" line="258"/>
         <source>Use cx_&amp;freeze</source>
         <translation>Použít cx_&amp;freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="258"/>
+        <location filename="../../PluginCxFreeze.py" line="261"/>
         <source>Generate a distribution package using cx_freeze</source>
         <translation>Generovat distribuční balíček za použití cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="260"/>
+        <location filename="../../PluginCxFreeze.py" line="263"/>
         <source>&lt;b&gt;Use cx_freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation>&lt;b&gt;Použít cx_freeze&lt;/b&gt;&lt;p&gt;Generování distribučního balíčku za použití cx_freeze. Příkaz je vykonán v cestě projektu. Všechny soubory a adresáře musí být zadány absolutně nebo relativně vůči adresáři projektu.&lt;/p&gt;</translation>
     </message>
@@ -289,7 +289,7 @@
         <translation>Externí seznam souborů:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="371"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="362"/>
         <source>Select target directory</source>
         <translation>Výběr cílového adresáře</translation>
     </message>
@@ -299,7 +299,7 @@
         <translation type="obsolete">Výběr Python společné knihovny</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="322"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="313"/>
         <source>Select external list file</source>
         <translation>Výběr externího seznamu souborů</translation>
     </message>
@@ -334,17 +334,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="342"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="333"/>
         <source>Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="343"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="334"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="351"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="342"/>
         <source>Select the application icon</source>
         <translation type="unfinished"></translation>
     </message>
@@ -391,7 +391,7 @@ Wildcards are allowed, e.g. *.ui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="523"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="514"/>
         <source>Select files and folders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -427,22 +427,22 @@ Wildcards are allowed, e.g. *.ui</source>
         <translation>&lt;b&gt;Provedení balíčkovače&lt;/b&gt;&lt;p&gt;Zobrazuje se výstup z příkazu balíčkovače.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="85"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="86"/>
         <source>{0} - {1}</source>
         <translation>{0} - {1}</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="93"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="94"/>
         <source>Process Generation Error</source>
         <translation>Chyba v procesu generování</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="93"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="94"/>
         <source>The process {0} could not be started. Ensure, that it is in the search path.</source>
         <translation>Proces {0} nelze spustit. Ověřte, že je umístěn v požadované cestě.</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="146"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="147"/>
         <source>
 {0} finished.
 </source>
@@ -461,7 +461,7 @@ Wildcards are allowed, e.g. *.ui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="132"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="133"/>
         <source>
 {0} aborted.
 </source>
@@ -471,23 +471,23 @@ Wildcards are allowed, e.g. *.ui</source>
 <context>
     <name>copyAdditionalFiles</name>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="273"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="274"/>
         <source>No such file or directory: &apos;{0}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="285"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="286"/>
         <source>
 Copying {0}: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="303"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="304"/>
         <source>ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="305"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="306"/>
         <source>failed: {0}</source>
         <translation type="unfinished"></translation>
     </message>
