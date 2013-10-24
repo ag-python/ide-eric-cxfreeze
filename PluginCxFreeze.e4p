@@ -7,7 +7,7 @@
   <ProgLanguage mixed="0">Python3</ProgLanguage>
   <ProjectType>E4Plugin</ProjectType>
   <Description>This plugin implements an eric5 interface to the cxfreeze packager.</Description>
-  <Version>5.2.0</Version>
+  <Version>5.2.x</Version>
   <Author>Detlev Offenbach</Author>
   <Email>detlev@die-offenbachs.de</Email>
   <TranslationPattern>CxFreeze/i18n/cxfreeze_%language%.ts</TranslationPattern>
@@ -233,6 +233,12 @@
         <value>
           <dict>
             <key>
+              <string>DocstringType</string>
+            </key>
+            <value>
+              <string>eric</string>
+            </value>
+            <key>
               <string>ExcludeFiles</string>
             </key>
             <value>
@@ -242,7 +248,7 @@
               <string>ExcludeMessages</string>
             </key>
             <value>
-              <string>E24, W293, E501</string>
+              <string>E24, W293, N802, N803, N807, N808, N821</string>
             </value>
             <key>
               <string>FixCodes</string>
@@ -254,13 +260,31 @@
               <string>FixIssues</string>
             </key>
             <value>
-              <bool>True</bool>
+              <bool>False</bool>
+            </value>
+            <key>
+              <string>HangClosing</string>
+            </key>
+            <value>
+              <bool>False</bool>
             </value>
             <key>
               <string>IncludeMessages</string>
             </key>
             <value>
               <string></string>
+            </value>
+            <key>
+              <string>MaxLineLength</string>
+            </key>
+            <value>
+              <int>79</int>
+            </value>
+            <key>
+              <string>NoFixCodes</string>
+            </key>
+            <value>
+              <string>E501</string>
             </value>
             <key>
               <string>RepeatMessages</string>

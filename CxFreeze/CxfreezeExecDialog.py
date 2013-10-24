@@ -56,10 +56,12 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         """
         Public slot to start the packager command.
         
-        @param args commandline arguments for packager program (list of strings)
+        @param args commandline arguments for packager program (list of
+            strings)
         @param parms parameters got from the config dialog (dict)
         @param ppath project path (string)
-        @param script main script name to be processed by by the packager (string)
+        @param mainscript main script name to be processed by by the packager
+            (string)
         @return flag indicating the successful start of the process
         """
         self.errorGroup.hide()
@@ -69,7 +71,8 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         
         self.ppath = ppath
         self.additionalFiles = parms.get('additionalFiles', [])
-        self.targetDirectory = os.path.join(parms.get('targetDirectory', 'dist'))
+        self.targetDirectory = os.path.join(
+            parms.get('targetDirectory', 'dist'))
         
         self.contents.clear()
         self.errors.clear()
@@ -83,7 +86,8 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process.readyReadStandardError.connect(self.__readStderr)
         self.process.finished.connect(self.__finishedFreeze)
             
-        self.setWindowTitle(self.trUtf8('{0} - {1}').format(self.cmdname, script))
+        self.setWindowTitle(self.trUtf8('{0} - {1}').format(
+            self.cmdname, script))
         self.contents.insertPlainText(' '.join(args) + '\n\n')
         self.contents.ensureCursorVisible()
         
@@ -91,7 +95,8 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process.start(program, args)
         procStarted = self.process.waitForStarted()
         if not procStarted:
-            E5MessageBox.critical(None,
+            E5MessageBox.critical(
+                self,
                 self.trUtf8('Process Generation Error'),
                 self.trUtf8(
                     'The process {0} could not be started. '
@@ -147,7 +152,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.contents.insertPlainText(
             self.trUtf8('\n{0} finished.\n').format(self.cmdname))
         
-        self.copyProcess = copyAdditionalFiles(self)
+        self.copyProcess = CopyAdditionalFiles(self)
         self.copyProcess.insertPlainText.connect(self.contents.insertPlainText)
         self.copyProcess.finished.connect(self.__enableButtons)
         self.copyProcess.start()
@@ -199,11 +204,12 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
             self.errors.ensureCursorVisible()
 
 
-class copyAdditionalFiles(QThread):
+class CopyAdditionalFiles(QThread):
     """
     Thread to copy the distribution dependend files.
     
-    @signal insertPlainText(text) emitted to inform user about the copy progress
+    @signal insertPlainText(text) emitted to inform user about the copy
+        progress
     """
     insertPlainText = pyqtSignal(str)
     
@@ -213,7 +219,7 @@ class copyAdditionalFiles(QThread):
         
         @param main self-object of the caller
         """
-        super(copyAdditionalFiles, self).__init__()
+        super(CopyAdditionalFiles, self).__init__()
         
         self.ppath = main.ppath
         self.additionalFiles = main.additionalFiles
@@ -221,11 +227,15 @@ class copyAdditionalFiles(QThread):
     
     def __copytree(self, src, dst):
         """
-        Copies a file or folder. Wildcards allowed. Existing files are overwitten.
+        Private method to copy a file or folder.
+       
+        Wildcards allowed. Existing files are overwitten.
         
         @param src source file or folder to copy. Wildcards allowed. (str)
         @param dst destination (str)
-        """
+        @exception OSError raised if there is an issue writing the package
+        @exception IOError raised if the given source does not exist
+        """                                             # __IGNORE_WARNING__
         def src2dst(srcname, base, dst):
             """
             Combines the relativ path of the source (srcname) with the
@@ -256,7 +266,8 @@ class copyAdditionalFiles(QThread):
                         copied = True
                         os.makedirs(newDir)
                     except OSError as err:
-                        if err.errno != errno.EEXIST:     # it's ok if directory already exists
+                        if err.errno != errno.EEXIST:
+                            # it's ok if directory already exists
                             raise err
                 else:
                     dirs.remove(dir)
@@ -271,14 +282,18 @@ class copyAdditionalFiles(QThread):
             
             # check if file was found and copied
             if len(files) and not copied:
-                raise IOError(errno.ENOENT,
-                    self.trUtf8("No such file or directory: '{0}'").format(src))
+                raise IOError(
+                    errno.ENOENT,
+                    self.trUtf8("No such file or directory: '{0}'")
+                    .format(src))
             
             initDone = True
             
     def run(self):
         """
         QThread entry point to copy the selected additional files and folders.
+        
+        @exception OSError raised if there is an issue writing the package
         """
         self.insertPlainText.emit('----\n')
         os.chdir(self.ppath)
@@ -296,11 +311,13 @@ class copyAdditionalFiles(QThread):
                 try:
                     os.makedirs(dst)
                 except OSError as err:
-                    if err.errno != errno.EEXIST:     # it's ok if directory already exists
+                    if err.errno != errno.EEXIST:     # it's ok if directory
+                                                      # already exists
                         raise err
             
             try:
                 self.__copytree(fn, dst)
                 self.insertPlainText.emit(self.trUtf8('ok'))
             except IOError as err:
-                self.insertPlainText.emit(self.trUtf8('failed: {0}').format(err.strerror))
+                self.insertPlainText.emit(
+                    self.trUtf8('failed: {0}').format(err.strerror))

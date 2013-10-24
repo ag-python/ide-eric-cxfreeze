@@ -21,7 +21,8 @@ try:
     from E5Gui.E5Application import e5App
     error = ""
 except ImportError:
-    error = QCoreApplication.translate("CxFreezePlugin",
+    error = QCoreApplication.translate(
+        "CxFreezePlugin",
         """Your version of Eric5 is not supported."""
         """ At least version 5.1.0 of Eric5 is needed.""")
     
@@ -33,12 +34,13 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.2.0"
+version = "5.2.1"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
-longDescription = """This plugin implements the CxFreeze dialogs.""" \
- """ CxFreeze is used to generate a distribution package."""
+longDescription = \
+    """This plugin implements the CxFreeze dialogs.""" \
+    """ CxFreeze is used to generate a distribution package."""
 needsRestart = False
 pyqtApi = 2
 # End-of-Header
@@ -57,7 +59,8 @@ def exeDisplayDataList():
     dataList = []
     data = {
         "programEntry": True,
-        "header": QCoreApplication.translate("CxFreezePlugin", "Packagers - cx_freeze"),
+        "header": QCoreApplication.translate(
+            "CxFreezePlugin", "Packagers - cx_freeze"),
         "exe": 'dummyfreeze',
         "versionCommand": '--version',
         "versionStartsWith": 'dummyfreeze',
@@ -117,24 +120,28 @@ def _findExecutable(majorVersion):
         
         for minorVersion in minorVersions:
             versionStr = '{0}.{1}'.format(majorVersion, minorVersion)
-            exePath = getExePath(winreg.HKEY_CURRENT_USER,
+            exePath = getExePath(
+                winreg.HKEY_CURRENT_USER,
                 winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
                 
             if exePath is not None:
                 executables.add(exePath)
-            exePath = getExePath(winreg.HKEY_LOCAL_MACHINE,
+            exePath = getExePath(
+                winreg.HKEY_LOCAL_MACHINE,
                 winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
             
             # Even on Intel 64-bit machines it's 'AMD64'
             if platform.machine() == 'AMD64':
                 if exePath is not None:
                     executables.add(exePath)
-                exePath = getExePath(winreg.HKEY_CURRENT_USER,
+                exePath = getExePath(
+                    winreg.HKEY_CURRENT_USER,
                     winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
                 
                 if exePath is not None:
                     executables.add(exePath)
-                exePath = getExePath(winreg.HKEY_LOCAL_MACHINE,
+                exePath = getExePath(
+                    winreg.HKEY_LOCAL_MACHINE,
                     winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
                 
                 if exePath is not None:
@@ -143,17 +150,16 @@ def _findExecutable(majorVersion):
         #
         # Linux, Unix ...
         cxfreezeScript = 'cxfreeze'
-        scriptSuffixes = ["",
-                    "-python{0}".format(majorVersion)]
+        scriptSuffixes = ["", "-python{0}".format(majorVersion)]
         for minorVersion in minorVersions:
             scriptSuffixes.append(
-                    "-python{0}.{1}".format(majorVersion, minorVersion))
+                "-python{0}.{1}".format(majorVersion, minorVersion))
         # There could be multiple cxfreeze executables in the path
         # e.g. for different python variants
         path = Utilities.getEnvironmentEntry('PATH')
         # environment variable not defined
         if path is None:
-            return  []
+            return []
         
         # step 1: determine possible candidates
         exes = []
@@ -205,7 +211,8 @@ def _checkProgram():
     exePy2 = _findExecutable(2)
     exePy3 = _findExecutable(3)
     if (exePy2 + exePy3) == []:
-        error = QCoreApplication.translate("CxFreezePlugin",
+        error = QCoreApplication.translate(
+            "CxFreezePlugin",
             "The cxfreeze executable could not be found.")
         return False
     else:
@@ -255,17 +262,18 @@ class CxFreezePlugin(QObject):
         project = e5App().getObject("Project")
         menu = project.getMenu("Packagers")
         if menu:
-            self.__projectAct = E5Action(self.trUtf8('Use cx_freeze'),
-                    self.trUtf8('Use cx_&freeze'), 0, 0,
-                    self, 'packagers_cxfreeze')
+            self.__projectAct = E5Action(
+                self.trUtf8('Use cx_freeze'),
+                self.trUtf8('Use cx_&freeze'), 0, 0,
+                self, 'packagers_cxfreeze')
             self.__projectAct.setStatusTip(
                 self.trUtf8('Generate a distribution package using cx_freeze'))
             self.__projectAct.setWhatsThis(self.trUtf8(
-            """<b>Use cx_freeze</b>"""
-            """<p>Generate a distribution package using cx_freeze."""
-            """ The command is executed in the project path. All"""
-            """ files and directories must be given absolute or"""
-            """ relative to the project directory.</p>"""
+                """<b>Use cx_freeze</b>"""
+                """<p>Generate a distribution package using cx_freeze."""
+                """ The command is executed in the project path. All"""
+                """ files and directories must be given absolute or"""
+                """ relative to the project directory.</p>"""
             ))
             self.__projectAct.triggered[()].connect(self.__cxfreeze)
             project.addE5Actions([self.__projectAct])
@@ -283,7 +291,8 @@ class CxFreezePlugin(QObject):
         if menu:
             if self.__projectAct:
                 menu.removeAction(self.__projectAct)
-                e5App().getObject("Project").removeE5Actions([self.__projectAct])
+                e5App().getObject("Project").removeE5Actions(
+                    [self.__projectAct])
         self.__initialize()
     
     def __projectShowMenu(self, menuName, menu):
@@ -297,8 +306,8 @@ class CxFreezePlugin(QObject):
         if menuName == "Packagers":
             if self.__projectAct is not None:
                 self.__projectAct.setEnabled(
-                    e5App().getObject("Project").getProjectLanguage() in \
-                        ["Python", "Python2", "Python3"])
+                    e5App().getObject("Project").getProjectLanguage() in
+                    ["Python", "Python2", "Python3"])
     
     def __loadTranslator(self):
         """
@@ -316,8 +325,8 @@ class CxFreezePlugin(QObject):
                     self.__translator = translator
                     e5App().installTranslator(self.__translator)
                 else:
-                    print("Warning: translation file '{0}' could not be loaded."\
-                        .format(translation))
+                    print("Warning: translation file '{0}' could not be"
+                          " loaded.".format(translation))
                     print("Using default.")
     
     def __cxfreeze(self):
@@ -327,17 +336,21 @@ class CxFreezePlugin(QObject):
         project = e5App().getObject("Project")
         if len(project.pdata["MAINSCRIPT"]) == 0:
             # no main script defined
-            E5MessageBox.critical(None,
+            E5MessageBox.critical(
+                self,
                 self.trUtf8("cxfreeze"),
                 self.trUtf8(
-                    """There is no main script defined for the current project."""),
+                    """There is no main script defined for the current"""
+                    """ project."""),
                 E5MessageBox.StandardButtons(E5MessageBox.Abort))
             return
         
         majorVersionStr = project.getProjectLanguage()
-        exe = {"Python": exePy2, "Python2": exePy2, "Python3": exePy3}.get(majorVersionStr)
+        exe = {"Python": exePy2, "Python2": exePy2, "Python3": exePy3}\
+            .get(majorVersionStr)
         if exe == []:
-            E5MessageBox.critical(None,
+            E5MessageBox.critical(
+                self,
                 self.trUtf8("cxfreeze"),
                 self.trUtf8("""The cxfreeze executable could not be found."""))
             return
@@ -358,6 +371,6 @@ class CxFreezePlugin(QObject):
             dia = CxfreezeExecDialog("cxfreeze")
             dia.show()
             res = dia.start(args, parms, project.ppath,
-                project.pdata["MAINSCRIPT"][0])
+                            project.pdata["MAINSCRIPT"][0])
             if res:
                 dia.exec_()

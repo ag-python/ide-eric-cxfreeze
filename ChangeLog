@@ -1,5 +1,8 @@
 ChangeLog
 ---------
+Version 5.2.1:
+- fixed code style issues
+
 Version 5.2.0:
 (compatible with Eric5.1.0 or greater)
 - bug fix

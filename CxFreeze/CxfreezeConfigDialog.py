@@ -18,8 +18,8 @@ import os
 import copy
 
 from PyQt4.QtCore import pyqtSlot, QDir, QProcess
-from PyQt4.QtGui import QDialog, QListWidgetItem, QFileDialog, QPushButton, QTreeView, \
-    QItemSelection, QLineEdit, QFileSystemModel
+from PyQt4.QtGui import QDialog, QListWidgetItem, QFileDialog, QPushButton, \
+    QTreeView, QItemSelection, QLineEdit, QFileSystemModel
 
 from E5Gui import E5FileDialog
 from E5Gui.E5Completers import E5FileCompleter, E5DirCompleter
@@ -32,11 +32,13 @@ import Utilities
 class DirFileDialog(QFileDialog):
     """
     Derived QFileDialog to select files and folders at once.
+    
     For this purpose the none native filedialog is used.
     """
     def __init__(self, parent=None, caption="", directory="", filter=""):
         """
-        Extend the normal none native file dialog to select files and folders at once.
+        Extend the normal none native file dialog to select files and folders
+        at once.
         
         @param parent parent widget of the dialog (QWidget)
         @param caption window title of the dialog (string)
@@ -51,18 +53,21 @@ class DirFileDialog(QFileDialog):
         self.fileNameEdit = self.findChild(QLineEdit)
         self.directoryEntered.connect(self.on_directoryEntered)
         self.tree = self.findChild(QTreeView)
-        self.tree.selectionModel().selectionChanged.connect(self.on_selectionChanged)
+        self.tree.selectionModel().selectionChanged.connect(
+            self.on_selectionChanged)
 
     def accept(self):
         """
         Update the list with the selected files and folders.
         """
         # Avoid to close the dialog if only return is pressed
-        if self.openBtn.isEnabled() == False:
+        if not self.openBtn.isEnabled():
             return
 
-        self.selectedFilesFolders = [x.data(QFileSystemModel.FilePathRole)
-            for x in self.tree.selectionModel().selectedIndexes() if x.column() == 0]
+        self.selectedFilesFolders = [
+            x.data(QFileSystemModel.FilePathRole)
+            for x in self.tree.selectionModel().selectedIndexes()
+            if x.column() == 0]
         self.hide()
 
     @pyqtSlot(str)
@@ -88,10 +93,11 @@ class DirFileDialog(QFileDialog):
         if self.tree.rootIndex() in selectedItems or selectedItems == []:
             return
         selectedFiles = [x.data(QFileSystemModel.FileNameRole)
-            for x in selectedItems if x.column() == 0]
+                         for x in selectedItems if x.column() == 0]
         enteredFiles = self.fileNameEdit.text().split('"')
         enteredFiles = [x for x in enteredFiles if x.strip() != '']
-        # Check if there is a directory in the selection. Then update the lineEdit
+        # Check if there is a directory in the selection. Then update the
+        # lineEdit.
         for selectedFile in selectedFiles:
             if selectedFile not in enteredFiles:
                 txt = '" "'.join(selectedFiles)
@@ -176,11 +182,16 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             self.optimizeDocRadioButton.setChecked(True)
         
         # initialize advanced tab
-        self.defaultPathEdit.setText(os.pathsep.join(self.parameters['defaultPath']))
-        self.includePathEdit.setText(os.pathsep.join(self.parameters['includePath']))
-        self.replacePathsEdit.setText(os.pathsep.join(self.parameters['replacePaths']))
-        self.includeModulesEdit.setText(','.join(self.parameters['includeModules']))
-        self.excludeModulesEdit.setText(','.join(self.parameters['excludeModules']))
+        self.defaultPathEdit.setText(
+            os.pathsep.join(self.parameters['defaultPath']))
+        self.includePathEdit.setText(
+            os.pathsep.join(self.parameters['includePath']))
+        self.replacePathsEdit.setText(
+            os.pathsep.join(self.parameters['replacePaths']))
+        self.includeModulesEdit.setText(
+            ','.join(self.parameters['includeModules']))
+        self.excludeModulesEdit.setText(
+            ','.join(self.parameters['excludeModules']))
         self.extListFileEdit.setText(self.parameters['extListFile'])
         
         # initialize additional files tab
@@ -231,8 +242,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         The second list can be passed back upon object generation to overwrite
         the default settings.
         
-        @return a tuple of the commandline parameters and non default parameters
-            (list of strings, dictionary)
+        @return a tuple of the commandline parameters and non default
+            parameters (list of strings, dictionary)
         """
         parms = {}
         args = []
@@ -242,21 +253,27 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         
         # 2. the commandline options
         # 2.1 general options
-        if self.parameters['targetDirectory'] != self.defaults['targetDirectory']:
+        if self.parameters['targetDirectory'] != \
+                self.defaults['targetDirectory']:
             parms['targetDirectory'] = self.parameters['targetDirectory']
-            args.append('--target-dir={0}'.format(self.parameters['targetDirectory']))
+            args.append('--target-dir={0}'.format(
+                self.parameters['targetDirectory']))
         if self.parameters['targetName'] != self.defaults['targetName']:
             parms['targetName'] = self.parameters['targetName'][:]
-            args.append('--target-name={0}'.format(self.parameters['targetName']))
+            args.append('--target-name={0}'.format(
+                self.parameters['targetName']))
         parms['baseName'] = self.parameters['baseName'][:]
         if self.parameters['baseName'] != '':
             args.append('--base-name={0}'.format(self.parameters['baseName']))
         parms['initScript'] = self.parameters['initScript'][:]
         if self.parameters['initScript'] != '':
-            args.append('--init-script={0}'.format(self.parameters['initScript']))
+            args.append('--init-script={0}'.format(
+                self.parameters['initScript']))
         parms['applicationIcon'] = self.parameters['applicationIcon'][:]
-        if self.parameters['applicationIcon'] != self.defaults['applicationIcon']:
-            args.append('--icon={0}'.format(self.parameters['applicationIcon']))
+        if self.parameters['applicationIcon'] != \
+                self.defaults['applicationIcon']:
+            args.append('--icon={0}'.format(
+                self.parameters['applicationIcon']))
         parms['script'] = self.parameters['script'][:]
         if self.parameters['keepPath'] != self.defaults['keepPath']:
             parms['keepPath'] = self.parameters['keepPath']
@@ -284,17 +301,20 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             parms['replacePaths'] = self.parameters['replacePaths'][:]
             args.append('--replace-paths={0}'.format(
                         os.pathsep.join(self.parameters['replacePaths'])))
-        if self.parameters['includeModules'] != self.defaults['includeModules']:
+        if self.parameters['includeModules'] != \
+                self.defaults['includeModules']:
             parms['includeModules'] = self.parameters['includeModules'][:]
             args.append('--include-modules={0}'.format(
                         ','.join(self.parameters['includeModules'])))
-        if self.parameters['excludeModules'] != self.defaults['excludeModules']:
+        if self.parameters['excludeModules'] != \
+                self.defaults['excludeModules']:
             parms['excludeModules'] = self.parameters['excludeModules'][:]
             args.append('--exclude-modules={0}'.format(
                         ','.join(self.parameters['excludeModules'])))
         if self.parameters['extListFile'] != self.defaults['extListFile']:
             parms['extListFile'] = self.parameters['extListFile']
-            args.append('--ext-list-file={0}'.format(self.parameters['extListFile']))
+            args.append('--ext-list-file={0}'.format(
+                self.parameters['extListFile']))
         
         # 2.3 additional files tab
         if self.parameters['additionalFiles'] != []:
@@ -333,11 +353,14 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         iconsI18N = self.trUtf8("Icons")
         allFilesI18N = self.trUtf8("All files")
         if Utilities.isWindowsPlatform():
-            iconFilter = "{0} (*.ico);;{1} (*.*)".format(iconsI18N, allFilesI18N)
+            iconFilter = "{0} (*.ico);;{1} (*.*)".format(
+                iconsI18N, allFilesI18N)
         elif Utilities.isMacPlatform():
-            iconFilter = "{0} (*.icns *.png);;{1} (*.*)".format(iconsI18N, allFilesI18N)
+            iconFilter = "{0} (*.icns *.png);;{1} (*.*)".format(
+                iconsI18N, allFilesI18N)
         else:
-            iconFilter = "{0} (*.png);;{1} (*.*)".format(iconsI18N, allFilesI18N)
+            iconFilter = "{0} (*.png);;{1} (*.*)".format(
+                iconsI18N, allFilesI18N)
         
         iconList = E5FileDialog.getOpenFileName(
             self,
@@ -387,7 +410,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             dirname = os.path.dirname(dirname)
             
             # first try the fast way
-            modpath = os.path.join(dirname, "Lib", "site-packages", "cx_Freeze")
+            modpath = os.path.join(
+                dirname, "Lib", "site-packages", "cx_Freeze")
             if not os.path.exists(modpath):
                 # but if it failed search in the whole directory tree
                 modpath = None
@@ -445,12 +469,14 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             initList.insert(0, '')
             currentText = self.initscriptCombo.currentText()
             self.initscriptCombo.clear()
-            self.initscriptCombo.addItems([os.path.splitext(i)[0] for i in initList])
+            self.initscriptCombo.addItems(
+                [os.path.splitext(i)[0] for i in initList])
             self.initscriptCombo.setEditText(currentText)
     
     def on_fileOrFolderList_currentRowChanged(self, row):
         """
-        Private slot to handle the currentRowChanged signal of the fileOrFolderList.
+        Private slot to handle the currentRowChanged signal of the
+        fileOrFolderList.
         
         @param row the current row (integer)
         """
@@ -461,7 +487,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
     @pyqtSlot(QListWidgetItem)
     def on_fileOrFolderList_itemDoubleClicked(self, itm):
         """
-        Private slot to handle the itemDoubleClicked signal of the fileOrFolderList.
+        Private slot to handle the itemDoubleClicked signal of the
+        fileOrFolderList.
         
         @param itm the selected row (QListWidgetItem)
         """
@@ -558,7 +585,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         
         # get data of the additional files tab
         additionalFiles = [self.fileOrFolderList.item(x).text()
-            for x in range(self.fileOrFolderList.count())]
+                           for x in range(self.fileOrFolderList.count())]
         self.parameters['additionalFiles'] = additionalFiles
 
         # call the accept slot of the base class

@@ -30,17 +30,127 @@ Module implementing a dialog to show the output of the packager process.
 <h3>Classes</h3>
 <table>
 <tr>
+<td><a href="#CopyAdditionalFiles">CopyAdditionalFiles</a></td>
+<td>Thread to copy the distribution dependend files.</td>
+</tr><tr>
 <td><a href="#CxfreezeExecDialog">CxfreezeExecDialog</a></td>
 <td>Module implementing a dialog to show the output of the cxfreeze process.</td>
-</tr><tr>
-<td><a href="#copyAdditionalFiles">copyAdditionalFiles</a></td>
-<td>Thread to copy the distribution dependend files.</td>
 </tr>
 </table>
 <h3>Functions</h3>
 <table>
 <tr><td>None</td></tr>
 </table>
+<hr /><hr />
+<a NAME="CopyAdditionalFiles" ID="CopyAdditionalFiles"></a>
+<h2>CopyAdditionalFiles</h2>
+<p>
+    Thread to copy the distribution dependend files.
+</p><h3>Signals</h3>
+<dl>
+<dt>insertPlainText(text)</dt>
+<dd>
+emitted to inform user about the copy
+        progress
+</dd>
+</dl>
+<h3>Derived from</h3>
+QThread
+<h3>Class Attributes</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Class Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<h3>Methods</h3>
+<table>
+<tr>
+<td><a href="#CopyAdditionalFiles.__init__">CopyAdditionalFiles</a></td>
+<td>Constructor, which stores the needed variables.</td>
+</tr><tr>
+<td><a href="#CopyAdditionalFiles.__copytree">__copytree</a></td>
+<td>Private method to copy a file or folder.</td>
+</tr><tr>
+<td><a href="#CopyAdditionalFiles.run">run</a></td>
+<td>QThread entry point to copy the selected additional files and folders.</td>
+</tr><tr>
+<td><a href="#CopyAdditionalFiles.src2dst">src2dst</a></td>
+<td>Combines the relativ path of the source (srcname) with the destination folder.</td>
+</tr>
+</table>
+<h3>Static Methods</h3>
+<table>
+<tr><td>None</td></tr>
+</table>
+<a NAME="CopyAdditionalFiles.__init__" ID="CopyAdditionalFiles.__init__"></a>
+<h4>CopyAdditionalFiles (Constructor)</h4>
+<b>CopyAdditionalFiles</b>(<i>main</i>)
+<p>
+        Constructor, which stores the needed variables.
+</p><dl>
+<dt><i>main</i></dt>
+<dd>
+self-object of the caller
+</dd>
+</dl><a NAME="CopyAdditionalFiles.__copytree" ID="CopyAdditionalFiles.__copytree"></a>
+<h4>CopyAdditionalFiles.__copytree</h4>
+<b>__copytree</b>(<i>src, dst</i>)
+<p>
+        Private method to copy a file or folder.
+</p><p>
+        Wildcards allowed. Existing files are overwitten.
+</p><dl>
+<dt><i>src</i></dt>
+<dd>
+source file or folder to copy. Wildcards allowed. (str)
+</dd><dt><i>dst</i></dt>
+<dd>
+destination (str)
+</dd>
+</dl><dl>
+<dt>Raises <b>IOError</b>:</dt>
+<dd>
+raised if the given source does not exist
+</dd><dt>Raises <b>OSError</b>:</dt>
+<dd>
+raised if there is an issue writing the package
+</dd>
+</dl><a NAME="CopyAdditionalFiles.run" ID="CopyAdditionalFiles.run"></a>
+<h4>CopyAdditionalFiles.run</h4>
+<b>run</b>(<i></i>)
+<p>
+        QThread entry point to copy the selected additional files and folders.
+</p><dl>
+<dt>Raises <b>OSError</b>:</dt>
+<dd>
+raised if there is an issue writing the package
+</dd>
+</dl><a NAME="CopyAdditionalFiles.src2dst" ID="CopyAdditionalFiles.src2dst"></a>
+<h4>CopyAdditionalFiles.src2dst</h4>
+<b>src2dst</b>(<i>base, dst</i>)
+<p>
+            Combines the relativ path of the source (srcname) with the
+            destination folder.
+</p><dl>
+<dt><i>srcname</i></dt>
+<dd>
+actual file or folder to copy
+</dd><dt><i>base</i></dt>
+<dd>
+basename of the source folder
+</dd><dt><i>dst</i></dt>
+<dd>
+basename of the destination folder
+</dd>
+</dl><dl>
+<dt>Returns:</dt>
+<dd>
+destination path
+</dd>
+</dl>
+<div align="right"><a href="#top">Up</a></div>
 <hr /><hr />
 <a NAME="CxfreezeExecDialog" ID="CxfreezeExecDialog"></a>
 <h2>CxfreezeExecDialog</h2>
@@ -163,115 +273,23 @@ button that was clicked (QAbstractButton)
 </p><dl>
 <dt><i>args</i></dt>
 <dd>
-commandline arguments for packager program (list of strings)
+commandline arguments for packager program (list of
+            strings)
 </dd><dt><i>parms</i></dt>
 <dd>
 parameters got from the config dialog (dict)
 </dd><dt><i>ppath</i></dt>
 <dd>
 project path (string)
-</dd><dt><i>script</i></dt>
+</dd><dt><i>mainscript</i></dt>
 <dd>
-main script name to be processed by by the packager (string)
+main script name to be processed by by the packager
+            (string)
 </dd>
 </dl><dl>
 <dt>Returns:</dt>
 <dd>
 flag indicating the successful start of the process
-</dd>
-</dl>
-<div align="right"><a href="#top">Up</a></div>
-<hr /><hr />
-<a NAME="copyAdditionalFiles" ID="copyAdditionalFiles"></a>
-<h2>copyAdditionalFiles</h2>
-<p>
-    Thread to copy the distribution dependend files.
-</p><h3>Signals</h3>
-<dl>
-<dt>insertPlainText(text)</dt>
-<dd>
-emitted to inform user about the copy progress
-</dd>
-</dl>
-<h3>Derived from</h3>
-QThread
-<h3>Class Attributes</h3>
-<table>
-<tr><td>None</td></tr>
-</table>
-<h3>Class Methods</h3>
-<table>
-<tr><td>None</td></tr>
-</table>
-<h3>Methods</h3>
-<table>
-<tr>
-<td><a href="#copyAdditionalFiles.__init__">copyAdditionalFiles</a></td>
-<td>Constructor, which stores the needed variables.</td>
-</tr><tr>
-<td><a href="#copyAdditionalFiles.__copytree">__copytree</a></td>
-<td>Copies a file or folder.</td>
-</tr><tr>
-<td><a href="#copyAdditionalFiles.run">run</a></td>
-<td>QThread entry point to copy the selected additional files and folders.</td>
-</tr><tr>
-<td><a href="#copyAdditionalFiles.src2dst">src2dst</a></td>
-<td>Combines the relativ path of the source (srcname) with the destination folder.</td>
-</tr>
-</table>
-<h3>Static Methods</h3>
-<table>
-<tr><td>None</td></tr>
-</table>
-<a NAME="copyAdditionalFiles.__init__" ID="copyAdditionalFiles.__init__"></a>
-<h4>copyAdditionalFiles (Constructor)</h4>
-<b>copyAdditionalFiles</b>(<i>main</i>)
-<p>
-        Constructor, which stores the needed variables.
-</p><dl>
-<dt><i>main</i></dt>
-<dd>
-self-object of the caller
-</dd>
-</dl><a NAME="copyAdditionalFiles.__copytree" ID="copyAdditionalFiles.__copytree"></a>
-<h4>copyAdditionalFiles.__copytree</h4>
-<b>__copytree</b>(<i>src, dst</i>)
-<p>
-        Copies a file or folder. Wildcards allowed. Existing files are overwitten.
-</p><dl>
-<dt><i>src</i></dt>
-<dd>
-source file or folder to copy. Wildcards allowed. (str)
-</dd><dt><i>dst</i></dt>
-<dd>
-destination (str)
-</dd>
-</dl><a NAME="copyAdditionalFiles.run" ID="copyAdditionalFiles.run"></a>
-<h4>copyAdditionalFiles.run</h4>
-<b>run</b>(<i></i>)
-<p>
-        QThread entry point to copy the selected additional files and folders.
-</p><a NAME="copyAdditionalFiles.src2dst" ID="copyAdditionalFiles.src2dst"></a>
-<h4>copyAdditionalFiles.src2dst</h4>
-<b>src2dst</b>(<i>base, dst</i>)
-<p>
-            Combines the relativ path of the source (srcname) with the
-            destination folder.
-</p><dl>
-<dt><i>srcname</i></dt>
-<dd>
-actual file or folder to copy
-</dd><dt><i>base</i></dt>
-<dd>
-basename of the source folder
-</dd><dt><i>dst</i></dt>
-<dd>
-basename of the destination folder
-</dd>
-</dl><dl>
-<dt>Returns:</dt>
-<dd>
-destination path
 </dd>
 </dl>
 <div align="right"><a href="#top">Up</a></div>
