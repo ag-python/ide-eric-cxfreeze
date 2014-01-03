@@ -34,7 +34,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.2.1"
+version = "5.2.2"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -123,27 +123,26 @@ def _findExecutable(majorVersion):
             exePath = getExePath(
                 winreg.HKEY_CURRENT_USER,
                 winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
-                
             if exePath is not None:
                 executables.add(exePath)
+            
             exePath = getExePath(
                 winreg.HKEY_LOCAL_MACHINE,
                 winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
+            if exePath is not None:
+                executables.add(exePath)
             
             # Even on Intel 64-bit machines it's 'AMD64'
             if platform.machine() == 'AMD64':
-                if exePath is not None:
-                    executables.add(exePath)
                 exePath = getExePath(
                     winreg.HKEY_CURRENT_USER,
                     winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
-                
                 if exePath is not None:
                     executables.add(exePath)
+                
                 exePath = getExePath(
                     winreg.HKEY_LOCAL_MACHINE,
                     winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
-                
                 if exePath is not None:
                     executables.add(exePath)
     else:
