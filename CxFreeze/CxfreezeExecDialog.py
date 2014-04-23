@@ -7,10 +7,10 @@
 Module implementing a dialog to show the output of the packager process.
 """
 
-from __future__ import unicode_literals    # __IGNORE_WARNING__
+from __future__ import unicode_literals
 try:
-    str = unicode   # __IGNORE_WARNING__
-except (NameError):
+    str = unicode
+except NameError:
     pass
 
 import shutil

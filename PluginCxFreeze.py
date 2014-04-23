@@ -7,7 +7,7 @@
 Module implementing the CxFreeze plugin.
 """
 
-from __future__ import unicode_literals    # __IGNORE_WARNING__
+from __future__ import unicode_literals
 
 import os
 import platform
@@ -34,7 +34,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.2.2"
+version = "5.3.0"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -43,6 +43,7 @@ longDescription = \
     """ CxFreeze is used to generate a distribution package."""
 needsRestart = False
 pyqtApi = 2
+python2Compatible = True
 # End-of-Header
 
 exePy2 = []
