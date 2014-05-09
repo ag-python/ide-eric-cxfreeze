@@ -34,7 +34,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.3.0"
+version = "5.3.1"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -337,7 +337,7 @@ class CxFreezePlugin(QObject):
         if len(project.pdata["MAINSCRIPT"]) == 0:
             # no main script defined
             E5MessageBox.critical(
-                self,
+                self.__ui,
                 self.trUtf8("cxfreeze"),
                 self.trUtf8(
                     """There is no main script defined for the current"""
@@ -350,7 +350,7 @@ class CxFreezePlugin(QObject):
             .get(majorVersionStr)
         if exe == []:
             E5MessageBox.critical(
-                self,
+                self.__ui,
                 self.trUtf8("cxfreeze"),
                 self.trUtf8("""The cxfreeze executable could not be found."""))
             return
