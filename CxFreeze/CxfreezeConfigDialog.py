@@ -49,13 +49,21 @@ class DirFileDialog(QFileDialog):
         
         QFileDialog.__init__(self, parent, caption, directory, filter)
         self.setFileMode(QFileDialog.ExistingFiles)
+    
+    def exec_(self):
+        """
+        Public slot to finalize initialisation and start the event loop.
+        
+        @return accepted or rejected (QDialog.DialogCode)
+        """
         self.openBtn = self.findChildren(QPushButton)[0]
         self.fileNameEdit = self.findChild(QLineEdit)
         self.directoryEntered.connect(self.on_directoryEntered)
         self.tree = self.findChild(QTreeView)
         self.tree.selectionModel().selectionChanged.connect(
             self.on_selectionChanged)
-
+        return QFileDialog.exec_(self)
+    
     def accept(self):
         """
         Update the list with the selected files and folders.
@@ -69,7 +77,7 @@ class DirFileDialog(QFileDialog):
             for x in self.tree.selectionModel().selectedIndexes()
             if x.column() == 0]
         self.hide()
-
+    
     @pyqtSlot(str)
     def on_directoryEntered(self, dir):
         """
@@ -80,7 +88,7 @@ class DirFileDialog(QFileDialog):
         self.tree.selectionModel().clear()
         self.fileNameEdit.clear()
         self.openBtn.setEnabled(False)
-
+    
     @pyqtSlot(QItemSelection, QItemSelection)
     def on_selectionChanged(self, selected, deselected):
         """
@@ -105,7 +113,7 @@ class DirFileDialog(QFileDialog):
                     txt = '"{0}"'.format(txt)
                 self.fileNameEdit.setText(txt)
                 break
-
+    
     @staticmethod
     def getOpenFileNames(parent=None, caption="", directory="",
                          filter="", options=QFileDialog.Options()):
