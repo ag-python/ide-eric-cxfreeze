@@ -27,6 +27,7 @@ from E5Gui.E5Completers import E5FileCompleter, E5DirCompleter
 from .Ui_CxfreezeConfigDialog import Ui_CxfreezeConfigDialog
 
 import Utilities
+import UI.PixmapCache
 
 
 class DirFileDialog(QFileDialog):
@@ -149,6 +150,15 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         """
         QDialog.__init__(self, parent)
         self.setupUi(self)
+        
+        self.targetDirButton.setIcon(
+            UI.PixmapCache.getIcon("open.png"))
+        self.iconFileButton.setIcon(
+            UI.PixmapCache.getIcon("open.png"))
+        self.extListFileButton.setIcon(
+            UI.PixmapCache.getIcon("open.png"))
+        self.selectFileOrFolderButton.setIcon(
+            UI.PixmapCache.getIcon("open.png"))
         
         self.project = project
         self.__initializeDefaults()

@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!DOCTYPE TS><TS version="2.0" language="it_IT" sourcelanguage="">
 <context>
+    <name>CopyAdditionalFiles</name>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="285"/>
+        <source>No such file or directory: &apos;{0}&apos;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="301"/>
+        <source>
+Copying {0}: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="320"/>
+        <source>ok</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="322"/>
+        <source>failed: {0}</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CxFreezePlugin</name>
     <message>
         <location filename="PluginCxFreeze.py" line="148"/>
@@ -23,47 +47,47 @@
         <translation type="obsolete">&lt;b&gt;Utiliser cx_Freeze&lt;/b&gt;&lt;p&gt;Générer un package de distribution en utilisant cx_Freeze. Cette commande est executée depuis le chemin du projet. Tous les fichiers et réperoires doivent être indiqués soit par un chemin absolu, soit par un chemin relatif au répertoire du projet.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="60"/>
+        <location filename="../../PluginCxFreeze.py" line="64"/>
         <source>Packagers - cx_freeze</source>
         <translation>Pacchettizzatore - cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="330"/>
+        <location filename="../../PluginCxFreeze.py" line="341"/>
         <source>There is no main script defined for the current project.</source>
         <translation>Non c&apos;è uno script principale per il progetto corrente.</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="340"/>
+        <location filename="../../PluginCxFreeze.py" line="354"/>
         <source>The cxfreeze executable could not be found.</source>
         <translation>L&apos;eseguibile cxfreeze non è stato trovato.</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="340"/>
+        <location filename="../../PluginCxFreeze.py" line="354"/>
         <source>cxfreeze</source>
         <translation>cxfreeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="258"/>
+        <location filename="../../PluginCxFreeze.py" line="266"/>
         <source>Use cx_freeze</source>
         <translation>Utilizza cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="258"/>
+        <location filename="../../PluginCxFreeze.py" line="266"/>
         <source>Use cx_&amp;freeze</source>
         <translation>Utilizza cx_&amp;freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="261"/>
+        <location filename="../../PluginCxFreeze.py" line="270"/>
         <source>Generate a distribution package using cx_freeze</source>
         <translation>Genera un pacchetto distribuibili utilizzando cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="263"/>
+        <location filename="../../PluginCxFreeze.py" line="272"/>
         <source>&lt;b&gt;Use cx_freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation>&lt;b&gt;Utilizza cx_freeze&lt;/b&gt;&lt;p&gt;Genera un pacchetto distribuibili utilizzando cx_freeze. Il comando viene eseguiro nel percorso del progetto. Tutti i file e le directory devono essere indicati con i percorsi assoluti o relativi alla directory del progetto.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="24"/>
+        <location filename="../../PluginCxFreeze.py" line="25"/>
         <source>Your version of Eric5 is not supported. At least version 5.1.0 of Eric5 is needed.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -71,7 +95,7 @@
 <context>
     <name>CxfreezeConfigDialog</name>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="362"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="403"/>
         <source>Select target directory</source>
         <translation>Sélectionner un répertoire de destination</translation>
     </message>
@@ -81,7 +105,7 @@
         <translation type="obsolete">Sélectionner la librairie partagée Python</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="313"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="351"/>
         <source>Select external list file</source>
         <translation>Sélectionner une liste externe de fichiers</translation>
     </message>
@@ -105,37 +129,37 @@
         <translation>&amp;Generale</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="190"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="183"/>
         <source>Select to optimize generated bytecode</source>
         <translation>Sélectionner pour optimiser le bytecode généré</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="193"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="186"/>
         <source>Optimize bytecode</source>
         <translation>Optimiser le bytecode</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="214"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="207"/>
         <source>Don&apos;t optimize</source>
         <translation>Pas d&apos;optimisation</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="221"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="214"/>
         <source>Select to optimize the generated bytecode</source>
         <translation>Sélectionner pour optimiser le bytecode généré</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="224"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="217"/>
         <source>Optimize</source>
         <translation>Optimisation</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="231"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="224"/>
         <source>Select to optimize the generated bytecode and remove doc strings</source>
         <translation>Sélectionner pour optimiser le code généré et supprimer les docstrings</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="234"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="227"/>
         <source>Optimize (with docstring removal)</source>
         <translation>Optimiser (avec suppression des docstrings)</translation>
     </message>
@@ -150,17 +174,17 @@
         <translation>Ne pas copier les fichiers de dépendance</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="183"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="176"/>
         <source>Target directory:</source>
         <translation>Répertoire de destination:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="154"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="147"/>
         <source>Enter the name of the target directory</source>
         <translation>Entrer le nom du répertoire cible</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="157"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="150"/>
         <source>&lt;p&gt;Enter the name of the directory in which to place the target file and any dependant files.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Entrer le nom du répertoire où ranger le fichier cible et tous les fichiers qui en dépendent.&lt;/p&gt;</translation>
     </message>
@@ -180,9 +204,9 @@
         <translation>Nom de la cible:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="468"/>
+        <location filename="../CxfreezeConfigDialog.ui" line="468"/>
         <source>...</source>
-        <translation>...</translation>
+        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="60"/>
@@ -190,7 +214,7 @@
         <translation>Entrer le nom du script qui doit être exécuté au démarrage</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="164"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="157"/>
         <source>Enter the name of a file on which to base the target file</source>
         <translation>Entrer le nom d&apos;un fichier sur lequel baser le fichier cible</translation>
     </message>
@@ -205,7 +229,7 @@
         <translation>Nom de base:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="273"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="265"/>
         <source>&amp;Advanced</source>
         <translation>A&amp;vancé</translation>
     </message>
@@ -220,67 +244,67 @@
         <translation type="obsolete">Entrer le nom de la librairie partagée</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="285"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="277"/>
         <source>Default path</source>
         <translation>Chemin par défaut</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="292"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="284"/>
         <source>Enter directories to initialize sys.path</source>
         <translation>Inserisci le directory per inizializzare sys.path</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="295"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="287"/>
         <source>&lt;p&gt;Enter a list of paths separated by the standard path separator, which will be used to initialize sys.path prior to running the module finder.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Inserisci una lista di percorsi separati dal separatore standard, che verrà utilizzata per inizializzare sys.path prima dell&apos;esecuzione del modulo di ricerca.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="302"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="294"/>
         <source>Enter directories to modify sys.path</source>
         <translation>Inserisci le directory per modificare sys.path</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="305"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="297"/>
         <source>&lt;p&gt;Enter a list of paths separated by the standard path separator, which will be used to modify sys.path prior to running the module finder.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Inserisci una lista di percorsi separati dal separatore standard, che verrà utilizzata per inizializzare sys.path prima dell&apos;esecuzione del modulo di ricerca.&lt;p&gt;</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="312"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="304"/>
         <source>Include path</source>
         <translation>Includi percorso</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="319"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="311"/>
         <source>Replace paths:</source>
         <translation>Sostituisci percorso:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="326"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="318"/>
         <source>Enter replacement directives</source>
         <translation>Inserisci le indicazione per la sostituzione</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="329"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="321"/>
         <source>&lt;p&gt;Enter replacement directives used to replace all the paths in modules found. Please see cx_Freeze docu for details.&lt;/p&gt;</source>
         <translation>&lt;p&gt;Inserisci le indicazione usate per la sostituzione di tutti i percorsi nei moduli trovati. Fai riferimento alla documentazione di cx_Freeze per i dettagli.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="336"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="328"/>
         <source>Include modules:</source>
         <translation>Includi moduli:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="343"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="335"/>
         <source>Enter a comma separated list of modules to include</source>
         <translation>Inserici una lista di moduli separati da una virgola</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="350"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="342"/>
         <source>Exclude modules:</source>
         <translation>Escludi moduli:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="357"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="349"/>
         <source>Enter a comma separated list of modules to exclude</source>
         <translation>Inserisci una lista di moduli da escludere separati da una virgola</translation>
     </message>
@@ -290,17 +314,17 @@
         <translation type="obsolete">Cliquer pour sélectionner la librairie partagée Python à l&apos;aide d&apos;une boite de sélection</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="378"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="383"/>
         <source>Press to select the external list file via a file selection dialog</source>
         <translation>Premi per selezionare la lista dei file esterni con un dialogo</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="364"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="356"/>
         <source>Enter the name of a file in which to place the list of included modules</source>
         <translation>Inserisci il nome di un file nel quale mettere la lista dei moduli inclusi</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="371"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="363"/>
         <source>External list file:</source>
         <translation>Lista file esterna:</translation>
     </message>
@@ -310,7 +334,7 @@
         <translation>Icona applicazione:</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="258"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="251"/>
         <source>Enter the name of the application icon.</source>
         <translation>Inserisci il nome dell&apos;icona dell&apos;applicazione.</translation>
     </message>
@@ -325,84 +349,84 @@
         <translation>Comprimi Byte Code</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="244"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="237"/>
         <source>Select the cx_freeze executable</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="251"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="244"/>
         <source>cx_Freeze executable:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="333"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="371"/>
         <source>Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="334"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="372"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="342"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="383"/>
         <source>Select the application icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="402"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="391"/>
         <source>Additional &amp;files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="415"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="404"/>
         <source>List of files and directories which are copied into the distribution directory
 See &apos;What&apos;s this&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="419"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="408"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Additional files list&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here you can add files and folders which will not frozen by cx_Freeze, but maybe relevant to your application. This could be, e.g., some UI files or a dirctory with your translation files.&lt;/p&gt;&lt;p&gt;Easily add them to the list and they get copied after the freeze.&lt;/p&gt;&lt;p&gt;Remarks: &lt;/p&gt;&lt;p&gt;- Every file or folder will be copied relativ to the destination folder even if it&apos;s outside the sourcetree.&lt;/p&gt;&lt;p&gt;- Files and folders don&apos;t have to be added to the Eric project first.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="434"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="423"/>
         <source>Press to delete the selected entry from the list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="437"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="426"/>
         <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="447"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="436"/>
         <source>Press to add the entered file or directory to the list</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="450"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="439"/>
         <source>Add</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="457"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="446"/>
         <source>Enter a file or directory to be added.
 Wildcards are allowed, e.g. *.ui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="514"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="559"/>
         <source>Select files and folders</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="465"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="454"/>
         <source>Press to select a file or directory via a selection dialog</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="408"/>
+        <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="397"/>
         <source>Add depending files or folders to copy into the distribution folder:</source>
         <translation type="unfinished"></translation>
     </message>
@@ -429,22 +453,22 @@ Wildcards are allowed, e.g. *.ui</source>
 &lt;p&gt;Mostra gli errori del comando.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="86"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="89"/>
         <source>{0} - {1}</source>
         <translation>{0} - {1}</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="94"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="98"/>
         <source>Process Generation Error</source>
         <translation>Errore Generazione Processo</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="94"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="98"/>
         <source>The process {0} could not be started. Ensure, that it is in the search path.</source>
         <translation>Il processo {0} non può essere avviato. Assicurarsi che sia nel percorso di ricerca.</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="147"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="152"/>
         <source>
 {0} finished.
 </source>
@@ -463,7 +487,7 @@ Wildcards are allowed, e.g. *.ui</source>
         <translation>Errori</translation>
     </message>
     <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="133"/>
+        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="138"/>
         <source>
 {0} aborted.
 </source>
@@ -472,26 +496,5 @@ Wildcards are allowed, e.g. *.ui</source>
 </context>
 <context>
     <name>copyAdditionalFiles</name>
-    <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="274"/>
-        <source>No such file or directory: &apos;{0}&apos;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="286"/>
-        <source>
-Copying {0}: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="304"/>
-        <source>ok</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="306"/>
-        <source>failed: {0}</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 </TS>
