@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS><TS version="2.0" language="es" sourcelanguage="">
+<!DOCTYPE TS>
+<TS version="2.0" language="es">
 <context>
     <name>CopyAdditionalFiles</name>
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="285"/>
         <source>No such file or directory: &apos;{0}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>No existe este archivo o directorio: &apos;{0}&apos;</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="301"/>
         <source>
 Copying {0}: </source>
-        <translation type="unfinished"></translation>
+        <translation>
+Copiando {0}: </translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="320"/>
         <source>ok</source>
-        <translation type="unfinished"></translation>
+        <translation>ok</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="322"/>
         <source>failed: {0}</source>
-        <translation type="unfinished"></translation>
+        <translation>ha fallado: {0}</translation>
     </message>
 </context>
 <context>
@@ -89,7 +91,7 @@ Copying {0}: </source>
     <message>
         <location filename="../../PluginCxFreeze.py" line="25"/>
         <source>Your version of Eric5 is not supported. At least version 5.1.0 of Eric5 is needed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Esta versión de Eric5 no está soportada. Es necesaria al menos la versión 5.1.0 de Eric5.</translation>
     </message>
 </context>
 <context>
@@ -341,94 +343,96 @@ Copying {0}: </source>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="91"/>
         <source>Select to compress the byte code in zip files</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar para comprimir el byte code en archivos zip</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="94"/>
         <source>Compress Byte Code</source>
-        <translation type="unfinished"></translation>
+        <translation>Comprimir Byte Code</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="237"/>
         <source>Select the cx_freeze executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccionar el ejecutable de cx_freeze</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="244"/>
         <source>cx_Freeze executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>Ejecutable de cx_freeze:</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="371"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Iconos</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="372"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Todos los archivos</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="383"/>
         <source>Select the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccinar el icono para la aplicación</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="391"/>
         <source>Additional &amp;files</source>
-        <translation type="unfinished"></translation>
+        <translation>Archivos &amp;adicionales</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="404"/>
         <source>List of files and directories which are copied into the distribution directory
 See &apos;What&apos;s this&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Lista de archivos y directorios que se copiarán al directorio de distribución.
+Ver &apos;qué es esto&apos;</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="408"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Additional files list&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here you can add files and folders which will not frozen by cx_Freeze, but maybe relevant to your application. This could be, e.g., some UI files or a dirctory with your translation files.&lt;/p&gt;&lt;p&gt;Easily add them to the list and they get copied after the freeze.&lt;/p&gt;&lt;p&gt;Remarks: &lt;/p&gt;&lt;p&gt;- Every file or folder will be copied relativ to the destination folder even if it&apos;s outside the sourcetree.&lt;/p&gt;&lt;p&gt;- Files and folders don&apos;t have to be added to the Eric project first.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Listado de archivos adicionales&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Aquí se pueden añadir archivos y directorios que no se congelarán con cx_Freeze, pero que pueden ser relevantes para la aplicación. Pueden ser, por ejemplo, archivos de UI o un directorio con archivos de traducciones.&lt;/p&gt;&lt;p&gt;Se pueden añadir de manera fácil a esta lista y serán copiados despues de la &apos;congelación&apos; con cx_freeze.&lt;/p&gt;&lt;p&gt;Observaciones: &lt;/p&gt;&lt;p&gt;- Cada archivo o directorio se copiara de manera relativa al directorio destino incluso si está fuera del árbol de códigos fuente.&lt;/p&gt;&lt;p&gt;- No es necesario añadir previamente los archivos y directorios al proyecto Eric.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="423"/>
         <source>Press to delete the selected entry from the list</source>
-        <translation type="unfinished"></translation>
+        <translation>Pulsar para borrar la entrada seleccionada de la lista</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="426"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Borrar</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="436"/>
         <source>Press to add the entered file or directory to the list</source>
-        <translation type="unfinished"></translation>
+        <translation>Pulsar para añadir la fila o directorio introducidos a la lista</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="439"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="446"/>
         <source>Enter a file or directory to be added.
 Wildcards are allowed, e.g. *.ui</source>
-        <translation type="unfinished"></translation>
+        <translation>Introducir un archivo o directorio a añadir.
+Se pueden utilizar carácteres comodín, por ejemplo. *.ui</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="559"/>
         <source>Select files and folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccinar archivos y directorios</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="454"/>
         <source>Press to select a file or directory via a selection dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Pulsar para seleccionar un archivo o directorio vía un diálogo de selección</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="397"/>
         <source>Add depending files or folders to copy into the distribution folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Añadir archivos o directorios dependientes para copiar dentro de la carpeta de distribución:</translation>
     </message>
 </context>
 <context>
@@ -489,10 +493,9 @@ Wildcards are allowed, e.g. *.ui</source>
         <source>
 {0} aborted.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>
+{0} abortado.
+</translation>
     </message>
-</context>
-<context>
-    <name>copyAdditionalFiles</name>
 </context>
 </TS>
