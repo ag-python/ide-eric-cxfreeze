@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.0" language="es">
+<!DOCTYPE TS><TS version="2.0" language="es" sourcelanguage="">
 <context>
     <name>CopyAdditionalFiles</name>
     <message>
@@ -32,26 +31,6 @@ Copiando {0}: </translation>
         <location filename="../../PluginCxFreeze.py" line="64"/>
         <source>Packagers - cx_freeze</source>
         <translation>Empaquetadores - cx_freeze</translation>
-    </message>
-    <message>
-        <location filename="PluginCxFreeze.py" line="148"/>
-        <source>Use cx_Freeze</source>
-        <translation type="obsolete">Usar cx_Freeze</translation>
-    </message>
-    <message>
-        <location filename="PluginCxFreeze.py" line="148"/>
-        <source>Use cx_&amp;Freeze</source>
-        <translation type="obsolete">Usar cx_&amp;Freeze</translation>
-    </message>
-    <message>
-        <location filename="PluginCxFreeze.py" line="151"/>
-        <source>Generate a distribution package using cx_Freeze</source>
-        <translation type="obsolete">Generar un paquete de distribución utilizando cx_Freeze</translation>
-    </message>
-    <message>
-        <location filename="PluginCxFreeze.py" line="153"/>
-        <source>&lt;b&gt;Use cx_Freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_Freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
-        <translation type="obsolete">&lt;b&gt;Usar cx_Freeze&lt;/b&gt;&lt;p&gt;Generar un paquete de distribución utilizando cx_Freeze. El comando se ejecuta en la ruta del proyecto. Todos los archivos y directorios deben ser proporcionados de forma absoluta o relativa al directorio del proyecto.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../PluginCxFreeze.py" line="341"/>
@@ -191,11 +170,6 @@ Copiando {0}: </translation>
         <translation>Nombre de destino:</translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.ui" line="468"/>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
-    </message>
-    <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="60"/>
         <source>Enter name of script which will be executed upon startup</source>
         <translation>Introduzca el nombre del script que se ejecutará al iniciar</translation>
@@ -219,16 +193,6 @@ Copiando {0}: </translation>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="265"/>
         <source>&amp;Advanced</source>
         <translation>&amp;Avanzado</translation>
-    </message>
-    <message>
-        <location filename="CxFreeze/Ui_CxfreezeConfigDialog.py" line="208"/>
-        <source>Shared library name:</source>
-        <translation type="obsolete">Nombre de la biblioteca compartida:</translation>
-    </message>
-    <message>
-        <location filename="CxFreeze/Ui_CxfreezeConfigDialog.py" line="209"/>
-        <source>Enter the name of the shared library implementing the Python runtime</source>
-        <translation type="obsolete">Introduzca el nombre de la biblioteca compartida implementando el runtime de Python</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="277"/>
@@ -296,11 +260,6 @@ Copiando {0}: </translation>
         <translation>Introduzca una lista de módulos a excluir separados por comas</translation>
     </message>
     <message>
-        <location filename="CxFreeze/Ui_CxfreezeConfigDialog.py" line="223"/>
-        <source>Press to select the Python shared library via a file selection dialog</source>
-        <translation type="obsolete">Pulse para seleccionar la biblioteca compartida de Python a través de un diálogo de selección de archivo</translation>
-    </message>
-    <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="383"/>
         <source>Press to select the external list file via a file selection dialog</source>
         <translation>Pulse para seleccionar el archivo de lista externo a traves de un diálogo de selección de archivo</translation>
@@ -319,11 +278,6 @@ Copiando {0}: </translation>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="403"/>
         <source>Select target directory</source>
         <translation>Seleccionar directorio de destino</translation>
-    </message>
-    <message>
-        <location filename="CxFreeze/CxfreezeConfigDialog.py" line="243"/>
-        <source>Select Python shared library</source>
-        <translation type="obsolete">Seleccionar biblioteca compartida de Python</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="351"/>
