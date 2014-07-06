@@ -1,5 +1,8 @@
 ChangeLog
 ---------
+Version 6.0.0:
+- ported for eric6 using PyQt5
+
 Version 5.3.3:
 - updated Spanish translations
 

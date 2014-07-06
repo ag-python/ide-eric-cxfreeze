@@ -17,9 +17,9 @@ import sys
 import os
 import copy
 
-from PyQt4.QtCore import pyqtSlot, QDir, QProcess
-from PyQt4.QtGui import QDialog, QListWidgetItem, QFileDialog, QPushButton, \
-    QTreeView, QItemSelection, QLineEdit, QFileSystemModel
+from PyQt5.QtCore import pyqtSlot, QDir, QProcess, QItemSelection
+from PyQt5.QtWidgets import QDialog, QListWidgetItem, QFileDialog, \
+    QPushButton, QTreeView, QLineEdit, QFileSystemModel
 
 from E5Gui import E5FileDialog
 from E5Gui.E5Completers import E5FileCompleter, E5DirCompleter
@@ -350,7 +350,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         """
         extList = E5FileDialog.getOpenFileName(
             self,
-            self.trUtf8("Select external list file"),
+            self.tr("Select external list file"),
             self.extListFileEdit.text(),
             "")
         
@@ -368,8 +368,8 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         It displays a file selection dialog to select an icon to
         include into the executable.
         """
-        iconsI18N = self.trUtf8("Icons")
-        allFilesI18N = self.trUtf8("All files")
+        iconsI18N = self.tr("Icons")
+        allFilesI18N = self.tr("All files")
         if Utilities.isWindowsPlatform():
             iconFilter = "{0} (*.ico);;{1} (*.*)".format(
                 iconsI18N, allFilesI18N)
@@ -382,7 +382,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         
         iconList = E5FileDialog.getOpenFileName(
             self,
-            self.trUtf8("Select the application icon"),
+            self.tr("Select the application icon"),
             self.applicationIconEdit.text(),
             iconFilter)
         
@@ -402,7 +402,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         """
         directory = E5FileDialog.getExistingDirectory(
             self,
-            self.trUtf8("Select target directory"),
+            self.tr("Select target directory"),
             self.targetDirEdit.text(),
             E5FileDialog.Options(E5FileDialog.ShowDirsOnly))
         
@@ -558,7 +558,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         """
         items = DirFileDialog.getOpenFileNames(
             None,
-            self.trUtf8("Select files and folders"))
+            self.tr("Select files and folders"))
 
         for itm in items:
             itm = self.project.getRelativePath(itm)

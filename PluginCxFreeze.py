@@ -12,21 +12,13 @@ from __future__ import unicode_literals
 import os
 import platform
 
-from PyQt4.QtCore import QObject, QTranslator, QCoreApplication
-from PyQt4.QtGui import QDialog
+from PyQt5.QtCore import QObject, QTranslator, QCoreApplication
+from PyQt5.QtWidgets import  QDialog
 
-try:
-    from E5Gui import E5MessageBox
-    from E5Gui.E5Action import E5Action
-    from E5Gui.E5Application import e5App
-    error = ""
-except ImportError:
-    error = QCoreApplication.translate(
-        "CxFreezePlugin",
-        """Your version of Eric5 is not supported."""
-        """ At least version 5.1.0 of Eric5 is needed.""")
+from E5Gui import E5MessageBox
+from E5Gui.E5Action import E5Action
+from E5Gui.E5Application import e5App
     
-
 import Utilities
 
 # Start-of-Header
@@ -34,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "5.3.3"
+version = "6.0.0"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -45,6 +37,8 @@ needsRestart = False
 pyqtApi = 2
 python2Compatible = True
 # End-of-Header
+
+error = ""
 
 exePy2 = []
 exePy3 = []
@@ -263,19 +257,19 @@ class CxFreezePlugin(QObject):
         menu = project.getMenu("Packagers")
         if menu:
             self.__projectAct = E5Action(
-                self.trUtf8('Use cx_freeze'),
-                self.trUtf8('Use cx_&freeze'), 0, 0,
+                self.tr('Use cx_freeze'),
+                self.tr('Use cx_&freeze'), 0, 0,
                 self, 'packagers_cxfreeze')
             self.__projectAct.setStatusTip(
-                self.trUtf8('Generate a distribution package using cx_freeze'))
-            self.__projectAct.setWhatsThis(self.trUtf8(
+                self.tr('Generate a distribution package using cx_freeze'))
+            self.__projectAct.setWhatsThis(self.tr(
                 """<b>Use cx_freeze</b>"""
                 """<p>Generate a distribution package using cx_freeze."""
                 """ The command is executed in the project path. All"""
                 """ files and directories must be given absolute or"""
                 """ relative to the project directory.</p>"""
             ))
-            self.__projectAct.triggered[()].connect(self.__cxfreeze)
+            self.__projectAct.triggered.connect(self.__cxfreeze)
             project.addE5Actions([self.__projectAct])
             menu.addAction(self.__projectAct)
             project.showMenu.connect(self.__projectShowMenu)
@@ -338,8 +332,8 @@ class CxFreezePlugin(QObject):
             # no main script defined
             E5MessageBox.critical(
                 self.__ui,
-                self.trUtf8("cxfreeze"),
-                self.trUtf8(
+                self.tr("cxfreeze"),
+                self.tr(
                     """There is no main script defined for the current"""
                     """ project."""),
                 E5MessageBox.StandardButtons(E5MessageBox.Abort))
@@ -351,8 +345,8 @@ class CxFreezePlugin(QObject):
         if exe == []:
             E5MessageBox.critical(
                 self.__ui,
-                self.trUtf8("cxfreeze"),
-                self.trUtf8("""The cxfreeze executable could not be found."""))
+                self.tr("cxfreeze"),
+                self.tr("""The cxfreeze executable could not be found."""))
             return
 
         # check if all files saved and errorfree before continue

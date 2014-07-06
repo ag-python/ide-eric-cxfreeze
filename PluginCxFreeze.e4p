@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
-<!-- eric5 project file for project PluginCxFreeze -->
+<!-- eric6 project file for project PluginCxFreeze -->
+<!-- Copyright (C) 2014 Detlev Offenbach, detlev@die-offenbachs.de -->
 <Project version="5.1">
   <Language>en</Language>
   <Hash>e6cc5d1be724a6f9b38cea1b3785946161f4baeb</Hash>
   <ProgLanguage mixed="0">Python3</ProgLanguage>
-  <ProjectType>E4Plugin</ProjectType>
+  <ProjectType>E6Plugin</ProjectType>
   <Description>This plugin implements an eric5 interface to the cxfreeze packager.</Description>
-  <Version>5.2.x</Version>
+  <Version>6.0.x</Version>
   <Author>Detlev Offenbach</Author>
   <Email>detlev@die-offenbachs.de</Email>
   <TranslationPattern>CxFreeze/i18n/cxfreeze_%language%.ts</TranslationPattern>
@@ -183,7 +184,18 @@
               <string>cssFile</string>
             </key>
             <value>
-              <string>%PYTHON%/eric5/CSSs/default.css</string>
+              <string>%PYTHON%/eric6/CSSs/default.css</string>
+            </value>
+            <key>
+              <string>ignoreDirectories</string>
+            </key>
+            <value>
+              <list>
+                <string>.eric5project</string>
+                <string>.eric6project</string>
+                <string>.ropeproject</string>
+                <string>.hg</string>
+              </list>
             </value>
             <key>
               <string>ignoreFilePatterns</string>

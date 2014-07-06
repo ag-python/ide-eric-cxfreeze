@@ -18,8 +18,8 @@ import errno
 import fnmatch
 import os.path
 
-from PyQt4.QtCore import pyqtSlot, QProcess, QTimer, QThread, pyqtSignal
-from PyQt4.QtGui import QDialog, QDialogButtonBox, QAbstractButton
+from PyQt5.QtCore import pyqtSlot, QProcess, QTimer, QThread, pyqtSignal
+from PyQt5.QtWidgets import  QDialog, QDialogButtonBox, QAbstractButton
 
 from E5Gui import E5MessageBox
 
@@ -86,7 +86,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process.readyReadStandardError.connect(self.__readStderr)
         self.process.finished.connect(self.__finishedFreeze)
             
-        self.setWindowTitle(self.trUtf8('{0} - {1}').format(
+        self.setWindowTitle(self.tr('{0} - {1}').format(
             self.cmdname, script))
         self.contents.insertPlainText(' '.join(args) + '\n\n')
         self.contents.ensureCursorVisible()
@@ -97,8 +97,8 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         if not procStarted:
             E5MessageBox.critical(
                 self,
-                self.trUtf8('Process Generation Error'),
-                self.trUtf8(
+                self.tr('Process Generation Error'),
+                self.tr(
                     'The process {0} could not be started. '
                     'Ensure, that it is in the search path.'
                 ).format(program))
@@ -136,7 +136,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.copyProcess = None
         
         self.contents.insertPlainText(
-            self.trUtf8('\n{0} aborted.\n').format(self.cmdname))
+            self.tr('\n{0} aborted.\n').format(self.cmdname))
         
         self.__enableButtons()
     
@@ -150,7 +150,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
         self.process = None
 
         self.contents.insertPlainText(
-            self.trUtf8('\n{0} finished.\n').format(self.cmdname))
+            self.tr('\n{0} finished.\n').format(self.cmdname))
         
         self.copyProcess = CopyAdditionalFiles(self)
         self.copyProcess.insertPlainText.connect(self.contents.insertPlainText)
@@ -284,7 +284,7 @@ class CopyAdditionalFiles(QThread):
             if len(files) and not copied:
                 raise IOError(
                     errno.ENOENT,
-                    self.trUtf8("No such file or directory: '{0}'")
+                    self.tr("No such file or directory: '{0}'")
                     .format(src))
             
             initDone = True
@@ -299,7 +299,7 @@ class CopyAdditionalFiles(QThread):
         os.chdir(self.ppath)
         for fn in self.additionalFiles:
             self.insertPlainText.emit(
-                self.trUtf8('\nCopying {0}: ').format(fn))
+                self.tr('\nCopying {0}: ').format(fn))
             
             # on linux normpath doesn't replace backslashes to slashes.
             fn = fn.replace('\\', '/')
@@ -317,7 +317,7 @@ class CopyAdditionalFiles(QThread):
             
             try:
                 self.__copytree(fn, dst)
-                self.insertPlainText.emit(self.trUtf8('ok'))
+                self.insertPlainText.emit(self.tr('ok'))
             except IOError as err:
                 self.insertPlainText.emit(
-                    self.trUtf8('failed: {0}').format(err.strerror))
+                    self.tr('failed: {0}').format(err.strerror))
