@@ -5,23 +5,23 @@
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="285"/>
         <source>No such file or directory: &apos;{0}&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Файла или каталога с таким именем не существует: &apos;{0}&apos;</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="301"/>
         <source>
 Copying {0}: </source>
-        <translation type="unfinished"></translation>
+        <translation>Копирую {0}: </translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="320"/>
         <source>ok</source>
-        <translation type="unfinished"></translation>
+        <translation>ок</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeExecDialog.py" line="322"/>
         <source>failed: {0}</source>
-        <translation type="unfinished"></translation>
+        <translation>ошибка: {0}</translation>
     </message>
 </context>
 <context>
@@ -91,7 +91,7 @@ Copying {0}: </source>
 &lt;p&gt;This dialog is used to configure the cxfreeze (FreezePython) process in order to create a distribution package for the project.&lt;/p&gt;
 &lt;p&gt;All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation>&lt;b&gt;Конфигурация Cxfreeze&lt;/b&gt;
-&lt;p&gt;Этот диалог используется для конфигурирования процесса cxfreeze (FreezeOython), чтобы создать дистрибутивный пакет проекта.&lt;/p&gt;
+&lt;p&gt;Этот диалог используется для конфигурирования процесса cxfreeze (FreezePython), чтобы создать дистрибутивный пакет проекта.&lt;/p&gt;
 &lt;p&gt;Пути для всех файлов и каталогов должны быть абсолютными или относительными к каталогу проекта.&lt;/p&gt;</translation>
     </message>
     <message>
@@ -167,17 +167,12 @@ Copying {0}: </source>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="130"/>
         <source>&lt;p&gt;Enter the name of the file to create instead of the base name of the script and the extension of the base binary.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Задайте имя файла, который надо создать, вместо указания базового имени сценария и расширения базового двоичного файла.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Задайте имя файла, который надо создать, вместо базового имени сценария и расширение базового двоичного файла.&lt;/p&gt;</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="120"/>
         <source>Target name:</source>
         <translation>Имя цели:</translation>
-    </message>
-    <message>
-        <location filename="../CxfreezeConfigDialog.ui" line="468"/>
-        <source>...</source>
-        <translation type="obsolete">...</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="60"/>
@@ -202,7 +197,7 @@ Copying {0}: </source>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="259"/>
         <source>&amp;Advanced</source>
-        <translation>&amp;Дополнительно</translation>
+        <translation>&amp;Расширения</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="271"/>
@@ -289,12 +284,12 @@ Copying {0}: </source>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="53"/>
         <source>Application icon:</source>
-        <translation>символ прикладной программы:</translation>
+        <translation>Иконка программы:</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="245"/>
         <source>Enter the name of the application icon.</source>
-        <translation>Задайте имя файла символа прикладной программы.</translation>
+        <translation>Задайте имя файла иконки.</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="88"/>
@@ -309,84 +304,86 @@ Copying {0}: </source>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="231"/>
         <source>Select the cx_freeze executable</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите cx_freeze исполняемый файл</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="238"/>
         <source>cx_Freeze executable:</source>
-        <translation type="unfinished"></translation>
+        <translation>cx_freeze исполняемый файл:</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="371"/>
         <source>Icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Иконки</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="372"/>
         <source>All files</source>
-        <translation type="unfinished"></translation>
+        <translation>Все файлы</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="383"/>
         <source>Select the application icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите иконку для программы</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="385"/>
         <source>Additional &amp;files</source>
-        <translation type="unfinished"></translation>
+        <translation>Дополнительные &amp;файлы</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="398"/>
         <source>List of files and directories which are copied into the distribution directory
 See &apos;What&apos;s this&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Список файлов и каталогов которые будут скопированы в каталог назначения
+Смотри &quot;Что это&quot;</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="402"/>
         <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Additional files list&lt;/span&gt;&lt;/p&gt;&lt;p&gt;Here you can add files and folders which will not frozen by cx_Freeze, but maybe relevant to your application. This could be, e.g., some UI files or a dirctory with your translation files.&lt;/p&gt;&lt;p&gt;Easily add them to the list and they get copied after the freeze.&lt;/p&gt;&lt;p&gt;Remarks: &lt;/p&gt;&lt;p&gt;- Every file or folder will be copied relativ to the destination folder even if it&apos;s outside the sourcetree.&lt;/p&gt;&lt;p&gt;- Files and folders don&apos;t have to be added to the Eric project first.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation></translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="417"/>
         <source>Press to delete the selected entry from the list</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите, чтобы удалить выбранную запись из списка</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="420"/>
         <source>Delete</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="430"/>
         <source>Press to add the entered file or directory to the list</source>
-        <translation type="unfinished"></translation>
+        <translation>Нажмите, чтобы добавить введенный файл или каталог в список</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="433"/>
         <source>Add</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="440"/>
         <source>Enter a file or directory to be added.
 Wildcards are allowed, e.g. *.ui</source>
-        <translation type="unfinished"></translation>
+        <translation>Введите имя файла или каталога для добавления.
+Групповые символы разрешены, например * .ui</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.py" line="559"/>
         <source>Select files and folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Выберите файлы и каталоги</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="448"/>
         <source>Press to select a file or directory via a selection dialog</source>
-        <translation type="unfinished"></translation>
+        <translation>Выбрать файл или каталог с помощью диалога</translation>
     </message>
     <message>
         <location filename="../../CxFreeze/CxfreezeConfigDialog.ui" line="391"/>
         <source>Add depending files or folders to copy into the distribution folder:</source>
-        <translation type="unfinished"></translation>
+        <translation>Копировать зависимые файлы и каталоги в каталог назначения:</translation>
     </message>
 </context>
 <context>
@@ -447,7 +444,9 @@ Wildcards are allowed, e.g. *.ui</source>
         <source>
 {0} aborted.
 </source>
-        <translation type="unfinished"></translation>
+        <translation>
+{0} авост.
+</translation>
     </message>
 </context>
 </TS>
