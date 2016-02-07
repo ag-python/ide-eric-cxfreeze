@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.0"
+version = "6.0.1"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -205,9 +205,15 @@ def _checkProgram():
     exePy2 = _findExecutable(2)
     exePy3 = _findExecutable(3)
     if (exePy2 + exePy3) == []:
-        error = QCoreApplication.translate(
-            "CxFreezePlugin",
-            "The cxfreeze executable could not be found.")
+        if Utilities.isWindowsPlatform():
+            error = QCoreApplication.translate(
+                "CxFreezePlugin",
+                "The cxfreeze.bat executable could not be found."
+                "Did you run the cxfreeze-postinstall script?")
+        else:
+            error = QCoreApplication.translate(
+                "CxFreezePlugin",
+                "The cxfreeze executable could not be found.")
         return False
     else:
         return True
