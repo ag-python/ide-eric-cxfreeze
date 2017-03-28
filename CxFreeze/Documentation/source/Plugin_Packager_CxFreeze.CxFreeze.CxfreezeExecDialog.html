@@ -31,7 +31,7 @@ Module implementing a dialog to show the output of the packager process.
 <table>
 <tr>
 <td><a href="#CopyAdditionalFiles">CopyAdditionalFiles</a></td>
-<td>Thread to copy the distribution dependend files.</td>
+<td>Thread to copy the distribution dependent files.</td>
 </tr><tr>
 <td><a href="#CxfreezeExecDialog">CxfreezeExecDialog</a></td>
 <td>Module implementing a dialog to show the output of the cxfreeze process.</td>
@@ -45,7 +45,7 @@ Module implementing a dialog to show the output of the packager process.
 <a NAME="CopyAdditionalFiles" ID="CopyAdditionalFiles"></a>
 <h2>CopyAdditionalFiles</h2>
 <p>
-    Thread to copy the distribution dependend files.
+    Thread to copy the distribution dependent files.
 </p><h3>Signals</h3>
 <dl>
 <dt>insertPlainText(text)</dt>
@@ -68,13 +68,13 @@ QThread
 <table>
 <tr>
 <td><a href="#CopyAdditionalFiles.__init__">CopyAdditionalFiles</a></td>
-<td>Constructor, which stores the needed variables.</td>
+<td>Constructor</td>
 </tr><tr>
 <td><a href="#CopyAdditionalFiles.__copytree">__copytree</a></td>
 <td>Private method to copy a file or folder.</td>
 </tr><tr>
 <td><a href="#CopyAdditionalFiles.run">run</a></td>
-<td>QThread entry point to copy the selected additional files and folders.</td>
+<td>Public method to run the thread.</td>
 </tr><tr>
 <td><a href="#CopyAdditionalFiles.src2dst">src2dst</a></td>
 <td>Combines the relativ path of the source (srcname) with the destination folder.</td>
@@ -88,7 +88,7 @@ QThread
 <h4>CopyAdditionalFiles (Constructor)</h4>
 <b>CopyAdditionalFiles</b>(<i>main</i>)
 <p>
-        Constructor, which stores the needed variables.
+        Constructor
 </p><dl>
 <dt><i>main</i></dt>
 <dd>
@@ -121,6 +121,8 @@ raised if there is an issue writing the package
 <h4>CopyAdditionalFiles.run</h4>
 <b>run</b>(<i></i>)
 <p>
+        Public method to run the thread.
+</p><p>
         QThread entry point to copy the selected additional files and folders.
 </p><dl>
 <dt>Raises <b>OSError</b>:</dt>

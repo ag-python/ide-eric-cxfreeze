@@ -13,7 +13,7 @@ import os
 import platform
 
 from PyQt5.QtCore import QObject, QTranslator, QCoreApplication
-from PyQt5.QtWidgets import  QDialog
+from PyQt5.QtWidgets import QDialog
 
 from E5Gui import E5MessageBox
 from E5Gui.E5Action import E5Action
@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.6"
+version = "6.0.7"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -158,9 +158,9 @@ def _findExecutable(majorVersion):
         # step 1: determine possible candidates
         exes = []
         dirs = path.split(os.pathsep)
-        for dir in dirs:
+        for directory in dirs:
             for suffix in scriptSuffixes:
-                exe = os.path.join(dir, cxfreezeScript + suffix)
+                exe = os.path.join(directory, cxfreezeScript + suffix)
                 if os.access(exe, os.X_OK):
                     exes.append(exe)
         
@@ -374,3 +374,6 @@ class CxFreezePlugin(QObject):
                             project.getMainScript())
             if res:
                 dia.exec_()
+
+#
+# eflag: noqa = M801

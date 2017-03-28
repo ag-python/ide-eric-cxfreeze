@@ -7,11 +7,13 @@
 Script to find the cxfreeze directory from running Python interpreter.
 """
 
+from __future__ import unicode_literals
+
 import os
 import sys
 
 for sysPath in sys.path:
     modpath = os.path.join(sysPath, "cx_Freeze")
     if os.path.exists(modpath):
-        print(modpath)
+        print(modpath)      # __IGNORE_WARNING_M801__
         break

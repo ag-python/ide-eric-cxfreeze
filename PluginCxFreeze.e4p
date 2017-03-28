@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
-<!-- eric6 project file for project PluginCxFreeze -->
-<!-- Copyright (C) 2014 Detlev Offenbach, detlev@die-offenbachs.de -->
+<!-- eric project file for project PluginCxFreeze -->
+<!-- Copyright (C) 2017 Detlev Offenbach, detlev@die-offenbachs.de -->
 <Project version="5.1">
   <Language>en</Language>
   <Hash>e6cc5d1be724a6f9b38cea1b3785946161f4baeb</Hash>
@@ -14,42 +14,42 @@
   <TranslationPattern>CxFreeze/i18n/cxfreeze_%language%.ts</TranslationPattern>
   <Eol index="1"/>
   <Sources>
-    <Source>__init__.py</Source>
-    <Source>PluginCxFreeze.py</Source>
-    <Source>CxFreeze/__init__.py</Source>
     <Source>CxFreeze/CxfreezeConfigDialog.py</Source>
     <Source>CxFreeze/CxfreezeExecDialog.py</Source>
     <Source>CxFreeze/CxfreezeFindPath.py</Source>
+    <Source>CxFreeze/__init__.py</Source>
+    <Source>PluginCxFreeze.py</Source>
+    <Source>__init__.py</Source>
   </Sources>
   <Forms>
     <Form>CxFreeze/CxfreezeConfigDialog.ui</Form>
     <Form>CxFreeze/CxfreezeExecDialog.ui</Form>
   </Forms>
   <Translations>
-    <Translation>CxFreeze/i18n/cxfreeze_ru.ts</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_de.ts</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_cs.ts</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_es.ts</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_fr.ts</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_ru.qm</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_de.qm</Translation>
     <Translation>CxFreeze/i18n/cxfreeze_cs.qm</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_es.qm</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_fr.qm</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_it.ts</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_it.qm</Translation>
-    <Translation>CxFreeze/i18n/cxfreeze_en.ts</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_cs.ts</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_de.qm</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_de.ts</Translation>
     <Translation>CxFreeze/i18n/cxfreeze_en.qm</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_en.ts</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_es.qm</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_es.ts</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_fr.qm</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_fr.ts</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_it.qm</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_it.ts</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_ru.qm</Translation>
+    <Translation>CxFreeze/i18n/cxfreeze_ru.ts</Translation>
   </Translations>
   <Resources/>
   <Interfaces/>
   <Others>
     <Other>.hgignore</Other>
-    <Other>CxFreeze/Documentation/LICENSE.GPL3</Other>
     <Other>ChangeLog</Other>
+    <Other>CxFreeze/Documentation/LICENSE.GPL3</Other>
+    <Other>CxFreeze/Documentation/source</Other>
     <Other>PKGLIST</Other>
     <Other>PluginCxFreeze.e4p</Other>
-    <Other>CxFreeze/Documentation/source</Other>
     <Other>PluginCxFreeze.zip</Other>
   </Others>
   <MainScript>PluginCxFreeze.py</MainScript>
@@ -155,9 +155,6 @@
         </value>
       </dict>
     </VcsOptions>
-    <VcsOtherData>
-      <dict/>
-    </VcsOtherData>
   </Vcs>
   <FiletypeAssociations>
     <FiletypeAssociation pattern="*.idl" type="INTERFACES"/>
@@ -218,14 +215,6 @@
               <bool>False</bool>
             </value>
             <key>
-              <string>sourceExtensions</string>
-            </key>
-            <value>
-              <list>
-                <string></string>
-              </list>
-            </value>
-            <key>
               <string>useRecursion</string>
             </key>
             <value>
@@ -245,6 +234,49 @@
         <value>
           <dict>
             <key>
+              <string>BuiltinsChecker</string>
+            </key>
+            <value>
+              <dict>
+                <key>
+                  <string>bytes</string>
+                </key>
+                <value>
+                  <list>
+                    <string>unicode</string>
+                  </list>
+                </value>
+                <key>
+                  <string>chr</string>
+                </key>
+                <value>
+                  <list>
+                    <string>unichr</string>
+                  </list>
+                </value>
+                <key>
+                  <string>str</string>
+                </key>
+                <value>
+                  <list>
+                    <string>unicode</string>
+                  </list>
+                </value>
+              </dict>
+            </value>
+            <key>
+              <string>CopyrightAuthor</string>
+            </key>
+            <value>
+              <string></string>
+            </value>
+            <key>
+              <string>CopyrightMinFileSize</string>
+            </key>
+            <value>
+              <int>0</int>
+            </value>
+            <key>
               <string>DocstringType</string>
             </key>
             <value>
@@ -254,13 +286,13 @@
               <string>ExcludeFiles</string>
             </key>
             <value>
-              <string></string>
+              <string>*/Ui_*.py, */*_rc.py</string>
             </value>
             <key>
               <string>ExcludeMessages</string>
             </key>
             <value>
-              <string>E24, W293, N802, N803, N807, N808, N821</string>
+              <string>C101, E265, E266, E305, E402, M811, N802, N803, N807, N808, N821, W293</string>
             </value>
             <key>
               <string>FixCodes</string>
@@ -275,6 +307,12 @@
               <bool>False</bool>
             </value>
             <key>
+              <string>FutureChecker</string>
+            </key>
+            <value>
+              <string>unicode_literals</string>
+            </value>
+            <key>
               <string>HangClosing</string>
             </key>
             <value>
@@ -285,6 +323,24 @@
             </key>
             <value>
               <string></string>
+            </value>
+            <key>
+              <string>LineComplexity</string>
+            </key>
+            <value>
+              <int>20</int>
+            </value>
+            <key>
+              <string>LineComplexityScore</string>
+            </key>
+            <value>
+              <int>10</int>
+            </value>
+            <key>
+              <string>MaxCodeComplexity</string>
+            </key>
+            <value>
+              <int>10</int>
             </value>
             <key>
               <string>MaxLineLength</string>
@@ -303,6 +359,18 @@
             </key>
             <value>
               <bool>True</bool>
+            </value>
+            <key>
+              <string>ShowIgnored</string>
+            </key>
+            <value>
+              <bool>False</bool>
+            </value>
+            <key>
+              <string>ValidEncodings</string>
+            </key>
+            <value>
+              <string>latin-1, utf-8</string>
             </value>
           </dict>
         </value>

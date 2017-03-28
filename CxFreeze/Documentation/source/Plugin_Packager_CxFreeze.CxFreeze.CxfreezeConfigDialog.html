@@ -70,7 +70,7 @@ QDialog, Ui_CxfreezeConfigDialog
 <td>Private method to split a string observing various conditions.</td>
 </tr><tr>
 <td><a href="#CxfreezeConfigDialog.accept">accept</a></td>
-<td>Protected slot called by the Ok button.</td>
+<td>Public method called by the Ok button.</td>
 </tr><tr>
 <td><a href="#CxfreezeConfigDialog.generateParameters">generateParameters</a></td>
 <td>Public method that generates the commandline parameters.</td>
@@ -158,7 +158,7 @@ list of split values
 <h4>CxfreezeConfigDialog.accept</h4>
 <b>accept</b>(<i></i>)
 <p>
-        Protected slot called by the Ok button.
+        Public method called by the Ok button.
 </p><p>
         It saves the values in the parameters dictionary.
 </p><a NAME="CxfreezeConfigDialog.generateParameters" ID="CxfreezeConfigDialog.generateParameters"></a>
@@ -286,34 +286,33 @@ QFileDialog
 <table>
 <tr>
 <td><a href="#DirFileDialog.__init__">DirFileDialog</a></td>
-<td>Extend the normal none native file dialog to select files and folders at once.</td>
+<td>Constructor</td>
 </tr><tr>
 <td><a href="#DirFileDialog.accept">accept</a></td>
-<td>Update the list with the selected files and folders.</td>
+<td>Public method to update the list with the selected files and folders.</td>
 </tr><tr>
 <td><a href="#DirFileDialog.exec_">exec_</a></td>
 <td>Public slot to finalize initialisation and start the event loop.</td>
 </tr><tr>
 <td><a href="#DirFileDialog.on_directoryEntered">on_directoryEntered</a></td>
-<td>Reset selections if another directory was entered.</td>
+<td>Private method to reset selections if another directory was entered.</td>
 </tr><tr>
 <td><a href="#DirFileDialog.on_selectionChanged">on_selectionChanged</a></td>
-<td>Determine the selected files and folders and update the lineedit.</td>
+<td>Private method to determine the selected files and folders and update the line edit.</td>
 </tr>
 </table>
 <h3>Static Methods</h3>
 <table>
 <tr>
 <td><a href="#DirFileDialog.getOpenFileNames">getOpenFileNames</a></td>
-<td>Static method to get the names of files and folders for opening it.</td>
+<td>Public method to get the names of files and folders for opening it.</td>
 </tr>
 </table>
 <a NAME="DirFileDialog.__init__" ID="DirFileDialog.__init__"></a>
 <h4>DirFileDialog (Constructor)</h4>
-<b>DirFileDialog</b>(<i>parent=None, caption="", directory="", filter=""</i>)
+<b>DirFileDialog</b>(<i>parent=None, caption="", directory="", fileFilter=""</i>)
 <p>
-        Extend the normal none native file dialog to select files and folders
-        at once.
+        Constructor
 </p><dl>
 <dt><i>parent</i></dt>
 <dd>
@@ -324,7 +323,7 @@ window title of the dialog (string)
 </dd><dt><i>directory</i></dt>
 <dd>
 working directory of the dialog (string)
-</dd><dt><i>filter</i></dt>
+</dd><dt><i>fileFilter</i></dt>
 <dd>
 filter string for the dialog (string)
 </dd>
@@ -332,7 +331,7 @@ filter string for the dialog (string)
 <h4>DirFileDialog.accept</h4>
 <b>accept</b>(<i></i>)
 <p>
-        Update the list with the selected files and folders.
+        Public method to update the list with the selected files and folders.
 </p><a NAME="DirFileDialog.exec_" ID="DirFileDialog.exec_"></a>
 <h4>DirFileDialog.exec_</h4>
 <b>exec_</b>(<i></i>)
@@ -345,11 +344,11 @@ accepted or rejected (QDialog.DialogCode)
 </dd>
 </dl><a NAME="DirFileDialog.on_directoryEntered" ID="DirFileDialog.on_directoryEntered"></a>
 <h4>DirFileDialog.on_directoryEntered</h4>
-<b>on_directoryEntered</b>(<i>dir</i>)
+<b>on_directoryEntered</b>(<i>directory</i>)
 <p>
-        Reset selections if another directory was entered.
+        Private method to reset selections if another directory was entered.
 </p><dl>
-<dt><i>dir</i></dt>
+<dt><i>directory</i></dt>
 <dd>
 name of the directory entered (string)
 </dd>
@@ -357,7 +356,8 @@ name of the directory entered (string)
 <h4>DirFileDialog.on_selectionChanged</h4>
 <b>on_selectionChanged</b>(<i>selected, deselected</i>)
 <p>
-        Determine the selected files and folders and update the lineedit.
+        Private method to determine the selected files and folders and update
+        the line edit.
 </p><dl>
 <dt><i>selected</i></dt>
 <dd>
@@ -368,9 +368,9 @@ deselected entries (QItemSelection)
 </dd>
 </dl><a NAME="DirFileDialog.getOpenFileNames" ID="DirFileDialog.getOpenFileNames"></a>
 <h4>DirFileDialog.getOpenFileNames (static)</h4>
-<b>getOpenFileNames</b>(<i>caption="", directory="", filter="", options=QFileDialog.Options()</i>)
+<b>getOpenFileNames</b>(<i>caption="", directory="", fileFilter="", options=None</i>)
 <p>
-        Static method to get the names of files and folders for opening it.
+        Public method to get the names of files and folders for opening it.
 </p><dl>
 <dt><i>parent</i></dt>
 <dd>
@@ -381,7 +381,7 @@ window title of the dialog (string)
 </dd><dt><i>directory</i></dt>
 <dd>
 working directory of the dialog (string)
-</dd><dt><i>filter</i></dt>
+</dd><dt><i>fileFilter</i></dt>
 <dd>
 filter string for the dialog (string)
 </dd><dt><i>options</i></dt>

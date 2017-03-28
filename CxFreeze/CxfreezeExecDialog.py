@@ -19,7 +19,7 @@ import fnmatch
 import os.path
 
 from PyQt5.QtCore import pyqtSlot, QProcess, QTimer, QThread, pyqtSignal
-from PyQt5.QtWidgets import  QDialog, QDialogButtonBox, QAbstractButton
+from PyQt5.QtWidgets import QDialog, QDialogButtonBox, QAbstractButton
 
 from E5Gui import E5MessageBox
 
@@ -206,7 +206,7 @@ class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
 
 class CopyAdditionalFiles(QThread):
     """
-    Thread to copy the distribution dependend files.
+    Thread to copy the distribution dependent files.
     
     @signal insertPlainText(text) emitted to inform user about the copy
         progress
@@ -215,7 +215,7 @@ class CopyAdditionalFiles(QThread):
     
     def __init__(self, main):
         """
-        Constructor, which stores the needed variables.
+        Constructor
         
         @param main self-object of the caller
         """
@@ -254,13 +254,13 @@ class CopyAdditionalFiles(QThread):
         for root, dirs, files in os.walk(base):
             copied = False
             # remove all none matching directorynames, create all others
-            for dir in dirs[:]:
-                pathname = os.path.join(root, dir)
+            for directory in dirs[:]:
+                pathname = os.path.join(root, directory)
                 if initDone or fnmatch.fnmatch(pathname, src):
                     newDir = src2dst(pathname, base, dst)
-                    # avoid infinit loop
+                    # avoid infinite loop
                     if fnmatch.fnmatch(newDir, src):
-                        dirs.remove(dir)
+                        dirs.remove(directory)
                         continue
                     try:
                         copied = True
@@ -270,7 +270,7 @@ class CopyAdditionalFiles(QThread):
                             # it's ok if directory already exists
                             raise err
                 else:
-                    dirs.remove(dir)
+                    dirs.remove(directory)
             
             for file in files:
                 fn = os.path.join(root, file)
@@ -291,6 +291,8 @@ class CopyAdditionalFiles(QThread):
             
     def run(self):
         """
+        Public method to run the thread.
+        
         QThread entry point to copy the selected additional files and folders.
         
         @exception OSError raised if there is an issue writing the package
@@ -311,8 +313,8 @@ class CopyAdditionalFiles(QThread):
                 try:
                     os.makedirs(dst)
                 except OSError as err:
-                    if err.errno != errno.EEXIST:     # it's ok if directory
-                                                      # already exists
+                    if err.errno != errno.EEXIST:   # it's ok if directory
+                                                    # already exists
                         raise err
             
             try:

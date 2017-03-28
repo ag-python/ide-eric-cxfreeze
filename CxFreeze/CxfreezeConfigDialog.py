@@ -36,19 +36,18 @@ class DirFileDialog(QFileDialog):
     
     For this purpose the none native filedialog is used.
     """
-    def __init__(self, parent=None, caption="", directory="", filter=""):
+    def __init__(self, parent=None, caption="", directory="", fileFilter=""):
         """
-        Extend the normal none native file dialog to select files and folders
-        at once.
+        Constructor
         
         @param parent parent widget of the dialog (QWidget)
         @param caption window title of the dialog (string)
         @param directory working directory of the dialog (string)
-        @param filter filter string for the dialog (string)
+        @param fileFilter filter string for the dialog (string)
         """
         self.selectedFilesFolders = []
         
-        QFileDialog.__init__(self, parent, caption, directory, filter)
+        QFileDialog.__init__(self, parent, caption, directory, fileFilter)
         self.setFileMode(QFileDialog.ExistingFiles)
     
     def exec_(self):
@@ -67,7 +66,7 @@ class DirFileDialog(QFileDialog):
     
     def accept(self):
         """
-        Update the list with the selected files and folders.
+        Public method to update the list with the selected files and folders.
         """
         # Avoid to close the dialog if only return is pressed
         if not self.openBtn.isEnabled():
@@ -80,11 +79,11 @@ class DirFileDialog(QFileDialog):
         self.hide()
     
     @pyqtSlot(str)
-    def on_directoryEntered(self, dir):
+    def on_directoryEntered(self, directory):
         """
-        Reset selections if another directory was entered.
+        Private method to reset selections if another directory was entered.
         
-        @param dir name of the directory entered (string)
+        @param directory name of the directory entered (string)
         """
         self.tree.selectionModel().clear()
         self.fileNameEdit.clear()
@@ -93,7 +92,8 @@ class DirFileDialog(QFileDialog):
     @pyqtSlot(QItemSelection, QItemSelection)
     def on_selectionChanged(self, selected, deselected):
         """
-        Determine the selected files and folders and update the lineedit.
+        Private method to determine the selected files and folders and update
+        the line edit.
         
         @param selected newly selected entries (QItemSelection)
         @param deselected deselected entries (QItemSelection)
@@ -117,19 +117,21 @@ class DirFileDialog(QFileDialog):
     
     @staticmethod
     def getOpenFileNames(parent=None, caption="", directory="",
-                         filter="", options=QFileDialog.Options()):
+                         fileFilter="", options=None):
         """
-        Static method to get the names of files and folders for opening it.
+        Public method to get the names of files and folders for opening it.
         
         @param parent parent widget of the dialog (QWidget)
         @param caption window title of the dialog (string)
         @param directory working directory of the dialog (string)
-        @param filter filter string for the dialog (string)
+        @param fileFilter filter string for the dialog (string)
         @param options various options for the dialog (QFileDialog.Options)
         @return names of the selected files and folders (list of strings)
         """
+        if options is None:
+            options = QFileDialog.Options()
         options |= QFileDialog.DontUseNativeDialog
-        dlg = DirFileDialog(parent, caption, directory, filter)
+        dlg = DirFileDialog(parent, caption, directory, fileFilter)
         dlg.setOptions(options)
         dlg.exec_()
         return dlg.selectedFilesFolders
@@ -568,7 +570,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
 
     def accept(self):
         """
-        Protected slot called by the Ok button.
+        Public method called by the Ok button.
         
         It saves the values in the parameters dictionary.
         """
