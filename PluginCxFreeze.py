@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.7"
+version = "6.0.8"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -83,9 +83,9 @@ def _findExecutable(majorVersion):
     """
     # Determine Python Version
     if majorVersion == 3:
-        minorVersions = range(5)
+        minorVersions = range(10)
     elif majorVersion == 2:
-        minorVersions = range(5, 9)
+        minorVersions = range(6, 8)
     else:
         return []
     

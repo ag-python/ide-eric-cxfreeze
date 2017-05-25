@@ -1,5 +1,9 @@
 ChangeLog
 ---------
+Version 6.0.8:
+- fixed an issue preventing the activation of the plug-in with
+  Python 3 >= 3.5.x
+
 Version 6.0.7:
 - bug fixes
 
