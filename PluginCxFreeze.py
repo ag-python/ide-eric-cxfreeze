@@ -12,7 +12,7 @@ from __future__ import unicode_literals
 import os
 import platform
 
-from PyQt5.QtCore import QObject, QTranslator, QCoreApplication
+from PyQt5.QtCore import QObject, QTranslator, QCoreApplication, QProcess
 from PyQt5.QtWidgets import QDialog
 
 from E5Gui import E5MessageBox
@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.8"
+version = "6.0.9"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -113,33 +113,36 @@ def _findExecutable(majorVersion):
                 return None
             return None
         
+        versionSuffixes = ["", "-32", "-64"]
         for minorVersion in minorVersions:
-            versionStr = '{0}.{1}'.format(majorVersion, minorVersion)
-            exePath = getExePath(
-                winreg.HKEY_CURRENT_USER,
-                winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
-            if exePath is not None:
-                executables.add(exePath)
-            
-            exePath = getExePath(
-                winreg.HKEY_LOCAL_MACHINE,
-                winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
-            if exePath is not None:
-                executables.add(exePath)
-            
-            # Even on Intel 64-bit machines it's 'AMD64'
-            if platform.machine() == 'AMD64':
+            for versionSuffix in versionSuffixes:
+                versionStr = '{0}.{1}{2}'.format(majorVersion, minorVersion,
+                                                 versionSuffix)
                 exePath = getExePath(
                     winreg.HKEY_CURRENT_USER,
-                    winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
+                    winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
                 if exePath is not None:
                     executables.add(exePath)
                 
                 exePath = getExePath(
                     winreg.HKEY_LOCAL_MACHINE,
-                    winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
+                    winreg.KEY_WOW64_32KEY | winreg.KEY_READ, versionStr)
                 if exePath is not None:
                     executables.add(exePath)
+                
+                # Even on Intel 64-bit machines it's 'AMD64'
+                if platform.machine() == 'AMD64':
+                    exePath = getExePath(
+                        winreg.HKEY_CURRENT_USER,
+                        winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
+                    if exePath is not None:
+                        executables.add(exePath)
+                    
+                    exePath = getExePath(
+                        winreg.HKEY_LOCAL_MACHINE,
+                        winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
+                    if exePath is not None:
+                        executables.add(exePath)
     else:
         #
         # Linux, Unix ...
@@ -165,24 +168,24 @@ def _findExecutable(majorVersion):
                     exes.append(exe)
         
         # step 2: determine the Python variant
-        if Utilities.isMacPlatform():
-            checkStrings = ["Python.framework/Versions/3".lower(),
-                            "python3"]
-        else:
-            checkStrings = ["python3"]
-        
         _exePy2 = set()
         _exePy3 = set()
+        versionArgs = ["-c", "import sys; print(sys.version_info[0])"]
         for exe in exes:
             try:
                 f = open(exe, "r")
                 line0 = f.readline()
-                for checkStr in checkStrings:
-                    if checkStr in line0.lower():
-                        _exePy3.add(exe)
-                        break
-                else:
-                        _exePy2.add(exe)
+                program = line0.replace("#!", "").strip()
+                process = QProcess()
+                process.start(program, versionArgs)
+                process.waitForFinished(5000)
+                # get a QByteArray of the output
+                versionBytes = process.readAllStandardOutput()
+                versionStr = str(versionBytes, encoding='utf-8').strip()
+                if versionStr == "3":
+                    _exePy3.add(exe)
+                elif versionStr == "2":
+                    _exePy2.add(exe)
             finally:
                 f.close()
         

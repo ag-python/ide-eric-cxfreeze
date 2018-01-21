@@ -1,5 +1,8 @@
 ChangeLog
 ---------
+Version 6.0.9:
+- improved executable and Python version determination
+
 Version 6.0.8:
 - fixed an issue preventing the activation of the plug-in with
   Python 3 >= 3.5.x
