@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="de">
+<!DOCTYPE TS><TS version="2.0" language="de" sourcelanguage="">
 <context>
     <name>CopyAdditionalFiles</name>
     <message>
@@ -9,19 +8,19 @@
         <translation>Datei oder Verzeichnis nicht gefunden: &apos;{0}&apos;</translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="301"/>
+        <location filename="../CxfreezeExecDialog.py" line="303"/>
         <source>
 Copying {0}: </source>
         <translation>
 Kopiere {0}: </translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="320"/>
+        <location filename="../CxfreezeExecDialog.py" line="322"/>
         <source>ok</source>
         <translation>ok</translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="322"/>
+        <location filename="../CxfreezeExecDialog.py" line="324"/>
         <source>failed: {0}</source>
         <translation>fehlgeschlagen: {0}</translation>
     </message>
@@ -77,12 +76,12 @@ Kopiere {0}: </translation>
 <context>
     <name>CxfreezeConfigDialog</name>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="403"/>
+        <location filename="../CxfreezeConfigDialog.py" line="405"/>
         <source>Select target directory</source>
         <translation>Wähle das Zielverzeichnis</translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="351"/>
+        <location filename="../CxfreezeConfigDialog.py" line="353"/>
         <source>Select external list file</source>
         <translation>Wähle die externe Listendatei</translation>
     </message>
@@ -311,17 +310,17 @@ Kopiere {0}: </translation>
         <translation>cx_Freeze Startdatei:</translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="371"/>
+        <location filename="../CxfreezeConfigDialog.py" line="373"/>
         <source>Icons</source>
         <translation>Icons</translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="372"/>
+        <location filename="../CxfreezeConfigDialog.py" line="374"/>
         <source>All files</source>
         <translation>Alle Dateien</translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="383"/>
+        <location filename="../CxfreezeConfigDialog.py" line="385"/>
         <source>Select the application icon</source>
         <translation>Wähle das Icon für die Anwendung</translation>
     </message>
@@ -375,7 +374,7 @@ Wildcards are allowed, e.g. *.ui</source>
 Platzhalter sind erlaubt, wie z.B. *.ui</translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="559"/>
+        <location filename="../CxfreezeConfigDialog.py" line="561"/>
         <source>Select files and folders</source>
         <translation>Wähle Dateien und Ordner</translation>
     </message>
@@ -456,7 +455,8 @@ Platzhalter sind erlaubt, wie z.B. *.ui</translation>
 {0} aborted.
 </source>
         <translation>
-{0} abgebrochen.</translation>
+{0} abgebrochen.
+</translation>
     </message>
 </context>
 </TS>

@@ -30,7 +30,7 @@ import Preferences
 
 class CxfreezeExecDialog(QDialog, Ui_CxfreezeExecDialog):
     """
-    Module implementing a dialog to show the output of the cxfreeze process.
+    Class implementing a dialog to show the output of the cxfreeze process.
     
     This class starts a QProcess and displays a dialog that
     shows the output of the packager command process.
