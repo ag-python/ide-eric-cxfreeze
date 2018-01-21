@@ -296,7 +296,7 @@ class CopyAdditionalFiles(QThread):
         QThread entry point to copy the selected additional files and folders.
         
         @exception OSError raised if there is an issue writing the package
-        """
+        """     # __IGNORE_WARNING_D252__ __IGNORE_WARNING_D253__
         self.insertPlainText.emit('----\n')
         os.chdir(self.ppath)
         for fn in self.additionalFiles:

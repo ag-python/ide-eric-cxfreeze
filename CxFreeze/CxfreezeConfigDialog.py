@@ -119,7 +119,7 @@ class DirFileDialog(QFileDialog):
     def getOpenFileNames(parent=None, caption="", directory="",
                          fileFilter="", options=None):
         """
-        Public method to get the names of files and folders for opening it.
+        Static method to get the names of files and folders for opening it.
         
         @param parent parent widget of the dialog (QWidget)
         @param caption window title of the dialog (string)
