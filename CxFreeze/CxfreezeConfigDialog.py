@@ -170,9 +170,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         
         # combine it with the values of parms
         if parms is not None:
-            for key, value in parms.items():
-                if key in self.parameters:
-                    self.parameters[key] = parms[key]
+            self.parameters.update(parms)
         
         self.exe = exe
         self.cxfreezeExecCombo.addItems(exe)
@@ -435,7 +433,7 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             if not os.path.exists(modpath):
                 # but if it failed search in the whole directory tree
                 modpath = None
-                for dirpath, dirnames, filenames in os.walk(dirname):
+                for dirpath, dirnames, _ in os.walk(dirname):
                     if 'cx_Freeze' in dirnames:
                         modpath = os.path.join(dirpath, "cx_Freeze")
                         break
