@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.9"
+version = "6.0.10"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -245,6 +245,7 @@ class CxFreezePlugin(QObject):
         Private slot to (re)initialize the plugin.
         """
         self.__projectAct = None
+        self.__projectSeparator = None
        
     def activate(self):
         """
@@ -280,6 +281,7 @@ class CxFreezePlugin(QObject):
             ))
             self.__projectAct.triggered.connect(self.__cxfreeze)
             project.addE5Actions([self.__projectAct])
+            self.__projectSeparator = menu.addSeparator()
             menu.addAction(self.__projectAct)
             project.showMenu.connect(self.__projectShowMenu)
         
@@ -296,6 +298,9 @@ class CxFreezePlugin(QObject):
                 menu.removeAction(self.__projectAct)
                 e5App().getObject("Project").removeE5Actions(
                     [self.__projectAct])
+            if self.__projectSeparator:
+                menu.removeAction(self.__projectSeparator)
+        
         self.__initialize()
     
     def __projectShowMenu(self, menuName, menu):
