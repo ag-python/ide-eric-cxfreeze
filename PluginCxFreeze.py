@@ -26,7 +26,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.10"
+version = "6.0.11"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -342,7 +342,7 @@ class CxFreezePlugin(QObject):
         Private slot to handle the cxfreeze execution.
         """
         project = e5App().getObject("Project")
-        if project.getMainScript() == "":
+        if not project.getMainScript():
             # no main script defined
             E5MessageBox.critical(
                 self.__ui,
