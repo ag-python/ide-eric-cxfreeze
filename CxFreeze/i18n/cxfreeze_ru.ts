@@ -8,18 +8,19 @@
         <translation>Не найден файл или директория: &apos;{0}&apos;</translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="301"/>
+        <location filename="../CxfreezeExecDialog.py" line="303"/>
         <source>
 Copying {0}: </source>
-        <translation>Копирование {0}:</translation>
+        <translation>
+Копирование {0}: </translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="320"/>
+        <location filename="../CxfreezeExecDialog.py" line="322"/>
         <source>ok</source>
         <translation>ok</translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="322"/>
+        <location filename="../CxfreezeExecDialog.py" line="324"/>
         <source>failed: {0}</source>
         <translation>failed: {0}</translation>
     </message>
@@ -29,48 +30,48 @@ Copying {0}: </source>
     <message>
         <location filename="../../PluginCxFreeze.py" line="58"/>
         <source>Packagers - cx_freeze</source>
-        <translation>Пакетировщики — cx_freeze</translation>
+        <translation>Упаковщик - cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="341"/>
+        <location filename="../../PluginCxFreeze.py" line="349"/>
         <source>There is no main script defined for the current project.</source>
         <translation>В текущем проекте не определен главный сценарий.</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="354"/>
+        <location filename="../../PluginCxFreeze.py" line="362"/>
         <source>The cxfreeze executable could not be found.</source>
         <translation>Исполняемый файл cxfreeze не найден.</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="354"/>
+        <location filename="../../PluginCxFreeze.py" line="362"/>
         <source>cxfreeze</source>
         <translation>cxfreeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="266"/>
+        <location filename="../../PluginCxFreeze.py" line="270"/>
         <source>Use cx_freeze</source>
         <translation>Использовать cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="266"/>
+        <location filename="../../PluginCxFreeze.py" line="270"/>
         <source>Use cx_&amp;freeze</source>
         <translation>Использовать cx_&amp;freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="270"/>
+        <location filename="../../PluginCxFreeze.py" line="274"/>
         <source>Generate a distribution package using cx_freeze</source>
         <translation>Создать дистрибутивный пакет с помощью cx_freeze</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="272"/>
+        <location filename="../../PluginCxFreeze.py" line="276"/>
         <source>&lt;b&gt;Use cx_freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation>&lt;b&gt;Использовать cx_freeze&lt;/b&gt;
 &lt;p&gt;Создание дистрибутивного пакета с помощью cx_freeze. Команда исполняется в пути проекта. Имена всех файлов и директорий должны быть представлены абсолютно или относительно директории проекта.&lt;/p&gt;</translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="210"/>
+        <location filename="../../PluginCxFreeze.py" line="213"/>
         <source>The cxfreeze.bat executable could not be found.Did you run the cxfreeze-postinstall script?</source>
-        <translation>Невозможно найти исполняемый файл cxfreeze.bat. Может быть вы запустите сценарий cxfreeze-postinstall?</translation>
+        <translation>Невозможно найти исполняемый файл cxfreeze.bat. Вы пробовали запустить сценарий cxfreeze-postinstall?</translation>
     </message>
 </context>
 <context>
@@ -437,7 +438,9 @@ Wildcards are allowed, e.g. *.ui</source>
         <source>
 {0} finished.
 </source>
-        <translation>{0} завершен.</translation>
+        <translation>
+{0} завершен.
+</translation>
     </message>
     <message>
         <location filename="../CxfreezeExecDialog.ui" line="29"/>
@@ -454,7 +457,9 @@ Wildcards are allowed, e.g. *.ui</source>
         <source>
 {0} aborted.
 </source>
-        <translation>{0} прерван.</translation>
+        <translation>
+{0} прерван.
+</translation>
     </message>
 </context>
 </TS>
