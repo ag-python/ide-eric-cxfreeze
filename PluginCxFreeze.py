@@ -8,6 +8,10 @@ Module implementing the CxFreeze plugin.
 """
 
 from __future__ import unicode_literals
+try:
+    str = unicode
+except NameError:
+    pass
 
 import os
 import platform
@@ -26,7 +30,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.12"
+version = "6.0.13"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
