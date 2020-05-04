@@ -18,8 +18,10 @@ import os
 import copy
 
 from PyQt5.QtCore import pyqtSlot, QDir, QProcess, QItemSelection
-from PyQt5.QtWidgets import QDialog, QListWidgetItem, QFileDialog, \
-    QPushButton, QTreeView, QLineEdit, QFileSystemModel
+from PyQt5.QtWidgets import (
+    QDialog, QListWidgetItem, QFileDialog, QPushButton, QTreeView, QLineEdit,
+    QFileSystemModel
+)
 
 from E5Gui import E5FileDialog
 from E5Gui.E5Completers import E5FileCompleter, E5DirCompleter
@@ -271,8 +273,10 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
         
         # 2. the commandline options
         # 2.1 general options
-        if self.parameters['targetDirectory'] != \
-                self.defaults['targetDirectory']:
+        if (
+            self.parameters['targetDirectory'] !=
+            self.defaults['targetDirectory']
+        ):
             parms['targetDirectory'] = self.parameters['targetDirectory']
             args.append('--target-dir={0}'.format(
                 self.parameters['targetDirectory']))
@@ -288,8 +292,10 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             args.append('--init-script={0}'.format(
                 self.parameters['initScript']))
         parms['applicationIcon'] = self.parameters['applicationIcon'][:]
-        if self.parameters['applicationIcon'] != \
-                self.defaults['applicationIcon']:
+        if (
+            self.parameters['applicationIcon'] !=
+            self.defaults['applicationIcon']
+        ):
             args.append('--icon={0}'.format(
                 self.parameters['applicationIcon']))
         parms['script'] = self.parameters['script'][:]
@@ -319,13 +325,17 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             parms['replacePaths'] = self.parameters['replacePaths'][:]
             args.append('--replace-paths={0}'.format(
                         os.pathsep.join(self.parameters['replacePaths'])))
-        if self.parameters['includeModules'] != \
-                self.defaults['includeModules']:
+        if (
+            self.parameters['includeModules'] !=
+            self.defaults['includeModules']
+        ):
             parms['includeModules'] = self.parameters['includeModules'][:]
             args.append('--include-modules={0}'.format(
                         ','.join(self.parameters['includeModules'])))
-        if self.parameters['excludeModules'] != \
-                self.defaults['excludeModules']:
+        if (
+            self.parameters['excludeModules'] !=
+            self.defaults['excludeModules']
+        ):
             parms['excludeModules'] = self.parameters['excludeModules'][:]
             args.append('--exclude-modules={0}'.format(
                         ','.join(self.parameters['excludeModules'])))
@@ -589,16 +599,16 @@ class CxfreezeConfigDialog(QDialog, Ui_CxfreezeConfigDialog):
             self.parameters['optimize'] = 2
         
         # get data of advanced tab
-        self.parameters['defaultPath'] = \
-            self.__splitIt(self.defaultPathEdit.text(), os.pathsep)
-        self.parameters['includePath'] = \
-            self.__splitIt(self.includePathEdit.text(), os.pathsep)
-        self.parameters['replacePaths'] = \
-            self.__splitIt(self.replacePathsEdit.text(), os.pathsep)
-        self.parameters['includeModules'] = \
-            self.__splitIt(self.includeModulesEdit.text(), ',')
-        self.parameters['excludeModules'] = \
-            self.__splitIt(self.excludeModulesEdit.text(), ',')
+        self.parameters['defaultPath'] = self.__splitIt(
+            self.defaultPathEdit.text(), os.pathsep)
+        self.parameters['includePath'] = self.__splitIt(
+            self.includePathEdit.text(), os.pathsep)
+        self.parameters['replacePaths'] = self.__splitIt(
+            self.replacePathsEdit.text(), os.pathsep)
+        self.parameters['includeModules'] = self.__splitIt(
+            self.includeModulesEdit.text(), ',')
+        self.parameters['excludeModules'] = self.__splitIt(
+            self.excludeModulesEdit.text(), ',')
         self.parameters['extListFile'] = self.extListFileEdit.text()
         
         # get data of the additional files tab

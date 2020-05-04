@@ -1,5 +1,9 @@
 ChangeLog
 ---------
+Version 6.1.0:
+- added code to search the executable in virtual environment as well on
+  Windows platforms
+
 Version 6.0.13:
 - bug fixes
 

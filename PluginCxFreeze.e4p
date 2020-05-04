@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE Project SYSTEM "Project-5.1.dtd">
 <!-- eric project file for project PluginCxFreeze -->
-<!-- Copyright (C) 2018 Detlev Offenbach, detlev@die-offenbachs.de -->
+<!-- Copyright (C) 2020 Detlev Offenbach, detlev@die-offenbachs.de -->
 <Project version="5.1">
   <Language>en</Language>
   <Hash>e6cc5d1be724a6f9b38cea1b3785946161f4baeb</Hash>
@@ -232,6 +232,34 @@
         <value>
           <dict>
             <key>
+              <string>AnnotationsChecker</string>
+            </key>
+            <value>
+              <dict>
+                <key>
+                  <string>MaximumComplexity</string>
+                </key>
+                <value>
+                  <int>3</int>
+                </value>
+                <key>
+                  <string>MinimumCoverage</string>
+                </key>
+                <value>
+                  <int>75</int>
+                </value>
+              </dict>
+            </value>
+            <key>
+              <string>BlankLines</string>
+            </key>
+            <value>
+              <tuple>
+                <int>2</int>
+                <int>1</int>
+              </tuple>
+            </value>
+            <key>
               <string>BuiltinsChecker</string>
             </key>
             <value>
@@ -263,6 +291,19 @@
               </dict>
             </value>
             <key>
+              <string>CommentedCodeChecker</string>
+            </key>
+            <value>
+              <dict>
+                <key>
+                  <string>Aggressive</string>
+                </key>
+                <value>
+                  <bool>False</bool>
+                </value>
+              </dict>
+            </value>
+            <key>
               <string>CopyrightAuthor</string>
             </key>
             <value>
@@ -290,7 +331,7 @@
               <string>ExcludeMessages</string>
             </key>
             <value>
-              <string>C101, E265, E266, E305, E402, M811, N802, N803, N807, N808, N821, W293, M201</string>
+              <string>A, C101, E265, E266, E305, E402, M201, M811, N802, N803, N807, N808, N821, W293, W504</string>
             </value>
             <key>
               <string>FixCodes</string>
@@ -339,6 +380,12 @@
             </key>
             <value>
               <int>10</int>
+            </value>
+            <key>
+              <string>MaxDocLineLength</string>
+            </key>
+            <value>
+              <int>79</int>
             </value>
             <key>
               <string>MaxLineLength</string>

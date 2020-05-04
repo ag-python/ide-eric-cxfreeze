@@ -313,8 +313,8 @@ class CopyAdditionalFiles(QThread):
                 try:
                     os.makedirs(dst)
                 except OSError as err:
-                    if err.errno != errno.EEXIST:   # it's ok if directory
-                                                    # already exists
+                    if err.errno != errno.EEXIST:
+                        # it's ok if directory already exists
                         raise err
             
             try:

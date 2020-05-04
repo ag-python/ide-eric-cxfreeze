@@ -30,13 +30,14 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.0.13"
+version = "6.1.0"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
-longDescription = \
-    """This plugin implements the CxFreeze dialogs.""" \
+longDescription = (
+    """This plugin implements the CxFreeze dialogs."""
     """ CxFreeze is used to generate a distribution package."""
+)
 needsRestart = False
 pyqtApi = 2
 python2Compatible = True
@@ -147,6 +148,18 @@ def _findExecutable(majorVersion):
                         winreg.KEY_WOW64_64KEY | winreg.KEY_READ, versionStr)
                     if exePath is not None:
                         executables.add(exePath)
+        
+        if not executables and majorVersion >= 3:
+            # check the PATH environment variable if nothing was found
+            # Python 3 only
+            path = Utilities.getEnvironmentEntry('PATH')
+            if path:
+                dirs = path.split(os.pathsep)
+                for directory in dirs:
+                    for suffix in (".bat", ".exe"):
+                        exe = os.path.join(directory, "cxfreeze" + suffix)
+                        if os.access(exe, os.X_OK):
+                            executables.add(exe)
     else:
         #
         # Linux, Unix ...
@@ -328,8 +341,8 @@ class CxFreezePlugin(QObject):
         if self.__ui is not None:
             loc = self.__ui.getLocale()
             if loc and loc != "C":
-                locale_dir = \
-                    os.path.join(os.path.dirname(__file__), "CxFreeze", "i18n")
+                locale_dir = os.path.join(os.path.dirname(__file__),
+                                          "CxFreeze", "i18n")
                 translation = "cxfreeze_{0}".format(loc)
                 translator = QTranslator(None)
                 loaded = translator.load(translation, locale_dir)
@@ -358,8 +371,9 @@ class CxFreezePlugin(QObject):
             return
         
         majorVersionStr = project.getProjectLanguage()
-        exe = {"Python": exePy2, "Python2": exePy2, "Python3": exePy3}\
-            .get(majorVersionStr)
+        exe = {"Python": exePy2,
+               "Python2": exePy2,
+               "Python3": exePy3}.get(majorVersionStr)
         if exe == []:
             E5MessageBox.critical(
                 self.__ui,
