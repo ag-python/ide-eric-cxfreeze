@@ -18,36 +18,47 @@ a { color: #BA6D36; }
 
 </style>
 </head>
-<body><a NAME="top" ID="top"></a>
+<body>
+<a NAME="top" ID="top"></a>
 <h1>Plugin_Packager_CxFreeze.CxFreeze.CxfreezeExecDialog</h1>
+
 <p>
 Module implementing a dialog to show the output of the packager process.
 </p>
 <h3>Global Attributes</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
 <h3>Classes</h3>
+
 <table>
+
 <tr>
 <td><a href="#CopyAdditionalFiles">CopyAdditionalFiles</a></td>
 <td>Thread to copy the distribution dependent files.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog">CxfreezeExecDialog</a></td>
 <td>Class implementing a dialog to show the output of the cxfreeze process.</td>
 </tr>
 </table>
 <h3>Functions</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
-<hr /><hr />
+<hr />
+<hr />
 <a NAME="CopyAdditionalFiles" ID="CopyAdditionalFiles"></a>
 <h2>CopyAdditionalFiles</h2>
+
 <p>
     Thread to copy the distribution dependent files.
-</p><h3>Signals</h3>
+</p>
+<h3>Signals</h3>
 <dl>
+
 <dt>insertPlainText(text)</dt>
 <dd>
 emitted to inform user about the copy
@@ -57,238 +68,318 @@ emitted to inform user about the copy
 <h3>Derived from</h3>
 QThread
 <h3>Class Attributes</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
 <h3>Class Methods</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
 <h3>Methods</h3>
+
 <table>
+
 <tr>
 <td><a href="#CopyAdditionalFiles.__init__">CopyAdditionalFiles</a></td>
 <td>Constructor</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CopyAdditionalFiles.__copytree">__copytree</a></td>
 <td>Private method to copy a file or folder.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CopyAdditionalFiles.run">run</a></td>
 <td>Public method to run the thread.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CopyAdditionalFiles.src2dst">src2dst</a></td>
 <td>Combines the relativ path of the source (srcname) with the destination folder.</td>
 </tr>
 </table>
 <h3>Static Methods</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
+
 <a NAME="CopyAdditionalFiles.__init__" ID="CopyAdditionalFiles.__init__"></a>
 <h4>CopyAdditionalFiles (Constructor)</h4>
 <b>CopyAdditionalFiles</b>(<i>main</i>)
+
 <p>
         Constructor
-</p><dl>
+</p>
+<dl>
+
 <dt><i>main</i></dt>
 <dd>
 self-object of the caller
 </dd>
-</dl><a NAME="CopyAdditionalFiles.__copytree" ID="CopyAdditionalFiles.__copytree"></a>
+</dl>
+<a NAME="CopyAdditionalFiles.__copytree" ID="CopyAdditionalFiles.__copytree"></a>
 <h4>CopyAdditionalFiles.__copytree</h4>
 <b>__copytree</b>(<i>src, dst</i>)
+
 <p>
         Private method to copy a file or folder.
-</p><p>
+</p>
+<p>
         Wildcards allowed. Existing files are overwitten.
-</p><dl>
+</p>
+<dl>
+
 <dt><i>src</i></dt>
 <dd>
 source file or folder to copy. Wildcards allowed. (str)
-</dd><dt><i>dst</i></dt>
+</dd>
+<dt><i>dst</i></dt>
 <dd>
 destination (str)
 </dd>
-</dl><dl>
+</dl>
+<dl>
+
 <dt>Raises <b>IOError</b>:</dt>
 <dd>
 raised if the given source does not exist
-</dd><dt>Raises <b>OSError</b>:</dt>
-<dd>
-raised if there is an issue writing the package
 </dd>
-</dl><a NAME="CopyAdditionalFiles.run" ID="CopyAdditionalFiles.run"></a>
-<h4>CopyAdditionalFiles.run</h4>
-<b>run</b>(<i></i>)
-<p>
-        Public method to run the thread.
-</p><p>
-        QThread entry point to copy the selected additional files and folders.
-</p><dl>
 <dt>Raises <b>OSError</b>:</dt>
 <dd>
 raised if there is an issue writing the package
 </dd>
-</dl><a NAME="CopyAdditionalFiles.src2dst" ID="CopyAdditionalFiles.src2dst"></a>
+</dl>
+<a NAME="CopyAdditionalFiles.run" ID="CopyAdditionalFiles.run"></a>
+<h4>CopyAdditionalFiles.run</h4>
+<b>run</b>(<i></i>)
+
+<p>
+        Public method to run the thread.
+</p>
+<p>
+        QThread entry point to copy the selected additional files and folders.
+</p>
+<dl>
+
+<dt>Raises <b>OSError</b>:</dt>
+<dd>
+raised if there is an issue writing the package
+</dd>
+</dl>
+<a NAME="CopyAdditionalFiles.src2dst" ID="CopyAdditionalFiles.src2dst"></a>
 <h4>CopyAdditionalFiles.src2dst</h4>
 <b>src2dst</b>(<i>base, dst</i>)
+
 <p>
             Combines the relativ path of the source (srcname) with the
             destination folder.
-</p><dl>
+</p>
+<dl>
+
 <dt><i>srcname</i></dt>
 <dd>
 actual file or folder to copy
-</dd><dt><i>base</i></dt>
+</dd>
+<dt><i>base</i></dt>
 <dd>
 basename of the source folder
-</dd><dt><i>dst</i></dt>
+</dd>
+<dt><i>dst</i></dt>
 <dd>
 basename of the destination folder
 </dd>
-</dl><dl>
+</dl>
+<dl>
 <dt>Returns:</dt>
 <dd>
 destination path
 </dd>
 </dl>
 <div align="right"><a href="#top">Up</a></div>
-<hr /><hr />
+<hr />
+<hr />
 <a NAME="CxfreezeExecDialog" ID="CxfreezeExecDialog"></a>
 <h2>CxfreezeExecDialog</h2>
+
 <p>
     Class implementing a dialog to show the output of the cxfreeze process.
-</p><p>
+</p>
+<p>
     This class starts a QProcess and displays a dialog that
     shows the output of the packager command process.
 </p>
 <h3>Derived from</h3>
 QDialog, Ui_CxfreezeExecDialog
 <h3>Class Attributes</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
 <h3>Class Methods</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
 <h3>Methods</h3>
+
 <table>
+
 <tr>
 <td><a href="#CxfreezeExecDialog.__init__">CxfreezeExecDialog</a></td>
 <td>Constructor</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog.__enableButtons">__enableButtons</a></td>
 <td>Private slot called when all processes finished.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog.__finish">__finish</a></td>
 <td>Private slot called when the process finished.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog.__finishedFreeze">__finishedFreeze</a></td>
 <td>Private slot called when the process finished.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog.__readStderr">__readStderr</a></td>
 <td>Private slot to handle the readyReadStandardError signal.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog.__readStdout">__readStdout</a></td>
 <td>Private slot to handle the readyReadStandardOutput signal.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog.on_buttonBox_clicked">on_buttonBox_clicked</a></td>
 <td>Private slot called by a button of the button box clicked.</td>
-</tr><tr>
+</tr>
+<tr>
 <td><a href="#CxfreezeExecDialog.start">start</a></td>
 <td>Public slot to start the packager command.</td>
 </tr>
 </table>
 <h3>Static Methods</h3>
+
 <table>
 <tr><td>None</td></tr>
 </table>
+
 <a NAME="CxfreezeExecDialog.__init__" ID="CxfreezeExecDialog.__init__"></a>
 <h4>CxfreezeExecDialog (Constructor)</h4>
 <b>CxfreezeExecDialog</b>(<i>cmdname, parent=None</i>)
+
 <p>
         Constructor
-</p><dl>
+</p>
+<dl>
+
 <dt><i>cmdname</i></dt>
 <dd>
 name of the packager (string)
-</dd><dt><i>parent</i></dt>
+</dd>
+<dt><i>parent</i></dt>
 <dd>
 parent widget of this dialog (QWidget)
 </dd>
-</dl><a NAME="CxfreezeExecDialog.__enableButtons" ID="CxfreezeExecDialog.__enableButtons"></a>
+</dl>
+<a NAME="CxfreezeExecDialog.__enableButtons" ID="CxfreezeExecDialog.__enableButtons"></a>
 <h4>CxfreezeExecDialog.__enableButtons</h4>
 <b>__enableButtons</b>(<i></i>)
+
 <p>
         Private slot called when all processes finished.
-</p><p>
+</p>
+<p>
         It is called when the process finished or
         the user pressed the cancel button.
-</p><a NAME="CxfreezeExecDialog.__finish" ID="CxfreezeExecDialog.__finish"></a>
+</p>
+<a NAME="CxfreezeExecDialog.__finish" ID="CxfreezeExecDialog.__finish"></a>
 <h4>CxfreezeExecDialog.__finish</h4>
 <b>__finish</b>(<i></i>)
+
 <p>
         Private slot called when the process finished.
-</p><p>
+</p>
+<p>
         It is called when the process finished or
         the user pressed the cancel button.
-</p><a NAME="CxfreezeExecDialog.__finishedFreeze" ID="CxfreezeExecDialog.__finishedFreeze"></a>
+</p>
+<a NAME="CxfreezeExecDialog.__finishedFreeze" ID="CxfreezeExecDialog.__finishedFreeze"></a>
 <h4>CxfreezeExecDialog.__finishedFreeze</h4>
 <b>__finishedFreeze</b>(<i></i>)
+
 <p>
         Private slot called when the process finished.
-</p><p>
+</p>
+<p>
         It is called when the process finished or
         the user pressed the cancel button.
-</p><a NAME="CxfreezeExecDialog.__readStderr" ID="CxfreezeExecDialog.__readStderr"></a>
+</p>
+<a NAME="CxfreezeExecDialog.__readStderr" ID="CxfreezeExecDialog.__readStderr"></a>
 <h4>CxfreezeExecDialog.__readStderr</h4>
 <b>__readStderr</b>(<i></i>)
+
 <p>
         Private slot to handle the readyReadStandardError signal.
-</p><p>
+</p>
+<p>
         It reads the error output of the process and inserts it into the
         error pane.
-</p><a NAME="CxfreezeExecDialog.__readStdout" ID="CxfreezeExecDialog.__readStdout"></a>
+</p>
+<a NAME="CxfreezeExecDialog.__readStdout" ID="CxfreezeExecDialog.__readStdout"></a>
 <h4>CxfreezeExecDialog.__readStdout</h4>
 <b>__readStdout</b>(<i></i>)
+
 <p>
         Private slot to handle the readyReadStandardOutput signal.
-</p><p>
+</p>
+<p>
         It reads the output of the process, formats it and inserts it into
         the contents pane.
-</p><a NAME="CxfreezeExecDialog.on_buttonBox_clicked" ID="CxfreezeExecDialog.on_buttonBox_clicked"></a>
+</p>
+<a NAME="CxfreezeExecDialog.on_buttonBox_clicked" ID="CxfreezeExecDialog.on_buttonBox_clicked"></a>
 <h4>CxfreezeExecDialog.on_buttonBox_clicked</h4>
 <b>on_buttonBox_clicked</b>(<i>button</i>)
+
 <p>
         Private slot called by a button of the button box clicked.
-</p><dl>
+</p>
+<dl>
+
 <dt><i>button</i></dt>
 <dd>
 button that was clicked (QAbstractButton)
 </dd>
-</dl><a NAME="CxfreezeExecDialog.start" ID="CxfreezeExecDialog.start"></a>
+</dl>
+<a NAME="CxfreezeExecDialog.start" ID="CxfreezeExecDialog.start"></a>
 <h4>CxfreezeExecDialog.start</h4>
 <b>start</b>(<i>args, parms, ppath, mainscript</i>)
+
 <p>
         Public slot to start the packager command.
-</p><dl>
+</p>
+<dl>
+
 <dt><i>args</i></dt>
 <dd>
 commandline arguments for packager program (list of
             strings)
-</dd><dt><i>parms</i></dt>
+</dd>
+<dt><i>parms</i></dt>
 <dd>
 parameters got from the config dialog (dict)
-</dd><dt><i>ppath</i></dt>
+</dd>
+<dt><i>ppath</i></dt>
 <dd>
 project path (string)
-</dd><dt><i>mainscript</i></dt>
+</dd>
+<dt><i>mainscript</i></dt>
 <dd>
 main script name to be processed by by the packager
             (string)
 </dd>
-</dl><dl>
+</dl>
+<dl>
 <dt>Returns:</dt>
 <dd>
 flag indicating the successful start of the process

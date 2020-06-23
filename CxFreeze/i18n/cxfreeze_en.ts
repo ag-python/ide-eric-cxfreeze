@@ -3,23 +3,23 @@
 <context>
     <name>CopyAdditionalFiles</name>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="285"/>
+        <location filename="../CxfreezeExecDialog.py" line="279"/>
         <source>No such file or directory: &apos;{0}&apos;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="301"/>
+        <location filename="../CxfreezeExecDialog.py" line="297"/>
         <source>
 Copying {0}: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="320"/>
+        <location filename="../CxfreezeExecDialog.py" line="316"/>
         <source>ok</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="322"/>
+        <location filename="../CxfreezeExecDialog.py" line="318"/>
         <source>failed: {0}</source>
         <translation type="unfinished"></translation>
     </message>
@@ -27,47 +27,47 @@ Copying {0}: </source>
 <context>
     <name>CxFreezePlugin</name>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="58"/>
+        <location filename="../../PluginCxFreeze.py" line="54"/>
         <source>Packagers - cx_freeze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="354"/>
+        <location filename="../../PluginCxFreeze.py" line="363"/>
         <source>The cxfreeze executable could not be found.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="266"/>
+        <location filename="../../PluginCxFreeze.py" line="272"/>
         <source>Use cx_freeze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="266"/>
+        <location filename="../../PluginCxFreeze.py" line="272"/>
         <source>Use cx_&amp;freeze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="270"/>
+        <location filename="../../PluginCxFreeze.py" line="276"/>
         <source>Generate a distribution package using cx_freeze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="272"/>
+        <location filename="../../PluginCxFreeze.py" line="278"/>
         <source>&lt;b&gt;Use cx_freeze&lt;/b&gt;&lt;p&gt;Generate a distribution package using cx_freeze. The command is executed in the project path. All files and directories must be given absolute or relative to the project directory.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="354"/>
+        <location filename="../../PluginCxFreeze.py" line="363"/>
         <source>cxfreeze</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="341"/>
+        <location filename="../../PluginCxFreeze.py" line="351"/>
         <source>There is no main script defined for the current project.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../../PluginCxFreeze.py" line="210"/>
+        <location filename="../../PluginCxFreeze.py" line="215"/>
         <source>The cxfreeze.bat executable could not be found.Did you run the cxfreeze-postinstall script?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -302,27 +302,27 @@ Copying {0}: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="351"/>
+        <location filename="../CxfreezeConfigDialog.py" line="355"/>
         <source>Select external list file</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="371"/>
+        <location filename="../CxfreezeConfigDialog.py" line="375"/>
         <source>Icons</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="372"/>
+        <location filename="../CxfreezeConfigDialog.py" line="376"/>
         <source>All files</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="383"/>
+        <location filename="../CxfreezeConfigDialog.py" line="387"/>
         <source>Select the application icon</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="403"/>
+        <location filename="../CxfreezeConfigDialog.py" line="407"/>
         <source>Select target directory</source>
         <translation type="unfinished"></translation>
     </message>
@@ -369,7 +369,7 @@ Wildcards are allowed, e.g. *.ui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeConfigDialog.py" line="559"/>
+        <location filename="../CxfreezeConfigDialog.py" line="563"/>
         <source>Select files and folders</source>
         <translation type="unfinished"></translation>
     </message>
@@ -419,29 +419,29 @@ Wildcards are allowed, e.g. *.ui</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="89"/>
+        <location filename="../CxfreezeExecDialog.py" line="83"/>
         <source>{0} - {1}</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="98"/>
+        <location filename="../CxfreezeExecDialog.py" line="92"/>
         <source>Process Generation Error</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="98"/>
+        <location filename="../CxfreezeExecDialog.py" line="92"/>
         <source>The process {0} could not be started. Ensure, that it is in the search path.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="152"/>
+        <location filename="../CxfreezeExecDialog.py" line="146"/>
         <source>
 {0} finished.
 </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../CxfreezeExecDialog.py" line="138"/>
+        <location filename="../CxfreezeExecDialog.py" line="132"/>
         <source>
 {0} aborted.
 </source>

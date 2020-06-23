@@ -1,5 +1,8 @@
 ChangeLog
 ---------
+Version 7.0.0:
+- removed support for Python2
+
 Version 6.1.0:
 - added code to search the executable in virtual environment as well on
   Windows platforms

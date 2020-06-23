@@ -7,12 +7,6 @@
 Module implementing a dialog to show the output of the packager process.
 """
 
-from __future__ import unicode_literals
-try:
-    str = unicode
-except NameError:
-    pass
-
 import shutil
 import errno
 import fnmatch

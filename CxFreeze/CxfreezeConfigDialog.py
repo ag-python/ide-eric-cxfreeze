@@ -7,12 +7,6 @@
 Module implementing a dialog to enter the parameters for cxfreeze.
 """
 
-from __future__ import unicode_literals
-try:
-    str = unicode
-except NameError:
-    pass
-
 import sys
 import os
 import copy

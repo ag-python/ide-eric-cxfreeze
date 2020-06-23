@@ -322,6 +322,12 @@
               <string>eric</string>
             </value>
             <key>
+              <string>EnabledCheckerCategories</string>
+            </key>
+            <value>
+              <string>C, D, E, M, N, S, W</string>
+            </value>
+            <key>
               <string>ExcludeFiles</string>
             </key>
             <value>
@@ -331,7 +337,7 @@
               <string>ExcludeMessages</string>
             </key>
             <value>
-              <string>A, C101, E265, E266, E305, E402, M201, M811, N802, N803, N807, N808, N821, W293, W504</string>
+              <string>C101,E265,E266,E305,E402,M201,M811,N802,N803,N807,N808,N821,W293,W504</string>
             </value>
             <key>
               <string>FixCodes</string>
@@ -349,7 +355,7 @@
               <string>FutureChecker</string>
             </key>
             <value>
-              <string>unicode_literals</string>
+              <string></string>
             </value>
             <key>
               <string>HangClosing</string>
@@ -404,6 +410,91 @@
             </key>
             <value>
               <bool>True</bool>
+            </value>
+            <key>
+              <string>SecurityChecker</string>
+            </key>
+            <value>
+              <dict>
+                <key>
+                  <string>CheckTypedException</string>
+                </key>
+                <value>
+                  <bool>False</bool>
+                </value>
+                <key>
+                  <string>HardcodedTmpDirectories</string>
+                </key>
+                <value>
+                  <list>
+                    <string>/tmp</string>
+                    <string>/var/tmp</string>
+                    <string>/dev/shm</string>
+                    <string>~/tmp</string>
+                  </list>
+                </value>
+                <key>
+                  <string>InsecureHashes</string>
+                </key>
+                <value>
+                  <list>
+                    <string>md4</string>
+                    <string>md5</string>
+                    <string>sha</string>
+                    <string>sha1</string>
+                  </list>
+                </value>
+                <key>
+                  <string>InsecureSslProtocolVersions</string>
+                </key>
+                <value>
+                  <list>
+                    <string>PROTOCOL_SSLv2</string>
+                    <string>SSLv2_METHOD</string>
+                    <string>SSLv23_METHOD</string>
+                    <string>PROTOCOL_SSLv3</string>
+                    <string>PROTOCOL_TLSv1</string>
+                    <string>SSLv3_METHOD</string>
+                    <string>TLSv1_METHOD</string>
+                  </list>
+                </value>
+                <key>
+                  <string>WeakKeySizeDsaHigh</string>
+                </key>
+                <value>
+                  <string>1024</string>
+                </value>
+                <key>
+                  <string>WeakKeySizeDsaMedium</string>
+                </key>
+                <value>
+                  <string>2048</string>
+                </value>
+                <key>
+                  <string>WeakKeySizeEcHigh</string>
+                </key>
+                <value>
+                  <string>160</string>
+                </value>
+                <key>
+                  <string>WeakKeySizeEcMedium</string>
+                </key>
+                <value>
+                  <string>224</string>
+                </value>
+                <key>
+                  <string>WeakKeySizeRsaHigh</string>
+                </key>
+                <value>
+                  <string>1024</string>
+                </value>
+                <key>
+                  <string>WeakKeySizeRsaMedium</string>
+                </key>
+                <value>
+                  <string>2048</string>
+                </value>
+              </dict>
             </value>
             <key>
               <string>ShowIgnored</string>

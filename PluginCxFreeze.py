@@ -7,12 +7,6 @@
 Module implementing the CxFreeze plugin.
 """
 
-from __future__ import unicode_literals
-try:
-    str = unicode
-except NameError:
-    pass
-
 import os
 import platform
 
@@ -30,7 +24,7 @@ name = "CxFreeze Plugin"
 author = "Detlev Offenbach <detlev@die-offenbachs.de>"
 autoactivate = True
 deactivateable = True
-version = "6.1.0"
+version = "7.0.0"
 className = "CxFreezePlugin"
 packageName = "CxFreeze"
 shortDescription = "Show the CxFreeze dialogs."
@@ -40,12 +34,10 @@ longDescription = (
 )
 needsRestart = False
 pyqtApi = 2
-python2Compatible = True
 # End-of-Header
 
 error = ""
 
-exePy2 = []
 exePy3 = []
 
 
@@ -70,7 +62,7 @@ def exeDisplayDataList():
     }
     
     if _checkProgram():
-        for exePath in (exePy2 + exePy3):
+        for exePath in exePy3:
             data["exe"] = exePath
             data["versionStartsWith"] = "cxfreeze"
             dataList.append(data.copy())
@@ -89,8 +81,6 @@ def _findExecutable(majorVersion):
     # Determine Python Version
     if majorVersion == 3:
         minorVersions = range(10)
-    elif majorVersion == 2:
-        minorVersions = range(6, 8)
     else:
         return []
     
@@ -185,7 +175,6 @@ def _findExecutable(majorVersion):
                     exes.append(exe)
         
         # step 2: determine the Python variant
-        _exePy2 = set()
         _exePy3 = set()
         versionArgs = ["-c", "import sys; print(sys.version_info[0])"]
         for exe in exes:
@@ -201,12 +190,10 @@ def _findExecutable(majorVersion):
                 versionStr = str(versionBytes, encoding='utf-8').strip()
                 if versionStr == "3":
                     _exePy3.add(exe)
-                elif versionStr == "2":
-                    _exePy2.add(exe)
             finally:
                 f.close()
         
-        executables = _exePy3 if majorVersion == 3 else _exePy2
+        executables = _exePy3
     
     # sort items, the probably newest topmost
     executables = list(executables)
@@ -220,11 +207,10 @@ def _checkProgram():
     
     @return flag indicating availability (boolean)
     """
-    global error, exePy2, exePy3
+    global error, exePy3
     
-    exePy2 = _findExecutable(2)
     exePy3 = _findExecutable(3)
-    if (exePy2 + exePy3) == []:
+    if exePy3 == []:
         if Utilities.isWindowsPlatform():
             error = QCoreApplication.translate(
                 "CxFreezePlugin",
@@ -331,8 +317,9 @@ class CxFreezePlugin(QObject):
         if menuName == "Packagers":
             if self.__projectAct is not None:
                 self.__projectAct.setEnabled(
-                    e5App().getObject("Project").getProjectLanguage() in
-                    ["Python", "Python2", "Python3"])
+                    e5App().getObject("Project").getProjectLanguage() ==
+                    "Python3"
+                )
     
     def __loadTranslator(self):
         """
@@ -371,9 +358,7 @@ class CxFreezePlugin(QObject):
             return
         
         majorVersionStr = project.getProjectLanguage()
-        exe = {"Python": exePy2,
-               "Python2": exePy2,
-               "Python3": exePy3}.get(majorVersionStr)
+        exe = {"Python3": exePy3}.get(majorVersionStr)
         if exe == []:
             E5MessageBox.critical(
                 self.__ui,

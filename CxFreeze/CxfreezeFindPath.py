@@ -7,8 +7,6 @@
 Script to find the cxfreeze directory from running Python interpreter.
 """
 
-from __future__ import unicode_literals
-
 import os
 import sys
 
